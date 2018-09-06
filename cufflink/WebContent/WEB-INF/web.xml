@@ -10,7 +10,7 @@
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationData.xml</param-value>
+		<param-value>/WEB-INF/Config/applicationData.xml</param-value>
 	</context-param>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -30,7 +30,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-  				/WEB-INF/applicationContext.xml
+  				/WEB-INF/Config/applicationContext.xml
   			</param-value>
 		</init-param>
 	</servlet>

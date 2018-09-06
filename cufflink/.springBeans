@@ -7,9 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>WebContent/WEB-INF/spring-service.xml</config>
-		<config>WebContent/WEB-INF/applicationContext.xml</config>
-		<config>WebContent/WEB-INF/applicationData.xml</config>
+		<config>WebContent/WEB-INF/Config/applicationContext.xml</config>
+		<config>WebContent/WEB-INF/Config/applicationData.xml</config>
+		<config>WebContent/WEB-INF/Config/spring-service.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
