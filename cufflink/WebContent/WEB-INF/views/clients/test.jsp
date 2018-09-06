@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert</title>
 </head>
 <body>
-	Hello world
+	<form action="/cufflink/partners/test">
+		<input type="text" name="id" /> 
+		<input type="text" name="name" />
+		<input type="text" name="age" />
+		<input type="submit" />
+	</form>
 </body>
 </html>

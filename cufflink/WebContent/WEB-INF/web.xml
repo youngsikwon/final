@@ -8,6 +8,10 @@
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/log4j.properties</param-value>
 	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-data.xml</param-value>
+	</context-param>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -26,12 +30,12 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-  			/WEB-INF/applicationContext.xml
-  		</param-value>
+  				/WEB-INF/applicationContext.xml
+  			</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.sp</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>
