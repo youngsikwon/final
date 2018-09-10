@@ -95,6 +95,13 @@ a.h10 {
 	font-size:9px;
 	
 }
+a.h11 {
+	font-size:12px;
+	
+}
+h11 {
+	font-size:12px;
+}
 
 div.h11 { /* 프로젝트찾기 카테고리 글씨 */
 	font-size:12px;
@@ -109,3 +116,4 @@ div.h11 { /* 프로젝트찾기 카테고리 글씨 */
 option {
 	font-size:9px;
 }
+

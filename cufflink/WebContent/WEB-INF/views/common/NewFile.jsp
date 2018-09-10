@@ -11,6 +11,30 @@
 <link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
+<div class="ui compact menu">
+				<div class="ui dropdown item">
+					twins0313 
+					<i class="dropdown icon"></i>
+					<div class="menu">
+						<div class="item">
+							<i class="home icon"></i>마이 커프링크
+						</div>
+						<div class="item">
+							<i class="user icon"></i>클라이언트 정보관리
+						</div>
+						<div class="item">
+							<i class="cog icon"></i>계정설정
+						</div>
+						<div class="item">
+							<i class="power off icon"></i>로그아웃
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
 	<div class="ui secondary pointing menu">
 		<a class="item"> Home </a> <a class="item active"> Messages </a> <a
 			class="item"> Friends </a>

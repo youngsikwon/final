@@ -3,7 +3,7 @@
 	
 		<div class="column column-footer container" style="width: 40%; height: 180px; text-align:left">
 			<h3>
-				<img src="./img/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />CuffLink
+				<img src="../../image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />CuffLink
 			</h3>
 			<br> 전화:
 			<br> 이메일:

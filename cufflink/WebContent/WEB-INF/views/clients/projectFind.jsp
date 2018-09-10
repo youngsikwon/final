@@ -19,7 +19,7 @@
 	
 	<!-- navigation menu 시작 -->
 			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp"/>
+				<jsp:include page="../common/menu/navigationClientMenu.jsp"/>
 			</div>
 	<!-- navigation menu 종료-->
 		</div>
@@ -207,7 +207,7 @@
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
-							<div class="column"  style="font-size:9px;">
+							<div class="column" style="font-size:9px;">
 								<select class="ui search selection dropdown" id="search-select">
 									<option value="">지역선택</div>
 									<option value="1">서울특별시</option>

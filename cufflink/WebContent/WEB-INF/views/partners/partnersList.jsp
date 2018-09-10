@@ -20,7 +20,7 @@
 	
 	<!-- navigation menu 시작 -->
 			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp"/>
+				<jsp:include page="../common/menu/navigationClientMenu.jsp"/>
 			</div>
 	<!-- navigation menu 종료-->
 		</div>
