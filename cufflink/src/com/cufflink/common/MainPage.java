@@ -11,6 +11,10 @@ public class MainPage {
 	public String newfile() {
 		return "common/NewFile";
 	}
+	@RequestMapping("/newfile1")
+	public String newfile1() {
+		return "common/NewFile1";
+	}
 	
 	//메인화면
 	@RequestMapping("/")
@@ -105,6 +109,13 @@ public class MainPage {
 //*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴	
 	
 //*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴	
+
+	//마이 커프링크
+	@RequestMapping("/ClientMyCufflink")
+	public String ClientMyCufflink() {
+		return "/clients/ClientMyCufflink";
+	}
+	//---------------------------------------
 	//프로젝트 클라이언트 정보
 	@RequestMapping("/ClientInfo")
 	public String ClientInfo() {
@@ -120,9 +131,80 @@ public class MainPage {
 	public String ClientProjectHistory() {
 		return "/clients/ClientProjectHistory";
 	}	
+	//---------------------------------------
+	//계정설정 - 기본수정 
+	@RequestMapping("/ClientProfile")
+	public String ClientProfile() {
+		return "/auth/settings/ClientProfile";
+	}
+	//계정설정 - 계좌관리
+	@RequestMapping("/ClientBankAccount")
+	public String ClientBankAccount() {
+		return "/auth/settings/ClientBankAccount";
+	}
+	//계정설정 - 코인충전페이지
+	@RequestMapping("/ClientAddcoin")
+	public String ClientAddcoin() {
+		return "/auth/settings/ClientAddcoin";
+	}
+	//계정설정 - 비밀번호변경
+	@RequestMapping("/ClientRelogin")
+	public String ClientRelogin() {
+		return "/auth/settings/ClientRelogin";
+	}
+	//계정설정 - 알림설정
+	@RequestMapping("/ClientNotificationSetting")
+	public String ClientNotificationSetting() {
+		return "/auth/settings/ClientNotificationSetting";
+	}
+	//계정설정 - 회원탈퇴
+	@RequestMapping("/ClientWithdrawal")
+	public String ClientWithdrawal() {
+		return "/auth/settings/ClientWithdrawal";
+	}
+	//---------------------------------------
 	
-//*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴		
+//*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴
 	
+	//휴대폰을 통한 지문인식
+	@RequestMapping("/fingerprint")
+	public String fingerprint() {
+		return "/auth/fingerprint";
+	}
+	//비밀번호찾기
+	@RequestMapping("/idpassfind")
+	public String idpassfind() {
+		return "/auth/idpassfind";
+	}
+	//qr코드
+	@RequestMapping("/qrcode")
+	public String qrcode() {
+		return "/auth/qrcode";
+	}
+	//채팅화면
+	@RequestMapping("/chat")
+	public String chat() {
+		return "/chat/chat";
+	}
+	
+//*********************************	클라이언트 관리자 화면
+	//관리자 로그인 화면
+	@RequestMapping("/adminLogin")
+	public String adminLogin() {
+		return "/admin/adminLogin";
+	}
+	//관리자 메인화면
+	@RequestMapping("/adminMain")
+	public String adminMain() {
+		return "/admin/adminMain";
+	}
+	//관리자 비밀번호찾기
+	@RequestMapping("/adminLoginFind")
+	public String adminLoginFind() {
+		return "/admin/adminLoginFind";
+	}
+		
+//*********************************	클라이언트 관리자 화면		
 
 
 }

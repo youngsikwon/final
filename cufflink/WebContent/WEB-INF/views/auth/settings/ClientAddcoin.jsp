@@ -4,7 +4,8 @@
 <head>
 <jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
-<title>클라이언트 정보</title>
+<title>코인충전
+</title>
 <link rel="stylesheet" href="./css/cuffLink.css" />
 <link rel="stylesheet" href="./css/login.css" />
 </head>
@@ -64,30 +65,36 @@
 					</div>
 				</div>
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<a href="/ClientInfo" class="teal item active"> 
-						<font style="vertical-align: inherit;"> 클라이언트 정보 </font>
+					<a href="/ClientProfile" class="teal item active"> 
+						<font style="vertical-align: inherit;"> 기본 정보 수정 </font>
 					</a> 
-					<a href="/ClientProjectHistory" class="item"> 
-						<font style="vertical-align: inherit;"> 프로젝트 히스토리 </font>
+					<a href="/ClientBankAccount" class="item"> 
+						<font style="vertical-align: inherit;"> 계좌관리 </font>
+					</a>
+					<a href="/ClientAddcoin" class="teal item"> 
+						<font style="vertical-align: inherit;"> 코인충전 </font>
+					</a> 
+					<a href="/ClientRelogin" class="item"> 
+						<font style="vertical-align: inherit;"> 비밀번호 변경 </font>
+					</a>
+					<a href="/ClientNotificationSetting" class="teal item"> 
+						<font style="vertical-align: inherit;"> 알림설정 </font>
+					</a> 
+					<a href="/ClientWithdrawal" class="item"> 
+						<font style="vertical-align: inherit;"> 회원탈퇴 </font>
 					</a>
 				</div>
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
 				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:620px">
 					<div style="padding-bottom:20px;">
-						<h3 style="text-align: left">클라이언트 정보</h3>
+						<h3 style="text-align: left">코인충전</h3>
 					</div>
 					<div class="ui container" style="padding-top: 0px; padding-bottom: 30px; padding-left: 0px; padding-right: 20px;">
 						<hr class="dotted" style="" />
 					</div>
 					<div style="text-align:center;">
-						<img src="../../image/client_profile_info.png" width="100px" height="150px"><br><br><br>
-						입력한 '클라이언트 정보'가 없습니다.
-					</div>
-					<div style="text-align:center;padding:30px">
-						<div class="ui labeled submit icon button">
-							<i class="icon edit"></i><a href="/ClientInfoUpdate"> 클라이언트 정보 등록하기</a>
-						</div>
+						내용입력화면
 					</div>
 				</div>
 			</div>

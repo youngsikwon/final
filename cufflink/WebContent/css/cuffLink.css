@@ -108,6 +108,10 @@ div.h11 { /* 프로젝트찾기 카테고리 글씨 */
 	margin-left:25px;
 }
 
+div.h15 { /* 프로젝트찾기 카테고리 글씨 */
+	font-size:12px;
+}
+
 .label {
 	font-size:9px;
 	

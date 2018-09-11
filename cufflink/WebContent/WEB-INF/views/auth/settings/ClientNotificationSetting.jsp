@@ -4,7 +4,8 @@
 <head>
 <jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
-<title>클라이언트 정보</title>
+<title>알림설정
+</title>
 <link rel="stylesheet" href="./css/cuffLink.css" />
 <link rel="stylesheet" href="./css/login.css" />
 </head>
@@ -64,31 +65,74 @@
 					</div>
 				</div>
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<a href="/ClientInfo" class="teal item active"> 
-						<font style="vertical-align: inherit;"> 클라이언트 정보 </font>
+					<a href="/ClientProfile" class="teal item active"> 
+						<font style="vertical-align: inherit;"> 기본 정보 수정 </font>
 					</a> 
-					<a href="/ClientProjectHistory" class="item"> 
-						<font style="vertical-align: inherit;"> 프로젝트 히스토리 </font>
+					<a href="/ClientBankAccount" class="item"> 
+						<font style="vertical-align: inherit;"> 계좌관리 </font>
+					</a>
+					<a href="/ClientAddcoin" class="teal item"> 
+						<font style="vertical-align: inherit;"> 코인충전 </font>
+					</a> 
+					<a href="/ClientRelogin" class="item"> 
+						<font style="vertical-align: inherit;"> 비밀번호 변경 </font>
+					</a>
+					<a href="/ClientNotificationSetting" class="teal item"> 
+						<font style="vertical-align: inherit;"> 알림설정 </font>
+					</a> 
+					<a href="/ClientWithdrawal" class="item"> 
+						<font style="vertical-align: inherit;"> 회원탈퇴 </font>
 					</a>
 				</div>
 			</div>
-			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
-				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:620px">
-					<div style="padding-bottom:20px;">
-						<h3 style="text-align: left">클라이언트 정보</h3>
+			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
+				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+					<div>
+						<h3 style="text-align: left">알림 설정</h3>
 					</div>
-					<div class="ui container" style="padding-top: 0px; padding-bottom: 30px; padding-left: 0px; padding-right: 20px;">
-						<hr class="dotted" style="" />
-					</div>
-					<div style="text-align:center;">
-						<img src="../../image/client_profile_info.png" width="100px" height="150px"><br><br><br>
-						입력한 '클라이언트 정보'가 없습니다.
-					</div>
-					<div style="text-align:center;padding:30px">
-						<div class="ui labeled submit icon button">
-							<i class="icon edit"></i><a href="/ClientInfoUpdate"> 클라이언트 정보 등록하기</a>
+					<div class="ui two column grid container" style="padding-left: 0px; padding-top: 10px;">
+						<div class="column" style="padding-left: 0px; width:60%;">
+							<h5 style="text-align: left">새로운 소식들에 대한 알림을 설정할 수 있습니다.</h5>
+						</div>
+						<div class="column" style="text-align:right; padding-bottom:0px; width:40%;">
+							<!-- 우측 빈공간 -->
 						</div>
 					</div>
+				</div>
+				<div style="height: 10px;"></div>
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height:550px;">
+					<div style="padding-top:0px;">
+							<div class="ui two column grid container">
+								<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
+									<h5>알림설정</h5>
+								</div>
+								<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 60%;">
+									<!-- 빈공간 -->
+								</div>
+								<div class="center column container" style="padding: 17px; width: 30%;">
+									<span>*</span>이메일
+								</div>
+								<div class="column container" style="padding: 17px; width: 60%;">
+									twins0313@naver.com
+								</div>
+								<div class="center column container" style="padding: 17px; width: 30%;">
+									<span>*</span>비밀번호
+								</div>
+								<div class="column container" style="padding: 10px; width: 60%;">
+									<div class="ui input">
+										<input type="text" placeholder="비밀번호를 입력하세요." size="45px">
+									</div>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 30%;">
+									
+								</div>
+								<div class="column container" style="padding: 10px; width: 60%; text-align:right">
+									<div class="ui container" style="padding-right:30px; ">
+										<button class="ui blue button" >로그인</button>
+									</div>
+								</div>
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>
