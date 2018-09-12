@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +8,9 @@
 <meta charset="UTF-8">
 <jsp:include page="./ui.jsp" />
 <title>Cufflink</title>
+<%
+	List<Map<String, Object>> list = (List<Map<String, Object>>) request.getAttribute("list");
+%>
 <style>
 .wrap {
 	background-image: url("./img/배너.png");
@@ -13,7 +18,7 @@
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover;
-	.
+	
 	/* Resize the background image to cover the entire container */
 }
 
@@ -71,7 +76,8 @@ span {
 				<a class="item active"> Friends </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="move('/auth/login')">로그인</button>
+						<button class="ui button" style="margin-right: 10px;"
+							onclick="move('/auth/login')">로그인</button>
 						<button class="ui primary button">회원가입</button>
 					</div>
 				</div>
@@ -111,28 +117,31 @@ span {
 	</div>
 	<div style="background-color: rgb(243, 244, 247); height: 43em;">
 		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-			<img src="/image/logo.png" alt="" style="margin-right: 10px;" />
-			등록된 프로젝트
+			<img src="/image/logo.png" alt="" style="margin-right: 10px;" /> 등록된
+			프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 50px;">
 			<div class="ui three column grid">
+				<%
+					for (Map<String, Object> item : list) {
+				%>
 				<div class="column">
 					<div class="ui segment">
-						<a href="#" class="title">기 개발된 ...</a>
+						<a href="#" class="title"><%=item.get("PRO_NAME")%></a>
 						<p></p>
-						<span> <i class="won sign icon"></i> 1,000,000원
-						</span> <span class="middle"> <i class="clock outline icon"></i>
-							120일
-						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						<span> <i class="won sign icon"></i> <%=item.get("PRO_PRICE")%>
+						</span> <span class="middle"> <i class="clock outline icon"></i> <%=item.get("PRO_PERIOD")%>
+						</span> <span> <i class="pencil alternate icon"></i>지원
 						</span>
 						<p></p>
 						<p class="content">
-							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
-							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
-							부탁드립니다. 
+							<%=item.get("PRO_CONTET")%>
 						</p>
 					</div>
 				</div>
+				<%
+					}
+				%>
 			</div>
 		</div>
 	</div>
@@ -158,9 +167,9 @@ span {
 			}
 		}
 		autoSplit(100);
-		
-		function move(url){
-			location.href=url
+	
+		function move(url) {
+			location.href = url
 		}
 	</script>
 </body>

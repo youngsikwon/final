@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +14,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class MainPage {
-	Logger logger = Logger.getLogger(MainPage.class);
+public class MainController {
+	Logger logger = Logger.getLogger(MainController.class);
 
+	@Autowired
+	MainDao mainDao;
+	
+	
 	@RequestMapping("/")
-	public String mainpage() {
+	public String mainpage(Model m) {
+		m.addAttribute("list",mainDao.list());
 		return "common/main";
 	}
 
 	@RequestMapping(value = "/fileInsert", method = RequestMethod.POST)
 	public String file(Model model, @RequestParam MultipartFile[] file) {
-		// 파일에 저장하는 메소드 만들기
-
 		for (MultipartFile f : file) {
 			logger.info(f.getOriginalFilename());
 			try {
