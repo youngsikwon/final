@@ -59,7 +59,7 @@
 <!-- 서브 메뉴 ===================================================================================-->				
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
-				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: 620px">
+				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto">
 					<div style="padding-bottom: 20px;">
 						<h3 style="text-align: left">클라이언트 정보</h3>
 					</div>

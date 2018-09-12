@@ -9,11 +9,19 @@ public class MainPage {
 	//테스트화면
 	@RequestMapping("/newfile")
 	public String newfile() {
-		return "test/NewFile";
+		return "test/newfile";
 	}
 	@RequestMapping("/newfile1")
 	public String newfile1() {
-		return "test/NewFile1";
+		return "test/newfile1";
+	}
+	@RequestMapping("/newfile3")
+	public String newfile3() {
+		return "test/newfile3";
+	}
+	@RequestMapping("/newfile2")
+	public String newfile2() {
+		return "test/newfile2";
 	}
 	
 	//메인화면

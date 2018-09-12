@@ -343,7 +343,7 @@
 	<script type="text/javascript">
 		$('.ui.accordion').accordion({
 			selector : {
-				trigger : '.title .icon'
+				/*  trigger : '.title .icon'  */
 			}
 		});
 	</script>

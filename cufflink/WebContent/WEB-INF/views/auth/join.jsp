@@ -27,12 +27,10 @@
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
-
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!----------------------------------------------------------------------- main content 시작 -->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container contentMain-join">
+	<div class="ui container raised segment  contentMain-join">
 		
 	<!-- title 시작-->	
 		<div class="ui container">
@@ -205,8 +203,6 @@
 	</div>
 <!----------------------------------------------------------------------- main content 끝 -->
 <!----------------------------------------------------------------------- main content 끝 -->
-	
-	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
 	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
