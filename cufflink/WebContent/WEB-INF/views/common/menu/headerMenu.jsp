@@ -2,7 +2,7 @@
 
 <div class="ui inverted segment" style="margin-top: 0px; padding-top: 3px; padding-bottom: 3px; margin-bottom: 0px;">
 	<div class="ui container">
-		<img src="./img/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
+		<img src="/image/main/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
 		<div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
 			<a class="active item"> 프로젝트 등록 </a> 
 			<a class="item"> 프로젝트 목록 </a> 
