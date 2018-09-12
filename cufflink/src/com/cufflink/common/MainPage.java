@@ -55,9 +55,10 @@ public class MainPage {
 			logger.info("파일이 존재하지 않습니다");
 		}
 	}
-
+	
 	@RequestMapping("/file")
 	public String file() {
+		logger.info("file페이지");
 		return "common/file";
 	}
 
