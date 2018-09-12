@@ -39,51 +39,19 @@
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 620px">
+		<div class="ui two column grid container" style="height: 720px">
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
-
+<!-- 로그인 정보 =================================================================================-->
 				<div class="ui segment">
-					<div class="ui two column grid"	style="padding-right: 0px; padding-bottom: 10px; padding-top: 10px; padding-left: 5px;">
-						<div class="column"	style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 0px;">
-							<h5>클라이언트</h5>
-						</div>
-						<div class="column" style="padding-top: 5px;padding-right: 0px;padding-bottom: 0px;padding-left: 5px;">
-							<a class="h11" href="#">기본 정보 수정></a>
-						</div>
-						<div class="ui dividing header container"
-							style="margin-top: 10px;"></div>
-					</div>
+					<jsp:include page="../loginOk.jsp" />
+				</div>
+<!-- 로그인 정보 =================================================================================-->
 
-					<div class="ui two column grid container">
-						<div class="column"	style="padding-left: 5px; padding-top: 10px; padding-right: 5px; padding-bottom: 5px; width: 20%;">
-							<img class="ui medium circular image" style="width:40px;" src="../../image/client.jpg">
-						</div>
-						<div class="column" style="padding-left: 0px; padding-right: 0px; padding-top: 5px; padding-bottom:15px; font-size: 12px;width:80%;">
-							twins0313<br>
-							twins0313@naver.com
-						</div>
-					</div>
-				</div>
+<!-- 서브 메뉴 ===================================================================================-->
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<a href="/ClientProfile" class="teal item active"> 
-						<font style="vertical-align: inherit;"> 기본 정보 수정 </font>
-					</a> 
-					<a href="/ClientBankAccount" class="item"> 
-						<font style="vertical-align: inherit;"> 계좌관리 </font>
-					</a>
-					<a href="/ClientAddcoin" class="teal item"> 
-						<font style="vertical-align: inherit;"> 코인충전 </font>
-					</a> 
-					<a href="/ClientRelogin" class="item"> 
-						<font style="vertical-align: inherit;"> 비밀번호 변경 </font>
-					</a>
-					<a href="/ClientNotificationSetting" class="teal item"> 
-						<font style="vertical-align: inherit;"> 알림설정 </font>
-					</a> 
-					<a href="/ClientWithdrawal" class="item"> 
-						<font style="vertical-align: inherit;"> 회원탈퇴 </font>
-					</a>
+					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
+<!-- 서브 메뉴 ===================================================================================-->
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
 				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
@@ -100,7 +68,7 @@
 					</div>
 				</div>
 				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height:550px;">
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:auto;">
 					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
 							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">

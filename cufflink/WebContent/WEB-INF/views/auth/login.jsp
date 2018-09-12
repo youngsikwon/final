@@ -26,18 +26,16 @@
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
-
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container contentMain">
+	<div class="ui container raised segment content contentMain">
 		
 	<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column">
+					<div class="column" style="text-align:left;">
 						<h3 class="content-text">로그인</h3>
 						<small class="small-text">CuffLink에 오신 것을 환영합니다.</small>
 					</div>
@@ -106,7 +104,7 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 35%;"></div>
 							<div class="column container" style="padding: 10px; width: 65%;">
-								<label>비밀번호를 잊으셨나요? <a href="#">아이디 비밀번호 찾기</a></label>
+								<label>비밀번호를 잊으셨나요? <a href="/idpassfind">아이디 비밀번호 찾기</a></label>
 							</div>
 						</div>
 					</div>
@@ -135,9 +133,7 @@
 	</div>
 <!------------------------------------------------------------------------ main content 끝 -->
 <!--======================================================================================-->
-	
-	<div class="ui basicspace"><!-- title와 main content 여백 -->	</div>
-	
+
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 		<footer class="footer">

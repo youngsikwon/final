@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<jsp:include page="./ui.jsp" />
+<jsp:include page="../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>test</title>
 <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
@@ -11,6 +11,15 @@
 <link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
+Áß¾ÓÆò±ÕÅ©±â Á¶Àý
+<div class="ui two column centered grid" style="border:1px solid #000000;">
+  <div class="column" style="border:1px solid #000000;">1</div>
+  <div class="four column centered row" style="border:1px solid #000000;">
+    <div class="column" style="border:1px solid #000000;">2</div>
+    <div class="column" style="border:1px solid #000000;">3</div>
+  </div>
+</div>
+
 
 <div class="ui styled accordion">
   <div class="title">

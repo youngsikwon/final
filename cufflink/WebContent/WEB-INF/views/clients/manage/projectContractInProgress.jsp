@@ -36,37 +36,16 @@
 
 	<div class="ui container">
 
-		<div class="ui two column grid container" style="height: 620px">
+		<div class="ui two column grid container" style="height: 670px">
 			<div class="ui column"
 				style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
 
+<!-- 로그인 정보 =================================================================================-->
 				<div class="ui segment">
-					<div class="ui two column grid"
-						style="padding-right: 0px; padding-bottom: 10px; padding-top: 10px; padding-left: 5px;">
-						<div class="column"
-							style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 0px;">
-							<h5>클라이언트</h5>
-						</div>
-						<div class="column"
-							style="padding-top: 5px; padding-right: 0px; padding-bottom: 0px; padding-left: 5px;">
-							<a class="h11" href="#">기본 정보 수정></a>
-						</div>
-						<div class="ui dividing header container"
-							style="margin-top: 10px;"></div>
-					</div>
-
-					<div class="ui two column grid container">
-						<div class="column"
-							style="padding-left: 5px; padding-top: 10px; padding-right: 5px; padding-bottom: 5px; width: 20%;">
-							<img class="ui medium circular image" style="width: 40px;"
-								src="../../image/client.jpg">
-						</div>
-						<div class="column"
-							style="padding-left: 0px; padding-right: 0px; padding-top: 5px; padding-bottom: 15px; font-size: 12px; width: 80%;">
-							twins0313<br> twins0313@naver.com
-						</div>
-					</div>
+					<jsp:include page="../../auth/loginOk.jsp" />
 				</div>
+<!-- 로그인 정보 =================================================================================-->
+
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
 					<a href="/projectContractInProgress" class="teal item active"> 
 						<font style="vertical-align: inherit;"> 

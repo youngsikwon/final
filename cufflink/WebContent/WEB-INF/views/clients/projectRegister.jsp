@@ -27,17 +27,15 @@
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
 
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
-	
 <!----------------------------------------------------------------------- main content 시작 -->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container contentMain-join">
+	<div class="ui container raised segment content">
 		
 	<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column">
+					<div class="column" style="text-align:left">
 						<h3 class="content-text">클라이언트 프로젝트 기본 정보 등록</h3>
 						<small class="small-text">프로젝트 등록 전에 기본 정보를 입력해 주세요.</small>
 					</div>
@@ -54,7 +52,7 @@
 	<!-- main 입력 시작-->
 		<div class="ui container">
 			<div class="content-middle-join">
-				<div class="ui two column grid container" style="padding:20px;">
+				<div class="ui two column grid container" style="padding:0px;">
 					<div class="column grid" style="border-right: 1px solid #dedede; vertical-align: middle;padding: 20px; width: 70%;">
 						<div class="ui two column grid container">
 							<div class="center column container" style="padding: 17px; width: 25%;">
@@ -157,8 +155,6 @@
 	</div>
 <!----------------------------------------------------------------------- main content 끝 -->
 <!----------------------------------------------------------------------- main content 끝 -->
-	
-	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
 	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
