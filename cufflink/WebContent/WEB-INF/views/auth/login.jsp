@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
+<link rel="stylesheet" href="/css/cuffLink.css" />
+<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -12,30 +17,26 @@
 		<div class="ui">
 	<!-- header 시작 -->
 			<div class="ui">
-				<jsp:include page="../common/menu/headerMenu.jsp"/>   
+				<jsp:include page="../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
 	
 			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
+
+	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment content contentMain">
+	<div class="ui container contentMain">
 		
 	<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column" style="text-align:left;">
+					<div class="column">
 						<h3 class="content-text">로그인</h3>
 						<small class="small-text">CuffLink에 오신 것을 환영합니다.</small>
 					</div>
@@ -104,7 +105,7 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 35%;"></div>
 							<div class="column container" style="padding: 10px; width: 65%;">
-								<label>비밀번호를 잊으셨나요? <a href="/idpassfind">아이디 비밀번호 찾기</a></label>
+								<label>비밀번호를 잊으셨나요? <a href="#">아이디 비밀번호 찾기</a></label>
 							</div>
 						</div>
 					</div>
@@ -133,12 +134,14 @@
 	</div>
 <!------------------------------------------------------------------------ main content 끝 -->
 <!--======================================================================================-->
-
+	
+	<div class="ui basicspace"><!-- title와 main content 여백 -->	</div>
+	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 		<footer class="footer">
 			<div class="ui inverted segment" style="height:200px; padding:25px; vertical-align:middle;">
-				<jsp:include page="../common/menu/footerMenu.jsp"/>
+				<jsp:include page="../common//menu/footerMenu.jsp"/>
 			</div>
 		</footer>
 	<!-- footer 끝-->
