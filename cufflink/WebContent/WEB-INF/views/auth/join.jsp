@@ -36,7 +36,7 @@
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column">
+					<div class="column" style="text-align:left">
 						<h3 class="content-text">회원가입</h3>
 						<small class="small-text">CuffLink에 오신 것을 환영합니다.</small>
 					</div>
@@ -55,107 +55,111 @@
 			<div class="content-middle-join">
 				<div class="ui two column grid container" style="padding: 20px">
 					<div class="column grid" style="padding: 10px; width:60%; border-right: 1px solid #dedede;">
-						<div class="ui three column grid container " >
-							<div class="center column container" style="padding:10px;width:30%;height:210px; vertical-align:middle">
-								<span>*</span>이용목적
-							</div>
-							<div class="column container" style="padding:10px;width:70%;">
-								<div class="ui two column grid container" style="padding:10px;">	
-									<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
-										<p>프로젝트를 의뢰하고 싶습니다</p>
-										<div class="ui image">
-											<img src="./image/client.jpg" style="padding:10px">
+<!-- form 시작 ================================================================================================================================== -->		
+						<form name="join">					
+							<div class="ui three column grid container " >
+								<div class="center column container" style="padding:10px;width:30%;height:210px; vertical-align:middle">
+									<span>*</span>이용목적
+								</div>
+								<div class="column container" style="padding:10px;width:70%;">
+									<div class="ui two column grid container" style="padding:10px;">	
+										<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
+											<p>프로젝트를 의뢰하고 싶습니다</p>
+											<div class="ui image">
+												<img src="./image/client.jpg" style="padding:10px">
+											</div>
+											<div>
+												<input type="radio" name="radio" checked="checked">
+											</div>
+											<div>
+												<p>클라이언트</p>
+												<hr class="garo"/>
+											</div>
+											<div>
+												<p>의뢰할 프로젝트가 있는 <br> 기업, 개인</p>	
+											</div>
 										</div>
-										<div>
-											<input type="radio" name="radio" checked="checked">
-										</div>
-										<div>
-											<p>클라이언트</p>
-											<hr class="garo"/>
-										</div>
-										<div>
-											<p>의뢰할 프로젝트가 있는 <br> 기업, 개인</p>	
+										<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
+											<p>일거리를 찾고 있습니다</p>
+											<div class="ui image">
+												<img src="./image/partners.jpg" style="padding:10px">
+											</div>
+											<div>
+												<input type="radio" name="radio" checked="checked">
+											</div>
+											<div>
+												<p>파트너스</p>
+												<hr class="garo"/>
+											</div>
+											<div>
+												<p>프로젝트의 수주를<br> 원하는 기업, 개인</p>	                     
+											</div>
 										</div>
 									</div>
-									<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
-										<p>일거리를 찾고 있습니다</p>
-										<div class="ui image">
-											<img src="./image/partners.jpg" style="padding:10px">
-										</div>
-										<div>
-											<input type="radio" name="radio" checked="checked">
-										</div>
-										<div>
-											<p>파트너스</p>
-											<hr class="garo"/>
-										</div>
-										<div>
-											<p>프로젝트의 수주를<br> 원하는 기업, 개인</p>	                     
+								</div>
+								<div class="center column container" style="padding:10px;width:30%;">
+									<span>*</span>이메일
+								</div>
+								<div class="ui left icon input" style="padding:10px;width:60%">
+									<input type="text" placeholder="이메일" size="40px"> 
+									<i class="id envelope icon"></i>
+								</div>
+								<div class="center-right" style="padding:0px;width:10%">
+									중복
+								</div>
+								
+								<div class="center column container" style="padding:10px;width:30%;">
+									<span>*</span>아이디
+								</div>
+								<div class="ui left icon input" style="padding:10px;width:60%;">
+									<input type="text" placeholder="아이디" size="40px"> 
+									<i class="id badge icon"></i>
+								</div>
+								<div class="center-right" style="padding:0px;width:10%">
+									중복
+								</div>
+						
+								<div class="center column container" style="padding:10px;width:30%;">
+									<span>*</span>비밀번호
+								</div>
+								<div class="ui left icon input" style="padding:10px;width:60%;">
+									<input type="text" placeholder="비밀번호" size="40px"> 
+									<i class="key icon"></i>
+								</div>
+								<div class="center-right" style="padding:0px;width:10%">
+									중복	
+								</div>
+								
+								<div class="center column container" style="padding:10px;width:30%;">
+									<span>*</span>비밀번호 재입력
+								</div>
+								<div class="ui left icon input" style="padding:10px;width:60%;">
+									<input type="text" placeholder="비밀번호" size="40px"> 
+									<i class="key icon"></i>
+								</div>
+								<div class="center-right" style="padding:0px;width:10%;">
+								</div>
+								<div class="column container" style="padding:10px; width:30%;"></div>
+								<div class="column container" style="padding:10px; width:70%;">
+									<div class="ui checkbox">
+										<input type="checkbox" name="example"> 
+										<a href="#">이용약관</a> 및 <a href="#">개인정보 처리방침</a>에 동의합니다.
+									</div>
+								</div>
+								
+								<div class="column container" style="padding: 10px; width: 30%;"></div>
+								
+								<div class="column container" style="padding: 10px; width: 70%;">
+									<div class="ui fluid animated fade button" tabindex="0">
+										<div class="visible content">회원가입</div>
+										<div class="hidden content">
+											<a href="#">Join Click</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="center column container" style="padding:10px;width:30%;">
-								<span>*</span>이메일
-							</div>
-							<div class="ui left icon input" style="padding:10px;width:60%">
-								<input type="text" placeholder="이메일" size="40px"> 
-								<i class="id envelope icon"></i>
-							</div>
-							<div class="center-right" style="padding:0px;width:10%">
-								중복
-							</div>
-							
-							<div class="center column container" style="padding:10px;width:30%;">
-								<span>*</span>아이디
-							</div>
-							<div class="ui left icon input" style="padding:10px;width:60%;">
-								<input type="text" placeholder="아이디" size="40px"> 
-								<i class="id badge icon"></i>
-							</div>
-							<div class="center-right" style="padding:0px;width:10%">
-								중복
-							</div>
-					
-							<div class="center column container" style="padding:10px;width:30%;">
-								<span>*</span>비밀번호
-							</div>
-							<div class="ui left icon input" style="padding:10px;width:60%;">
-								<input type="text" placeholder="비밀번호" size="40px"> 
-								<i class="key icon"></i>
-							</div>
-							<div class="center-right" style="padding:0px;width:10%">
-								중복	
-							</div>
-							
-							<div class="center column container" style="padding:10px;width:30%;">
-								<span>*</span>비밀번호 재입력
-							</div>
-							<div class="ui left icon input" style="padding:10px;width:60%;">
-								<input type="text" placeholder="비밀번호" size="40px"> 
-								<i class="key icon"></i>
-							</div>
-							<div class="center-right" style="padding:0px;width:10%;">
-							</div>
-							<div class="column container" style="padding:10px; width:30%;"></div>
-							<div class="column container" style="padding:10px; width:70%;">
-								<div class="ui checkbox">
-									<input type="checkbox" name="example"> 
-									<a href="#">이용약관</a> 및 <a href="#">개인정보 처리방침</a>에 동의합니다.
-								</div>
-							</div>
-							
-							<div class="column container" style="padding: 10px; width: 30%;"></div>
-							
-							<div class="column container" style="padding: 10px; width: 70%;">
-								<div class="ui fluid animated fade button" tabindex="0">
-									<div class="visible content">회원가입</div>
-									<div class="hidden content">
-										<a href="#">Join Click</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						</form>		
+<!-- form 끝 ================================================================================================================================== -->								
 					</div>
 					<div class="column grid" style="padding: 10px; width: 40%;">
 						<div class="content-header">
@@ -213,5 +217,6 @@
 		</footer>
 	<!-- footer 끝-->
 <!----------------------------------------------------------------------- footer content 끝 -->
+
 </body>
 </html>

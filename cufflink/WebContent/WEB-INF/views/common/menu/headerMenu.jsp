@@ -9,7 +9,7 @@
 	<div class="ui container">
 		<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 		<div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
-			<a href="/projectRegister" class="active item">프로젝트 등록 </a> 
+			<a href="/projectRegister" id="projectRegister" class="item">프로젝트 등록 </a> 
 			<a href="/projectFind" class="item">프로젝트 찾기 </a> 
 			<a href="/partnersList" class="item">파트너스 목록 </a>
 			<div class="right menu">
@@ -38,3 +38,4 @@ $('.ui.dropdown').dropdown({
 		on: 'hover',
 	});
 </script>
+

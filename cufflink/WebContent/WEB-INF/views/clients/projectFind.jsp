@@ -41,10 +41,14 @@
 						<small class="small-text" style="text-align:left;">000,000개의 프로젝트가 있습니다.</small>
 					</div>
 					<div class="column" style="text-align:right;margin:10px 0px;">
-						<div class="ui icon input">
-							<input type="text" placeholder="Search..."> <i
-								class="inverted circular search link icon"></i>
-						</div>
+<!-- form 시작 ================================================================================================================================== -->							
+						<form name="p_search">
+							<div class="ui icon input">
+								<input type="text" placeholder="Search..."> <i
+									class="inverted circular search link icon"></i>
+							</div>
+						</form>
+<!-- form 끝 ================================================================================================================================== -->		
 					</div>
 				</div>
 			</div>
@@ -83,118 +87,124 @@
 							<div class="ui two column grid container" style="padding-top: 10px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 								<div class="ui relaxed list " style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 									<div class="item" style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
-										<div class="ui master checkbox">
-											<input type="checkbox" name="dev"> <div class="h11">개발</div>
-										</div>
-										<div class="list">
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_web"> <div class="h11">웹</div>
+<!-- form 시작 ================================================================================================================================== -->		
+										<form name="develope">
+											<div class="ui master checkbox">
+												<input type="checkbox" name="dev"> <div class="h11">개발</div>
+											</div>
+											<div class="list">
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_web"> <div class="h11">웹</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_application"> <div class="h11">애플리케이션</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_wordPress"> <div class="h11">워드프레스</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_publishing"> <div class="h11">퍼블리싱</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_software"> <div class="h11">일반 소프트웨어</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_commerce"> <div class="h11">커머스,쇼핑몰</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_game"> <div class="h11">게임</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_embeded"> <div class="h11">임베디드</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="dev_outside"> <div class="h11">기타</div>
+													</div>
 												</div>
 											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_application"> <div class="h11">애플리케이션</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_wordPress"> <div class="h11">워드프레스</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_publishing"> <div class="h11">퍼블리싱</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_software"> <div class="h11">일반 소프트웨어</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_commerce"> <div class="h11">커머스,쇼핑몰</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_game"> <div class="h11">게임</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_embeded"> <div class="h11">임베디드</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="dev_outside"> <div class="h11">기타</div>
-												</div>
-											</div>
-										</div>
+										</form>
+<!-- form 끝 ================================================================================================================================== -->												
 									</div>
 									<div class="item" style="text-align: left;">
-										<div class="ui master checkbox">
-											<input type="checkbox" name="design"> <div class="h11">디자인</div>
-										</div>
-										<div class="list">
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_web"> <div class="h11">웹</div>
+										<form name="develope">
+											<div class="ui master checkbox">
+												<input type="checkbox" name="design"> <div class="h11">디자인</div>
+											</div>
+											<div class="list">
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_web"> <div class="h11">웹</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_application"> <div class="h11">애플리케이션</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_product"> <div class="h11">제품</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_presentation"> <div class="h11">프레젠테이션</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_print"> <div class="h11">인쇄물</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_commerce"> <div class="h11">커머스,쇼핑몰</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_logo"> <div class="h11">로고</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_graphics"> <div class="h11">그래픽</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_vision"> <div class="h11">영상</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_game"> <div class="h11">게임</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="ui child checkbox">
+														<input type="checkbox" name="design_outside"> <div class="h11">기타</div>
+													</div>
 												</div>
 											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_application"> <div class="h11">애플리케이션</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_product"> <div class="h11">제품</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_presentation"> <div class="h11">프레젠테이션</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_print"> <div class="h11">인쇄물</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_commerce"> <div class="h11">커머스,쇼핑몰</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_logo"> <div class="h11">로고</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_graphics"> <div class="h11">그래픽</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_vision"> <div class="h11">영상</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_game"> <div class="h11">게임</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="ui child checkbox">
-													<input type="checkbox" name="design_outside"> <div class="h11">기타</div>
-												</div>
-											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -207,28 +217,30 @@
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
-							<div class="column" style="font-size:9px;">
-								<select class="ui search selection dropdown" id="search-select">
-									<option value="">지역선택</div>
-									<option value="1">서울특별시</option>
-									<option value="2">경기도</option>
-									<option value="3">인천광역시</option>
-									<option value="4">부산광역시</option>
-									<option value="5">대구광역시</option>
-									<option value="6">광주광역시</option>
-									<option value="7">대전광역시</option>
-									<option value="8">울산광역시</option>
-									<option value="9">세종특별자치시</option>
-									<option value="10">강원도</option>
-									<option value="11">충청북도</option>
-									<option value="12">충청남도</option>
-									<option value="13">전라북도</option>
-									<option value="14">전라남도</option>
-									<option value="15">경상북도</option>
-									<option value="16">경상남도</option>
-									<option value="17">제주특별자치도</option>
-								</select>
-							</div>
+							<form name="meeting">	
+								<div class="column" style="font-size:9px;">
+									<select class="ui search selection dropdown" id="search-select">
+										<option value="">지역선택</div>
+										<option value="1">서울특별시</option>
+										<option value="2">경기도</option>
+										<option value="3">인천광역시</option>
+										<option value="4">부산광역시</option>
+										<option value="5">대구광역시</option>
+										<option value="6">광주광역시</option>
+										<option value="7">대전광역시</option>
+										<option value="8">울산광역시</option>
+										<option value="9">세종특별자치시</option>
+										<option value="10">강원도</option>
+										<option value="11">충청북도</option>
+										<option value="12">충청남도</option>
+										<option value="13">전라북도</option>
+										<option value="14">전라남도</option>
+										<option value="15">경상북도</option>
+										<option value="16">경상남도</option>
+										<option value="17">제주특별자치도</option>
+									</select>
+								</div>
+							</form>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 
 							</div>

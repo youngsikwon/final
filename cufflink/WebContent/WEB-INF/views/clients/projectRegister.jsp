@@ -54,83 +54,87 @@
 			<div class="content-middle-join">
 				<div class="ui two column grid container" style="padding:0px;">
 					<div class="column grid" style="border-right: 1px solid #dedede; vertical-align: middle;padding: 20px; width: 70%;">
-						<div class="ui two column grid container">
-							<div class="center column container" style="padding: 17px; width: 25%;">
-								<span>*</span>클라이언트 형태
-							</div>
-							<div class="column container" style="padding: 10px; width: 75%;">
-								<div style="width: 50%;">
-									<script>
-										$('.tag.example .ui.dropdown')
-											.dropdown({
-												allowAdditions : true
-											});
-									</script>
-									<select name="skills" class="ui fluid search dropdown">
-										<option value="">개인</option>
-										<option value="angular">팀</option>
-										<option value="css">개인 사업자</option>
-										<option value="design">법인 사업자</option>
-									</select>
+<!-- form 시작 ================================================================================================================================== -->		
+						<form name="p_register">
+							<div class="ui two column grid container" style="text-align:left">
+								<div class="center column container" style="padding: 17px; width: 25%;">
+									<span>*</span>클라이언트 형태
+								</div>
+								<div class="column container" style="padding: 10px; width: 75%;">
+									<div style="width: 50%;">
+										<script>
+											$('.tag.example .ui.dropdown')
+												.dropdown({
+													allowAdditions : true
+												});
+										</script>
+										<select name="skills" class="ui fluid search dropdown">
+											<option value="">개인</option>
+											<option value="angular">팀</option>
+											<option value="css">개인 사업자</option>
+											<option value="design">법인 사업자</option>
+										</select>
+									</div>
+								</div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
+									<hr class="garo"/>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 25%;">
+									<span>*</span>이름
+								</div>
+								<div class="column container" style="padding: 10px; width: 75%;">
+									<div class="ui input">
+										<input type="text" placeholder="이름을 입력하세요." size="40px">
+									</div>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 25%;">
+									<span>*</span>담당자 핸드폰
+								</div>
+								<div class="column container" style="padding: 10px; width: 75%;">
+									<div class="ui input">
+										<select name="skills" class="ui search dropdown">
+											<option value="010">010</option>
+											<option value="011">011</option>
+											<option value="016">016</option>
+											<option value="017">017</option>
+											<option value="018">018</option>
+											<option value="019">019</option>
+											<option value="foreign">해외</option>
+										</select>
+										<i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px"><i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px">
+									</div>
+								</div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
+									<p>클라이언트 형태 및 연락처 정보는 파트너들에게 공개되지 않습니다.</p>
+									<p>커프링크와의 원활한 커뮤니케이션을 위해 클라이언트님의 정보를 정확히 입력해주세요.</p>
+								</div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
+								<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
+									<hr class="garo"/>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 25%;">
+									<span>*</span>클라이언트 소개<br><br><br><br><br><br>
+								</div>
+								<div class="column container" style="padding-top: 0px; width: 75%;">
+									<div class="ui comments">
+										<form class="ui reply form">
+											<div class="field">
+												<textarea style="margin-top: 0px; margin-bottom: 0px; width: 500px; height: 170px;"></textarea>
+											</div>
+											<p>회사(개인)에 대해 간략하게 설명해주세요(150자 이내)</p>
+											<div class="ui blue labeled submit icon button">
+												<i class="icon edit"></i> 프로젝트 정보 등록하러 가기
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
-								<hr class="garo"/>
-							</div>
-							<div class="center column container" style="padding: 17px; width: 25%;">
-								<span>*</span>이름
-							</div>
-							<div class="column container" style="padding: 10px; width: 75%;">
-								<div class="ui input">
-									<input type="text" placeholder="이름을 입력하세요." size="40px">
-								</div>
-							</div>
-							<div class="center column container" style="padding: 17px; width: 25%;">
-								<span>*</span>담당자 핸드폰
-							</div>
-							<div class="column container" style="padding: 10px; width: 75%;">
-								<div class="ui input">
-									<select name="skills" class="ui search dropdown">
-										<option value="010">010</option>
-										<option value="011">011</option>
-										<option value="016">016</option>
-										<option value="017">017</option>
-										<option value="018">018</option>
-										<option value="019">019</option>
-										<option value="foreign">해외</option>
-									</select>
-									<i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px"><i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px">
-								</div>
-							</div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
-								<p>클라이언트 형태 및 연락처 정보는 파트너들에게 공개되지 않습니다.</p>
-								<p>커프링크와의 원활한 커뮤니케이션을 위해 클라이언트님의 정보를 정확히 입력해주세요.</p>
-							</div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 25%;"></div>
-							<div class="column container" style="padding-left: 10px; padding-top:0px; padding-bottom:0px; width: 75%;">
-								<hr class="garo"/>
-							</div>
-							<div class="center column container" style="padding: 17px; width: 25%;">
-								<span>*</span>클라이언트 소개<br><br><br><br><br><br>
-							</div>
-							<div class="column container" style="padding-top: 0px; width: 75%;">
-								<div class="ui comments">
-									<form class="ui reply form">
-										<div class="field">
-											<textarea style="margin-top: 0px; margin-bottom: 0px; height: 170px;"></textarea>
-										</div>
-										<p>회사(개인)에 대해 간략하게 설명해주세요(150자 이내)</p>
-										<div class="ui blue labeled submit icon button">
-											<i class="icon edit"></i> 프로젝트 정보 등록하러 가기
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
+						</form>
+<!-- form 끝 ================================================================================================================================== -->						
 					</div>
-					<div class="column grid" style="padding: 10px; width: 30%;">
+					<div class="column grid" style="padding-top: 50px; width: 30%;">
 						<div class="column-login1">
 							국내 1위,
 						</div>

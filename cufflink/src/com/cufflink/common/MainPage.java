@@ -143,32 +143,32 @@ public class MainPage {
 	//계정설정 - 기본수정 
 	@RequestMapping("/ClientProfile")
 	public String ClientProfile() {
-		return "/auth/settings/ClientProfile";
+		return "/auth/clientSettings/ClientProfile";
 	}
 	//계정설정 - 계좌관리
 	@RequestMapping("/ClientBankAccount")
 	public String ClientBankAccount() {
-		return "/auth/settings/ClientBankAccount";
+		return "/auth/clientSettings/ClientBankAccount";
 	}
 	//계정설정 - 코인충전페이지
 	@RequestMapping("/ClientAddcoin")
 	public String ClientAddcoin() {
-		return "/auth/settings/ClientAddcoin";
+		return "/auth/clientSettings/ClientAddcoin";
 	}
 	//계정설정 - 비밀번호변경
 	@RequestMapping("/ClientRelogin")
 	public String ClientRelogin() {
-		return "/auth/settings/ClientRelogin";
+		return "/auth/clientSettings/ClientRelogin";
 	}
 	//계정설정 - 알림설정
 	@RequestMapping("/ClientNotificationSetting")
 	public String ClientNotificationSetting() {
-		return "/auth/settings/ClientNotificationSetting";
+		return "/auth/clientSettings/ClientNotificationSetting";
 	}
 	//계정설정 - 회원탈퇴
 	@RequestMapping("/ClientWithdrawal")
 	public String ClientWithdrawal() {
-		return "/auth/settings/ClientWithdrawal";
+		return "/auth/clientSettings/ClientWithdrawal";
 	}
 	//---------------------------------------
 	
