@@ -48,7 +48,7 @@
 		</div>		
 	<!-- title 끝-->
 
-	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
+	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>
 
 	<!-- main 입력 시작-->
 		<div class="ui container">

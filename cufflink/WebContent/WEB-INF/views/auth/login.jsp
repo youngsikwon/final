@@ -29,7 +29,7 @@
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment content contentMain">
+	<div class="ui container raised segment contentMain">
 		
 	<!-- title 시작-->
 		<div class="ui container">
@@ -47,7 +47,7 @@
 		</div>		
 	<!-- title 끝-->
 
-	<div class="ui basicspace"><!-- title와 main content 여백 -->	</div>
+	<div class="ui mainspace"><!-- title와 main content 여백 -->	</div>
 
 	<!-- main 입력 시작-->
 	

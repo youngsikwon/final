@@ -23,6 +23,10 @@ public class MainPage {
 	public String newfile2() {
 		return "test/newfile2";
 	}
+	@RequestMapping("/newfile4")
+	public String newfile4() {
+		return "test/newfile4";
+	}
 	
 	//메인화면
 	@RequestMapping("/")

@@ -26,17 +26,15 @@
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
 
-	<!-- <div class="ui basicspace">navigation menu와 여백</div> -->
-	
 <!----------------------------------------------------------------------- main content 시작 -->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment contentMain-project">
+	<div class="ui container raised segment content"  style="height:auto; margin-top: 10px; padding-bottom:20px;">
 	
 	<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column">
+					<div class="column" style="text-align:left">
 						<h3 class="content-text" style="text-align:left;">프로젝트 찾기</h3>
 						<small class="small-text" style="text-align:left;">000,000개의 프로젝트가 있습니다.</small>
 					</div>
@@ -220,7 +218,7 @@
 							<form name="meeting">	
 								<div class="column" style="font-size:9px;">
 									<select class="ui search selection dropdown" id="search-select">
-										<option value="">지역선택</div>
+										<option value="">지역선택</option>
 										<option value="1">서울특별시</option>
 										<option value="2">경기도</option>
 										<option value="3">인천광역시</option>

@@ -74,6 +74,10 @@ hr.dotted {
 .basicspace {
 	padding:10px;
 }
+
+.mainspace {
+	padding:5px;
+}
 	
 .center {
     margin: auto;

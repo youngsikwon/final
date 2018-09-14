@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>projectRegister-(프로젝트 등록)</title>
 </head>
+<link rel="stylesheet" href="./css/cuffLink.css" />
+<link rel="stylesheet" href="./css/login.css" />
+</head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
 	<header class="header">
@@ -26,10 +29,10 @@
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
-
+	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>
 <!----------------------------------------------------------------------- main content 시작 -->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment content">
+	<div class="ui container raised segment content"  style="padding-top: 10px; padding-bottom: 10px; margin-top: 0px; margin-bottom: 0px; height:auto; ">
 		
 	<!-- title 시작-->
 		<div class="ui container">
@@ -47,7 +50,7 @@
 		</div>			
 	<!-- title 끝-->
 
-	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
+	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>
 
 	<!-- main 입력 시작-->
 		<div class="ui container">
@@ -159,7 +162,7 @@
 	</div>
 <!----------------------------------------------------------------------- main content 끝 -->
 <!----------------------------------------------------------------------- main content 끝 -->
-	
+	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 		<footer class="footer">
