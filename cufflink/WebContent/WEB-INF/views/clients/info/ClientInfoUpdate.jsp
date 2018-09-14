@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,14 +93,14 @@
 								<div class="center column container" style="margin-top: 0px; margin-left: 0px; margin-right: 0px; margin-bottom: 0px; width: 25%;">
 	
 								</div>
-								<div class="column container" style="padding: 10px; width: 75%; text-align:right;">
-									<div class="right menu">
-										<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='/ClientInfo'" />
-											취소
-										</button>
-										<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/ClientInfo'" />
-											등록완료
-										</button>
+								<div class="column container" style="padding: 10px; width: 75%; ">
+									<div class="ui two column grid" class="item" style="float:right;">
+										<div class="column" style="width:auto;">
+											<div class="ui primary button" onclick="location.href='/ClientInfo'">등록완료</div>
+										</div>
+										<div class="column" style="width:auto;">
+											<div class="ui button" onclick="location.href='/ClientInfo'">취소</div>
+										</div>
 									</div>
 								</div>
 							</div>

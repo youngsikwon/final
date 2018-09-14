@@ -39,7 +39,7 @@
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="padding:5px;height: auto">
+		<div class="ui two column grid container" style="height: auto">
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
 <!-- 로그인 정보 =================================================================================-->
 				<div class="ui segment">

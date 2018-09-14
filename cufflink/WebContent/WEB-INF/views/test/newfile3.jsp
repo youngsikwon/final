@@ -42,39 +42,7 @@ $('.ui.sticky')
   });
 </script>
 
-<script>
- $('#menu').find('a').click(function() {
-		
-		$('#menu').find('a').attr('class', 'item');
-		$(this).attr('class', 'item active');
-		
-		if($(this).attr('id')=='p_Submitted'){//검수중
-			$(this).attr('id').parent().addClass('active item');
-			$("#p_Recruiting").removeClass('item');
-			$("#p_ContractInProgress").removeClass('item');
-			$("#p_ReviewContract").removeClass('item');
-		}
-		else if($(this).attr('id')=='p_Recruiting'){//지원자 모집중
-			$("#p_Submitted").removeClass('item');
-			$("#p_Recruiting").addClass('active');
-			$("#p_ContractInProgress").removeClass('item');
-			$("#p_ReviewContract" ).removeClass('item');
-		}
-		else if($(this).attr('id')=='projectContractInProgress'){//진행중인 프로젝트 
-			$("#p_Submitted").hide();
-			$("#p_Recruiting").hide();
-			$("#p_ContractInProgress").show();
-			$("#p_ReviewContract" ).hide();
-		}
-		else if($(this).attr('id')=='projectReviewContract'){//종료된 프로젝트
-			$("#p_Submitted").hide();
-			$("#p_Recruiting").hide();
-			$("#c_gmap").hide();
-			$("#p_ReviewContract" ).show();
 
-		}
-	})
-  </script> 
 
 </body>
 </html>
