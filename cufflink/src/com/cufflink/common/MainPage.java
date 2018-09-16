@@ -7,6 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainPage {
 	
 	//테스트화면
+	@RequestMapping("/Flexbox")
+	public String Flexbox() {
+		return "test/Flexbox";
+	}
+	@RequestMapping("/Layout2")
+	public String Layout2() {
+		return "common/Layout2";
+	}
+	@RequestMapping("/mainLayout")
+	public String mainLayout() {
+		return "common/mainLayout";
+	}
 	@RequestMapping("/newfile")
 	public String newfile() {
 		return "test/newfile";
