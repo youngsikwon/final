@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectLogic {
 
-	@Autowired
+	//@Autowired
 	ProjectDao projectDao;
 }

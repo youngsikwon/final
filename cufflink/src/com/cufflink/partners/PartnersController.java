@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PartnersController {
 	Logger logger = Logger.getLogger(PartnersController.class);
 
-	@Autowired
+	//@Autowired
 	PartnersLogic partnersLogic;
 }

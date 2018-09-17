@@ -22,6 +22,7 @@ $(document).ready(function() {
   	if(thisfilefullname=="projectSaved"||thisfilefullname=="projectRejected"){
   		$("#projectSubmitted").addClass("active");
   		$('.'+thisfilefullname).addClass("active");
+
   	}  	
   	//  종료된 프로젝트 하위관련 메뉴
   	else if(thisfilefullname=="projectCompletedContract"||thisfilefullname=="projectCancelledProject"){

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientDao {
 
-	@Autowired
+	//@Autowired
 	SqlSessionTemplate sqlSessionTemplate; // mapperMapping 처리를 
 
 	int result;

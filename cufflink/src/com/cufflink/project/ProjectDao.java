@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectDao {
 	
-	@Autowired
+	//@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	int result;
 	List<Map<String,Object>> list;
