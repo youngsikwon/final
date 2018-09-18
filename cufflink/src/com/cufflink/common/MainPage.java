@@ -7,6 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainPage {
 	
 	//테스트화면
+	@RequestMapping("/GridTest")
+	public String GridTest() {
+		return "test/Grid";
+	}
+	@RequestMapping("/mainTest")
+	public String mainTest() {
+		return "test/mainTest";
+	}
+	@RequestMapping("/mainLayout")
+	public String mainLayout() {
+		return "common/mainLayout";
+	}
+	@RequestMapping("/reactionType")
+	public String reactionType() {
+		return "test/reactionType";
+	}
 	@RequestMapping("/Flexbox")
 	public String Flexbox() {
 		return "test/Flexbox";

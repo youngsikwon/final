@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="./ui.jsp"/>
+<jsp:include page="../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>mainLayout</title>
 <link rel="stylesheet" href="./css/cuffLink.css" />
@@ -14,7 +14,7 @@
 		<div class="ui">
 	<!-- header 시작 -->
 			<div class="ui">
-				<jsp:include page="./menu/headerMenu.jsp"/>
+				<jsp:include page="../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
 	
@@ -22,7 +22,7 @@
 	
 	<!-- navigation menu 시작 -->
 			<div class="ui navigation">
-				<jsp:include page="./menu/navigationMenu.jsp"/>
+				<jsp:include page="../common/menu/navigationMenu.jsp"/>
 			</div>
 	<!-- navigation menu 종료-->
 		</div>
@@ -71,7 +71,7 @@
 	<!-- footer 시작-->
 		<footer class="footer">
 			<div class="ui inverted segment">
-					<jsp:include page="./menu/footerMenu.jsp"/>
+					<jsp:include page="../common/menu/footerMenu.jsp"/>
 			</div>
 		</footer>
 	<!-- footer 끝-->
