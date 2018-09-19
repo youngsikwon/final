@@ -5,6 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>join-(회원가입)</title>
+<script type="text/javascript">
+function popupOpen(){
+
+	var popUrl = "/otherJoin";	//팝업창에 출력될 페이지 URL
+
+	var popOption = "width=450, height=270, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+
+		window.open(popUrl,"",popOption);
+
+	}
+</script>
 
 </head>
 <body>
@@ -167,7 +178,7 @@
 							<small class="small-text">아래의 계정을 이용하실수 있습니다.</small>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="./image/naverLoginButton.jpg"></a>
+							<a href="javascript:popupOpen();"><img src="./image/naverLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
 							<a href="#"><img src="./image/facebookLoginButton.jpg"></a>

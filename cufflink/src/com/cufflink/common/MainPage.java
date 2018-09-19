@@ -6,10 +6,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainPage {
 	
+	//reaction UI
+	@RequestMapping("/Index")
+	public String Index() {
+		return "GridFlexUI/Index";
+	}
+	@RequestMapping("/MainIndex")
+	public String MainIndex() {
+		return "GridFlexUI/MainIndex";
+	}
 	//테스트화면
 	@RequestMapping("/GridTest")
 	public String GridTest() {
-		return "test/Grid";
+		return "test/GridTest";
 	}
 	@RequestMapping("/mainTest")
 	public String mainTest() {
@@ -23,9 +32,9 @@ public class MainPage {
 	public String reactionType() {
 		return "test/reactionType";
 	}
-	@RequestMapping("/Flexbox")
+	@RequestMapping("/FlexboxTest")
 	public String Flexbox() {
-		return "test/Flexbox";
+		return "test/FlexboxTest";
 	}
 	@RequestMapping("/newfile")
 	public String newfile() {
@@ -58,6 +67,11 @@ public class MainPage {
 	@RequestMapping("/login")
 	public String login() {
 		return "auth/login";
+	}
+	//타사로그인
+	@RequestMapping("/otherJoin")
+	public String otherJoin() {
+		return "auth/otherJoin";
 	}
 	//로그인성공
 	@RequestMapping("/loginSuccess")

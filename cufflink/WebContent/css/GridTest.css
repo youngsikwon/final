@@ -52,6 +52,7 @@ div, span { box-size: 1.5rem;
 /*  start 왼쪽정렬*/
 /*  center 중앙정렬, end 오른쪽정렬*/
 /* 	justify-items: start; */
+	justify-items: space-around;
 
 /*  start 상단정렬, center 중앙정렬*/
 /*  end 하단정렬*/
