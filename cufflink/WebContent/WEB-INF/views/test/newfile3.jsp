@@ -55,15 +55,16 @@ body {
 				채팅테스트문장만들기<br> 채팅테스트문장만들기<br> 채팅테스트문장만들기<br>
 				채팅테스트문장만들기<br> 채팅테스트문장만들기<br> 채팅테스트문장만들기<br>
 				채팅테스트문장만들기<br> 채팅테스트문장만들기<br> 채팅테스트문장만들기<br>
+			</div>
 				<div class="ui rail" style="text-align:right">
 					<div class="ui rail right" style="width:100%">
 						<div class="ui sticky fixed bottom" style="width: 100px">
-							<h3 class="ui header">하단메뉴1</h3>
+							<h3 class="ui header">하단메뉴2</h3>
 							<img class="ui image" src="/image/livechat.jpg" width=100px height=100px>
 						</div>
 					</div>
 				</div>
-			</div>
+
 		</div>
 		<!-- 채팅이미지ㅣ=====================================================================-->
 	</div>
