@@ -22,5 +22,3 @@
 </div>
 
 <script src="/js/headerMenu.js"></script>
-<link rel="stylesheet" href="/css/cuffLink.css" />
-<link rel="stylesheet" href="/css/login.css" />

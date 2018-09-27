@@ -36,7 +36,7 @@ $(document).ready(function() {
   		/*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
   	
   	//이외의 상단메뉴 모두
-  	} else {
+  	} else {	
   		$('.'+thisfilefullname).addClass("active");
   		/*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
   	}

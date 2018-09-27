@@ -27,9 +27,6 @@ h5 {
 	margin-bottom: 20px;
 }
 
-.ui.segment {
-	text-align: center !important;
-}
 
 /* .title {
 	font-size: 1.5em;
@@ -75,13 +72,7 @@ hr.dotted {
 	padding:10px;
 }
 	
-.center {
-    margin: auto;
-    width: 60%;
-    border: 0px solid #dedede;
-    padding: 10px;
-    text-align: right;
-}
+
 .center-right {
     margin: auto;
     width: 60%;
