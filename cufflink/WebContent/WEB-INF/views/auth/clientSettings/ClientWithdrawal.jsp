@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>회원탈퇴
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -71,7 +71,7 @@
 				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height:330px;">
 					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
-							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-question-mark.png">
+							<img class="ui medium circular image" style="width: 40px;" src="../image/process-question-mark.png">
 						</div>
 						<div class="column" style="width: 90%;text-align: left; padding-left: 5px ">
 							이메일 또는 문자메시지에 대한 불편으로 회원 탈퇴를 신청하려 하시나요?<br>

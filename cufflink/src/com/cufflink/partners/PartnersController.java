@@ -12,4 +12,10 @@ public class PartnersController {
 
 	//@Autowired
 	PartnersLogic partnersLogic;
+	
+	//파트너스 목록
+	@RequestMapping("/partnersList")
+	public String partnersList() {
+		return "partners/partnersList";
+	}	
 }

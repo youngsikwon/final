@@ -1,5 +1,25 @@
 // 상단 버튼에 대한 페이지별 active효과
 $(document).ready(function() {
+
+	//채팅문의시작
+	
+	$(".chatbtn").click(function (e){
+		e.preventDefault();
+		$(".chatbtn").hide('fast');
+		$(".chatwin").slideToggle("show");
+	})
+	
+	//채팅문의종료
+	
+	$(".t-right").click(function (e){
+		e.preventDefault();
+		$(".chatbtn").slideToggle("show");
+		$(".chatwin").slideToggle("hide");
+	})
+	
+	
+
+	//드랍다운 메뉴
   $('.ui.menu .ui.dropdown').dropdown({
 	action : 'hide',
 	on: 'hover',

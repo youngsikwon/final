@@ -98,7 +98,7 @@
 											<div class="ui fluid animated fade button" tabindex="0">
 												<div class="visible content">회원가입</div>
 												<div class="hidden content">
-													<a href="#">Join Click</a>
+													<a href="../auth/join">Join Click</a>
 												</div>
 											</div>
 										</div>
@@ -113,19 +113,19 @@
 					</div>
 					<div class="column grid" style="padding: 10px; width: 40%;">
 						<div class="column-login2">
-							<a href="#"><img src="/image/auth/naverLoginButton.jpg"></a>
+							<a href="#"><img src="../image/auth/naverLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="/image/auth/facebookLoginButton.jpg"></a>
+							<a href="#"><img src="../image/auth/facebookLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="/image/auth/googleLoginButton.jpg"></a>
+							<a href="#"><img src="../image/auth/googleLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="/image/auth/kakaoLoginButton.jpg"></a>
+							<a href="#"><img src="../image/auth/kakaoLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="/image/auth/lineLoginButton.jpg"></a>
+							<a href="#"><img src="../image/auth/lineLoginButton.jpg"></a>
 						</div>
 					</div>
 				</div>

@@ -5,8 +5,8 @@
 <jsp:include page="../../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>클라이언트 정보 등록</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
@@ -96,10 +96,10 @@
 								<div class="column container" style="padding: 10px; width: 75%; ">
 									<div class="ui two column grid" class="item" style="float:right;">
 										<div class="column" style="width:auto;">
-											<div class="ui primary button" onclick="location.href='/ClientInfo'">등록완료</div>
+											<div class="ui primary button" onclick="location.href='../clients/ClientInfo'">등록완료</div>
 										</div>
 										<div class="column" style="width:auto;">
-											<div class="ui button" onclick="location.href='/ClientInfo'">취소</div>
+											<div class="ui button" onclick="location.href='../clients/ClientInfo'">취소</div>
 										</div>
 									</div>
 								</div>

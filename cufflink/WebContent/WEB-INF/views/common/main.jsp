@@ -1,5 +1,7 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <title>Cufflink</title>
 <style>
 .wrap {
-	background-image: url("./img/배너.png");
+	background-image: url("../image/배너.png");
 	height: 400px;
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
@@ -66,13 +68,18 @@ span {
 	<div class="wrap">
 		<div class="ui container">
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
-				<a class="item"> Home </a>
-				<a class="item"> Messages </a>
-				<a class="item active"> Friends </a>
+				<a class="item"> Home </a> <a class="item"> Messages </a> <a
+					class="item active"> Friends </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='/login'" />로그인</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/join'" />회원가입</button>
+						<button class="ui button" style="margin-right: 10px;"
+							onclick="window.location.href='../auth/login'" />
+						로그인
+						</button>
+						<button class="ui primary button" style="margin-right: 10px;"
+							onclick="window.location.href='../auth/join'" />
+						회원가입
+						</button>
 					</div>
 				</div>
 			</div>
@@ -111,7 +118,7 @@ span {
 	</div>
 	<div style="background-color: rgb(243, 244, 247); height: 43em;">
 		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-			<img src="/image/logo.png" alt="" style="margin-right: 10px;" />
+			<img src="../image/logo.png" alt="" style="margin-right: 10px;" />
 			등록된 프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 50px;">
@@ -137,24 +144,25 @@ span {
 		</div>
 	</div>
 	<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-		<img src="./img/logo.png" alt="" style="margin-right: 10px;" /> 우리와
-		함께하는 회사
+		<img src="../image/logo.png" alt="" style="margin-right: 10px;" />
+		우리와 함께하는 회사
 	</div>
 	<div class="ui container" style="padding-top: 50px; text-align: center">
 		<div class="ui small images">
 			<img class="logo" src="../image/logo1.png"> <img class="logo"
-				src="/image/logo2.png"> <img class="logo"
-				src="/image/logo3.png"> <img class="logo"
-				src="/image/logo4.png"> <img class="logo"
-				src="/image/logo5.png"> <img class="logo"
-				src="/image/logo6.png">
+				src="../image/logo2.png"> <img class="logo"
+				src="../image/logo3.png"> <img class="logo"
+				src="../image/logo4.png"> <img class="logo"
+				src="../image/logo5.png"> <img class="logo"
+				src="../image/logo6.png">
 		</div>
 	</div>
 	<script>
 		function autoSplit(len) { // 자동으로 len 길이만큼 글자수를 잘라주고 난후 ... 을 붙여준다
 			var leng = $('.content').text().length;
 			if (leng > 100) {
-				$('.content').text($('.content').text().substring(0, len)).append('...')
+				$('.content').text($('.content').text().substring(0, len))
+						.append('...')
 			}
 		}
 		autoSplit(100);

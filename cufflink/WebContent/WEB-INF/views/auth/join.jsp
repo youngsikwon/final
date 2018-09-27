@@ -77,7 +77,7 @@ function popupOpen(){
 										<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
 											<p>프로젝트를 의뢰하고 싶습니다</p>
 											<div class="ui image">
-												<img src="./image/client.jpg" style="padding:10px">
+												<img src="../image/client.jpg" style="padding:10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked">
@@ -93,7 +93,7 @@ function popupOpen(){
 										<div class="column container" style="padding:10px; width: 50%;text-align:center; vertical-align:middle; outline: dotted gray 0.5px;">
 											<p>일거리를 찾고 있습니다</p>
 											<div class="ui image">
-												<img src="./image/partners.jpg" style="padding:10px">
+												<img src="../image/partners.jpg" style="padding:10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked">
@@ -178,19 +178,19 @@ function popupOpen(){
 							<small class="small-text">아래의 계정을 이용하실수 있습니다.</small>
 						</div>
 						<div class="column-login2">
-							<a href="javascript:popupOpen();"><img src="./image/naverLoginButton.jpg"></a>
+							<a href="javascript:popupOpen();"><img src="../image/naverLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="./image/facebookLoginButton.jpg"></a>
+							<a href="#"><img src="../image/facebookLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="./image/googleLoginButton.jpg"></a>
+							<a href="#"><img src="../image/googleLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="./image/kakaoLoginButton.jpg"></a>
+							<a href="#"><img src="../image/kakaoLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2">
-							<a href="#"><img src="./image/lineLoginButton.jpg"></a>
+							<a href="#"><img src="../image/lineLoginButton.jpg"></a>
 						</div>
 						<div class="column-login2" style="height:10px;">
 						</div>
@@ -203,7 +203,7 @@ function popupOpen(){
 									<div class="ui column animated fade button" tabindex="0">
 										<div class="visible content">로 그 인</div>
 										<div class="hidden content">
-											<a href="#">Login Click</a>
+											<a href="../auth/login">Login Click</a>
 										</div>
 									</div>
 								</div>

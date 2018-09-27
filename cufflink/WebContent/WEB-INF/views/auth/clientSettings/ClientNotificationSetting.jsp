@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>알림설정
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -82,7 +82,7 @@
 							<div class="content" style="padding-bottom:0px; padding-left:30px; padding-right:30px;">
 								<div class="ui two column centered grid" style="padding-top: 0px; border: 1px solid #dedede;">
 									<div class="column"	style="padding-left: 20px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px; width: auto;">
-										<img class="ui mini" src="../../image/setting_email.png">
+										<img class="ui mini" src="../image/setting_email.png">
 									</div>
 									<div class="column"
 										style="padding-left: 20px; padding-right: 0px; padding-top: 20px; padding-bottom: 20px; width: auto; text-align: left;">
@@ -217,7 +217,7 @@
 							<div class="content" style="padding-bottom:0px; padding-left:30px; padding-right:30px;">
 								<div class="ui two column centered grid" style="padding-top: 0px; border: 1px solid #dedede;">
 									<div class="column"	style="padding-left: 20px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px; width: auto;">
-										<img class="ui mini" src="../../image/setting_email.png">
+										<img class="ui mini" src="../image/setting_email.png">
 									</div>
 									<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 20px; padding-bottom: 20px; width: auto; text-align: left;">
 										입력된 연락처 정보가 없습니다.<br>

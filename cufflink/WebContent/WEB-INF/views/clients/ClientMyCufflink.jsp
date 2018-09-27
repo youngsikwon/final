@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>마이 커프링크
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -23,7 +23,7 @@
 	
 	<!-- navigation menu 시작 -->
 			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationClientMenu.jsp"/>
+				<jsp:include page="../common/menu/navigationMenu.jsp"/>
 			</div>
 	<!-- navigation menu 종료-->
 		</div>
@@ -119,7 +119,7 @@
 					</div>
 					<div class="ui" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;text-align:left;">
       					<div class="ui column segment" style="padding-top:0px;">
-      						<div class="ui blue top left attached label"><a href="/projectSubmitted">>>검수 중<<</a></div>
+      						<div class="ui blue top left attached label"><a href="../project/projectSubmitted">>>검수 중<<</a></div>
 	      					<div class="ui three column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:60%">
 	      							프로젝트 제목
@@ -151,7 +151,7 @@
     				<div style="padding:13px;"></div>
 					<div class="ui" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;text-align:left;">
       					<div class="ui column segment" style="padding-top:0px;">
-      						<div class="ui orange top left attached label"><a href="/projectRecruiting">>>지원자 모집 중<<</a></div>
+      						<div class="ui orange top left attached label"><a href="../project/projectRecruiting">>>지원자 모집 중<<</a></div>
 	      					<div class="ui four column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:40%">
 	      							프로젝트 제목
@@ -189,7 +189,7 @@
     				<div style="padding:13px;"></div>
 					<div class="ui" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;text-align:left;">
       					<div class="ui column segment" style="padding-top:0px;">
-      						<div class="ui green top left attached label"><a href="/projectContractInProgress">>>프로젝트 진행 중<<</a></div>
+      						<div class="ui green top left attached label"><a href="../project/projectContractInProgress">>>프로젝트 진행 중<<</a></div>
 	      					<div class="ui six column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:40%">
 	      							프로젝트 제목
@@ -252,7 +252,7 @@
 						<b>무료로 프로젝트를<br>
 						등록해 보세요</b>
 					</div>
-					<div class="ui blue labeled submit icon button" onclick="location.href='/projectRegister'" style="padding: 10px;">
+					<div class="ui blue labeled submit icon button" onclick="location.href='../clients/projectRegister'" style="padding: 10px;">
 						<i class="icon edit"></i> 프로젝트 등록하기
 					</div>
 					<div class="ui container" style="padding-top: 10px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; width:100%;">

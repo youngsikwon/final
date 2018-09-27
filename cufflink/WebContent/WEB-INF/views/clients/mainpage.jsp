@@ -14,7 +14,7 @@
 		<div class="ui">
 	<!-- header 시작 -->
 			<div class="ui">
-				<jsp:include page="../common/menu/headerMenuLogined.jsp"/>
+				<jsp:include page="../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
 	

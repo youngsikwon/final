@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>계정설정(기본수정)
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -63,7 +63,7 @@
 							<h5 style="text-align: left">계정의 기본 정보들을 수정할 수 있습니다.</h5>
 						</div>
 						<div class="column" style="text-align:right; padding-bottom: 0px;">
-							<h11 style="text-align: right; padding-right:10px;"><a href="">클라이언트 정보 수정하기 ></a></h6>
+							<h6 style="text-align: right; padding-right:10px;"><a href="./ClientProfile">클라이언트 정보 수정하기 ></a></h6>
 						</div>
 					</div>
 				</div>

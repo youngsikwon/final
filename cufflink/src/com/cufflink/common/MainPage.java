@@ -1,10 +1,16 @@
 package com.cufflink.common;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainPage {
+	
+	@Autowired
+	//commonLogic를 사용하기위한 Serviec등록
+	CommonLogic commonLogic;
 	
 	//reaction UI
 	@RequestMapping("/Index")
@@ -59,7 +65,10 @@ public class MainPage {
 	
 	//메인화면
 	@RequestMapping("/")
-	public String mainpage() {
+	public String mainpage(Model m) {
+		// commonLogic에서 값을 받아온다.
+		m.addAttribute("get",commonLogic.map());
+		
 		return "common/main";
 	}
 

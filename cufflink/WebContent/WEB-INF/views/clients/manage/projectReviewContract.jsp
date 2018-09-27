@@ -5,8 +5,8 @@
 <jsp:include page="../../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>종료된 프로젝트</title>
-<link rel="stylesheet" href="/css/cuffLink.css" />
-<link rel="stylesheet" href="/css/login.css" />
+<link rel="stylesheet" href="../css/cuffLink.css" />
+<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -64,7 +64,7 @@
 					</div>
 					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
-							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-success.png">
+							<img class="ui medium circular image" style="width: 40px;" src="../image/process-guide-success.png">
 						</div>
 						<div class="column" style="width: 90%;text-align: left; padding-left: 5px">
 							1. 프로젝트를 함께 진행했던 파트너에 대한 평가를 남겨주세요.<br>
