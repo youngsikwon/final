@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+	<select id="GooggleMap" resultType = "map">
+	    select pro_name, pro_price, pro_addr from project
+	</select>
+	
+	<select id="projectList" resultType = "map">
+	    select PRO_NO,PRO_NAME,PRO_PERIOD,PRO_PRICE,PRO_PLAN,PRO_PARNER,PRO_SKILL,PRO_FILE,PRO_END,PRO_ADDR,PRO_STRT,PRO_MANAGEMENT,PRO_CONTENTS,C_NO from project
+	</select>
+	<select id="AMainProject" resultType = "map">
+	   Select count(rownum)a, SUM(pro_price)b,count(b.ro2)c from Project a,(select count(rownum) ro2 from client) b
+</select>
+</mapper>
