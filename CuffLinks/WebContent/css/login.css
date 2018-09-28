@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 .content-header {
     margin: 0;
     margin-bottom: 5px;
@@ -66,7 +67,6 @@ h3, .h3 {
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #dedede;
-    height: 420px;
 }
 
 .content-middle-project {

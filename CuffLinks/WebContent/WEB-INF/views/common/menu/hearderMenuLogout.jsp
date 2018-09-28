@@ -15,6 +15,9 @@
 	  }
     }
 %>
+<!-- https://fontawesome.com 웹폰트사용에 필요 채팅문의에 들어간 아이콘이미지-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- //chatting -->
 <jsp:include page="../ui.jsp"/>
 <link rel="stylesheet" href="/css/cuffLink.css" />
 <link rel="stylesheet" href="/css/login.css" />

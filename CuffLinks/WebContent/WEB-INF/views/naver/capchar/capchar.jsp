@@ -92,19 +92,38 @@ function capchar(value){
 
 </head>
 <body>
-<div class="ui raised segment" style="width: 350px;height: auto;">
-  <div class="ui grid">
-    <div class="ten wide column" style="height: 50px;margin-bottom:0px;">
-      <div id = "d_captchaIMG"></div>
-    </div>
-    <div class="six wide column" style="background-color: white;height: auto;">
-      <button class="ui button" style="margin-top: 0;margin-left: 0;height: 42px;width: 102px;margin-bottom: 5px;border-bottom-width: 5px;" onClick="Reload()"> 새로고침 </button>
-      <button class="ui button" style="margin-top: 0;margin-left: 0;height: 42px;width: 102px;" onClick="capchar()"> 확인 </button>
-    </div>
-    <div class="ui input" style="margin-top:0px;">
-      <input id="I_image" type="text" style="width: 185px;margin-top: 5px;margin-bottom: 5px;" placeholder="자동입력 방지 문자">
-    </div>
-  </div>
-</div>
+	<div class="" style="width: 92%; ">
+	  <div class="" style="overflow: hidden;margin: 0; padding: 0;">
+	  	<div style="background-color: #F8E0E6;">아래 이미지를 보이는 대로 입력해주세요.</div>
+	    <div class="" style="float: left; height: 48px;margin: 0; padding: 0;">
+	      <div id = "d_captchaIMG" style=""></div>
+	    </div>
+	    <div class="" style="margin: 0; padding: 0;">
+	      	<button class="" style="width: 41%; height: 37px;" onClick="Reload()"> 새로고침 </button>
+	    </div>
+	    <div class="" style="margin: 0; padding: 0;">
+	    	<button class="" style="width: 41%; height: 38px;" onClick="capchar()"> 확인 </button>
+	    </div>
+	    <div class="" style="margin-top:0px;margin: 0; padding: 0;">
+	      <input id="I_image" type="text" style="width: 100%; height: 24px; color: #444; border: 1px solid #bebebe padding: 0px 2px 0px 4px; margin-top: 0px;" placeholder="자동입력 방지 문자">
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- <div class="ui raised segment" style="width: 350px;height: auto;">
+	  <div class="ui grid">
+	    <div class="ten wide column" style="height: 50px;margin-bottom:0px;">
+	      <div id = "d_captchaIMG"></div>
+	    </div>
+	    <div class="six wide column" style="background-color: white;height: auto;">
+	      <button class="ui button" style="margin-top: 0;margin-left: 0;height: 42px;width: 102px;margin-bottom: 5px;border-bottom-width: 5px;" onClick="Reload()"> 새로고침 </button>
+	      <button class="ui button" style="margin-top: 0;margin-left: 0;height: 42px;width: 102px;" onClick="capchar()"> 확인 </button>
+	    </div>
+	    <div class="ui input" style="margin-top:0px;">
+	      <input id="I_image" type="text" style="width: 185px;margin-top: 5px;margin-bottom: 5px;" placeholder="자동입력 방지 문자">
+	    </div>
+	  </div>
+	</div> -->
 </body>
 </html>
