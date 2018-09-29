@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,68 +6,19 @@
 <jsp:include page="./ui.jsp" />
 <title>Cufflink</title>
 <style>
-.wrap {
-	background-image: url("./img/배너.png");
-	height: 400px;
-	background-position: center; /* Center the image */
-	background-repeat: no-repeat; /* Do not repeat the image */
-	background-size: cover;
-	
-	/* Resize the background image to cover the entire container */
-}
-
-h1 {
-	font-size: 4em;
-}
-
-h2 {
-	font-size: 3em;
-}
-
-h4 {
-	font-size: 20px;
-}
-
-h5 {
-	font-size: 16px;
-	margin-top: 14px;
-	margin-bottom: 20px;
-}
-
-.ui.segment {
-	text-align: center !important;
-}
-
-.title {
-	font-size: 1.5em;
-}
-
-span {
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-.middle {
-	border-left: groove thin;
-	border-right: groove thin;
-}
-
-.content {
-	font-size: 1.2em;
-}
-
-.logo {
-	margin-left: 20px !important;
-}
+<link rel="stylesheet" href="/css/main.css" />
 </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- //chatting -->
 </head>
 <body>
 	<div class="wrap">
 		<div class="ui container">
+			<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
-				<a class="item"> Home </a>
-				<a class="item"> Messages </a>
-				<a class="item active"> Friends </a>
+				<a href="/projectRegister" class="active item">프로젝트 등록 </a> 
+				<a href="/projectFind" class="item">프로젝트 찾기 </a> 
+				<a href="/partnersList" class="item">파트너스 목록 </a>
 				<div class="right menu">
 					<div class="item">
 						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='./login'" />로그인</button>
@@ -111,7 +61,7 @@ span {
 	</div>
 	<div style="background-color: rgb(243, 244, 247); height: 43em;">
 		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-			<img src="/image/logo.png" alt="" style="margin-right: 10px;" />
+			<img src="./image/logo.png" alt="" style="margin-right: 10px;" />
 			등록된 프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 50px;">

@@ -53,6 +53,7 @@ public class ClientController {
 			session.setMaxInactiveInterval(60*60);
 			session.setAttribute((String) hMap.get("S_ID"), hMap);
 			Id = new Cookie("id", (String) hMap.get("S_ID"));
+			Id.setPath("/");
 			res.addCookie(Id);
 			return "auth/loginOk";
 		}

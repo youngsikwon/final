@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 	//현재 화면의 파일이름 가져오기	
   	var thisfilefullname = document.URL.substring(document.URL.lastIndexOf("/")+1, document.URL.length);
-
+  	alert("파일명을 알려줘:"+thisfilefullname);
   	//  검수중 하위관련	메뉴
   	if(thisfilefullname=="projectSaved"||thisfilefullname=="projectRejected"){
   		$("#projectSubmitted").addClass("active");
