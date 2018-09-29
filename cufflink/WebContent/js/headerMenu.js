@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
 });
 
-// 상단 버튼에 대한 페이지별 active효과
+// 버튼에 대한 페이지별 active효과
 
 	//현재 화면의 파일이름 가져오기	
   	var thisfilefullname = document.URL.substring(document.URL.lastIndexOf("/")+1, document.URL.length);
