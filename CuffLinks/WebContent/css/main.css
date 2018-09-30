@@ -1,6 +1,12 @@
 @charset "UTF-8";
+<<<<<<< HEAD
+
+.wrap {
+	background-image: url("./image/배너.png");
+=======
 .wrap {
 	background-image: url("../image/배너.png");
+>>>>>>> refs/remotes/origin/덕수TO재현
 	height: 400px;
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */

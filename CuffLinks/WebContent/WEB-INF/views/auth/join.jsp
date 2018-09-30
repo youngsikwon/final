@@ -11,7 +11,10 @@
 <meta charset="UTF-8">
 <title>join-(회원가입)</title>
 </head>
+<<<<<<< HEAD
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+=======
+>>>>>>> refs/heads/master
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
 	<header class="header">

@@ -28,3 +28,7 @@
   <!--- Component JS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/components/transition.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/components/dropdown.js"></script>
+  
+  
+  <!-- kakao -->
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
