@@ -2,12 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>회원탈퇴
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -102,7 +99,7 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 60%; text-align:right">
 								<div class="ui container" style="padding-right:30px; ">
-									<button class="ui blue button" >로그인</button>
+									<button class="ui blue button" >탈퇴신청</button>
 								</div>
 							</div>
 						</div>

@@ -10,6 +10,11 @@ public class ProjectController {
 	//@Autowired
 	ProjectLogic projectLogic;
 
+	//프로젝트 검수중
+	@RequestMapping("/project/projectSubmitted")
+	public String projectSubmitted() {
+		return "/clients/manage/project/projectSubmitted";
+	}
 	//프로젝트 임시저장
 	@RequestMapping("/project/projectSaved")
 	public String projectSaved() {
@@ -24,11 +29,7 @@ public class ProjectController {
 		
 	//*********************************	클라이언트 로그인 네비게이터 메뉴
 	
-	//프로젝트 검수중
-	@RequestMapping("/project/projectSubmitted")
-	public String projectSubmitted() {
-		return "/clients/manage/project/projectSubmitted";
-	}
+	
 	//프로젝트 지원자 모집중
 	@RequestMapping("/project/projectRecruiting")
 	public String projectRecruiting() {
@@ -39,7 +40,7 @@ public class ProjectController {
 	public String projectContractInProgress() {
 		return "/clients/manage/projectContractInProgress";
 	}
-	//프로젝트 종료된 프로젝트
+	//프로젝트 평가대기중 프로젝트
 	@RequestMapping("/project/projectReviewContract")
 	public String projectReviewContract() {
 		return "/clients/manage/projectReviewContract";

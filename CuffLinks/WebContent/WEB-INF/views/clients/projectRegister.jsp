@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>projectRegister-(프로젝트 등록)</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->

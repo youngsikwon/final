@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>마이 커프링크
 </title>

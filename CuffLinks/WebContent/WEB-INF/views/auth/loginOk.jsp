@@ -21,7 +21,7 @@
 		<h5>클라이언트</h5>
 	</div>
 	<div class="column" style="padding-top: 5px; padding-right: 0px; padding-bottom: 0px; padding-left: 5px;">
-		<a class="h11" href="/ClientProfile">기본 정보 수정></a>
+		<a class="h11" href="/auth/ClientProfile">기본 정보 수정></a>
 	</div>
 	<div class="ui dividing header container" style="margin-top: 10px;"></div>
 </div>

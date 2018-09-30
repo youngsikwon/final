@@ -3,15 +3,14 @@
 <%@page import="java.net.HttpURLConnection"%>
 <%@page import="java.net.URL"%>
 <%@page import="java.net.URLEncoder"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%
-String clientId = "Hw_ExZIHTAvn0VlH_Eft";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ðÆ® ¾ÆÀÌµð°ª";
-String clientSecret = "2JfnFiD7Eo";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ðÆ® ½ÃÅ©¸´°ª";
+String clientId = "Hw_ExZIHTAvn0VlH_Eft";//ì• í”Œë¦¬ì¼€ì´ì…˜ í´ë¼ì´ì–¸íŠ¸ ì•„ì´ë””ê°’";
+String clientSecret = "2JfnFiD7Eo";//ì• í”Œë¦¬ì¼€ì´ì…˜ í´ë¼ì´ì–¸íŠ¸ ì‹œí¬ë¦¿ê°’";
 try {
-    String text = URLEncoder.encode("ÀÚ¹Ù", "UTF-8");
-    String apiURL = "https://openapi.naver.com/v1/search/news?display=25&query="+ text; // json °á°ú
-    //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml °á°ú
+    String text = URLEncoder.encode("ìžë°”", "UTF-8");
+    String apiURL = "https://openapi.naver.com/v1/search/news?display=25&query="+ text; // json ê²°ê³¼
+    //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml ê²°ê³¼
     URL url = new URL(apiURL);
     HttpURLConnection con = (HttpURLConnection)url.openConnection();
     con.setRequestMethod("GET");
@@ -19,9 +18,9 @@ try {
     con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
     int responseCode = con.getResponseCode();
     BufferedReader br;
-    if(responseCode==200) { // Á¤»ó È£Ãâ
+    if(responseCode==200) { // ì •ìƒ í˜¸ì¶œ
         br = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
-    } else {  // ¿¡·¯ ¹ß»ý
+    } else {  // ì—ëŸ¬ ë°œìƒ
         br = new BufferedReader(new InputStreamReader(con.getErrorStream(),"UTF-8"));
     }
     String inputLine;

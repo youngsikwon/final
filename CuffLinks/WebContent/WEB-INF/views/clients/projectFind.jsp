@@ -357,9 +357,6 @@
 	
 	
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
-	$('#list:checked').each(function() { 
-	                alert($(this).val());
-	           });
 	
 	$('.list .master.checkbox')
 	.checkbox({
@@ -370,12 +367,14 @@
 	    ;
 	    $childCheckbox.checkbox('check');
 	    
+	   	    
 		/* 개발과 디자인 전체 체크여부 */
-	    if($('#dev').prop("checked")){  
+	    /* if($('#dev').prop("checked")){  
 		  	alert($('.dev').text());
-		} else {
+		} 
+		if($('#design').prop("checked")) {
 		 	alert($('.design').text());	
-		}
+		}  */
 	    
 	  },
 	  // uncheck all children
@@ -390,9 +389,7 @@
 	});
 	$('.list .child.checkbox')
 	  .checkbox({
-		  
-		
-		
+	
 	    // Fire on load to set parent value
 	    fireOnInit : true,
 	    // Change parent state on each child checkbox change
@@ -415,7 +412,7 @@
 	    	  
 	        if( $(this).checkbox('is checked') ) { 
 	        	
-	        	alert($('input:checkbox[name="dev"]'));
+/* 	        	alert($('input:checkbox[name="dev"]')); */
 	        	/* if($('.dev').is(":checked")){
 	        		
 	        		alert($(this).val());

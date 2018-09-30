@@ -50,7 +50,7 @@ else {
 				<div  class="menu">
 					<div class="item" onclick="location.href='../clients/ClientMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
 					<div class="item" onclick="location.href='../clients/ClientInfo'"><i class="user icon"></i>클라이언트 정보관리></div>
-					<div class="item" onclick="location.href='../clients/ClientProfile'"><i class="cog icon"></i>계정설정</div>
+					<div class="item" onclick="location.href='../auth/ClientProfile'"><i class="cog icon"></i>계정설정</div>
 					<div class="item" onclick="location.href='../client/logout'"><i class="power off icon"></i>로그아웃</div>
 				</div>
 			</div>

@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
@@ -14,11 +13,11 @@
   var token = "";
   var email = "";
   var id    = "";
-  // Á¢±Ù ÅäÅ« °ª Ãâ·Â
+  // ì ‘ê·¼ í† í° ê°’ ì¶œë ¥
   token = naver_id_login.oauthParams.access_token;
-  // ³×ÀÌ¹ö »ç¿ëÀÚ ÇÁ·ÎÇÊ Á¶È¸
+  // ë„¤ì´ë²„ ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
-  // ³×ÀÌ¹ö »ç¿ëÀÚ ÇÁ·ÎÇÊ Á¶È¸ ÀÌÈÄ ÇÁ·ÎÇÊ Á¤º¸¸¦ Ã³¸®ÇÒ callback function
+  // ë„¤ì´ë²„ ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ ì´í›„ í”„ë¡œí•„ ì •ë³´ë¥¼ ì²˜ë¦¬í•  callback function
   
   function CapcharService(url){
 
@@ -30,9 +29,9 @@
   
  function popupOpen(){
 
-	   var popUrl = "/otherJoin";   //ÆË¾÷Ã¢¿¡ Ãâ·ÂµÉ ÆäÀÌÁö URL
+	   var popUrl = "/otherJoin";   //íŒì—…ì°½ì— ì¶œë ¥ë  í˜ì´ì§€ URL
 
-	   var popOption = "width=550, height=320, resizable=on, scrollbars=false, status=false";    //ÆË¾÷Ã¢ ¿É¼Ç(optoin)
+	   var popOption = "width=550, height=320, resizable=on, scrollbars=false, status=false";    //íŒì—…ì°½ ì˜µì…˜(optoin)
 
 	      window.open(popUrl,"",popOption);
 

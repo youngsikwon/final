@@ -315,7 +315,7 @@ public class ClientController {
 		return "/clients/info/ClientInfoUpdate";
 	}
 	//프로젝트 프로젝트 히스토리
-	@RequestMapping("/clients'/ClientProjectHistory")
+	@RequestMapping("/clients/ClientProjectHistory")
 	public String ClientProjectHistory() {
 		return "/clients/ClientProjectHistory";
 	}	
