@@ -19,16 +19,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- //chatting -->
 <jsp:include page="../ui.jsp"/>
-<link rel="stylesheet" href="/css/cuffLink.css" />
-<link rel="stylesheet" href="/css/login.css" />
+<link rel="stylesheet" href="../../css/cuffLink.css" />
+<link rel="stylesheet" href="../../css/login.css" />
 <div class="ui inverted segment" style="margin-top: 0px; padding-top: 3px; padding-bottom: 3px; margin-bottom: 0px;">
 	<div class="ui container">
 		<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
-		<div class="ui inverted secondary pointing menu"
-			style="margin-top: 0px;">
-			<a href="/projectRegister" class="active item">프로젝트 등록 </a> <a
-				href="/projectFind" class="item">프로젝트 찾기 </a> <a
-				href="/partnersList" class="item">파트너스 목록 </a>
+		<div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
+			<a href="/projectRegister" class="projectRegister item">프로젝트 등록 </a> 
+			<a href="/projectFind" class="projectFind item">프로젝트 찾기 </a>
+		    <a href="/partnersList" class="partnersList item">파트너스 목록 </a>
 			<div class="right menu">
 				<button id ="b_login" class="ui button" style="margin-right: 10px;" onclick="window.location.href='/login'" />
 					로그인

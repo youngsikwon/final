@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectDao {
 	
-	@Autowired
+	//@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	int result;
 	List<Map<String,Object>> list;
 	
 	public int insert() {
-
+		// insert 부분 로직처리
 		result = sqlSessionTemplate.insert("insert");
 		return result;
 	}
 
 	public int update() {
-
+		// update 부분 처리
 		result = sqlSessionTemplate.update("update");
 		return result;
 	}
@@ -33,7 +33,7 @@ public class ProjectDao {
 	}
 
 	public int delete() {
-
+		// delete 부분 처리
 		result = sqlSessionTemplate.delete("delete");
 		return result;
 	}

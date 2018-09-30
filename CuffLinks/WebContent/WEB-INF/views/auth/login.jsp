@@ -100,19 +100,9 @@ var isok = true;
 		<div class="ui">
 			<!-- header 시작 -->
 			<div class="ui">
-				<jsp:include page="../common/menu/hearderMenuLogout.jsp" />
+				<jsp:include page="../common/menu/headerMenu.jsp" />
 			</div>
 			<!-- header 종료 -->
-
-			<div class="ui">
-				<!-- header와 navigation 여백 -->
-			</div>
-
-			<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp" />
-			</div>
-			<!-- navigation menu 종료-->
 		</div>
 	</header>
 
@@ -238,7 +228,7 @@ var isok = true;
 										<div class="ui fluid animated fade button" tabindex="0">
 											<div class="visible content">회원가입</div>
 											<div class="hidden content">
-												<a href="#">Join Click</a>
+												<a href="/auth/join">Join Click</a>
 											</div>
 										</div>
 									</div>

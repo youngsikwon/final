@@ -1,12 +1,28 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+ <%
+    Cookie[]    cs          = request.getCookies();
+    HttpSession infoSession = request.getSession();
+    Map<String,Object> info = null;
+    int      login_cnt = 0;
+    for(int i = 0; i<cs.length;i++){
+	
+	String cName = cs[i].getName();
+	  if("id".equals(cName)){
+		
+		  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+		
+	  }
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="../../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>검수중</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="/css/cuffLink.css" />
+<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -17,14 +33,6 @@
 				<jsp:include page="../../../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
@@ -92,7 +100,7 @@
 	<!-- footer 시작-->
 		<footer class="footer">
 			<div class="ui inverted segment">
-					<jsp:include page="../../../common/menu/footerMenu.jsp"/>
+				<jsp:include page="../../../common/menu/footerMenu.jsp"/>
 			</div>
 		</footer>
 	<!-- footer 끝-->

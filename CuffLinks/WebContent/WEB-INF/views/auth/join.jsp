@@ -22,16 +22,6 @@
 				<jsp:include page="../common/menu/headerMenu.jsp" />
 			</div>
 			<!-- header 종료 -->
-
-			<div class="ui">
-				<!-- header와 navigation 여백 -->
-			</div>
-
-			<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp" />
-			</div>
-			<!-- navigation menu 종료-->
 		</div>
 	</header>
 	<script type="text/javascript">
@@ -280,7 +270,7 @@
 										<div class="column container" style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
 											<p>프로젝트를 의뢰하고 싶습니다</p>
 											<div class="ui image">
-												<img src="./image/client.jpg" style="padding: 10px">
+												<img src="../image/client.jpg" style="padding: 10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked" value="1">
@@ -298,7 +288,7 @@
 										<div class="column container" style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
 											<p>일거리를 찾고 있습니다</p>
 											<div class="ui image">
-												<img src="./image/partners.jpg" style="padding: 10px">
+												<img src="../image/partners.jpg" style="padding: 10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked" value="2">
@@ -390,7 +380,7 @@
 									<div class="ui fluid animated fade button" tabindex="0" onClick="b_join()">
 										<div class="visible content">회원가입</div>
 										<div class="hidden content">
-											<a href="#">Join Click</a>
+											Join Click
 										</div>
 									</div>
 								</div>

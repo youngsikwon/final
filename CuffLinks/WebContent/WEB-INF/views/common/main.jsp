@@ -10,24 +10,26 @@
 </style>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- //chatting -->
+<link rel="stylesheet" href="../css/main.css" />
 </head>
 <body>
 	<div class="wrap">
 		<div class="ui container">
 			<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
-				<a href="/projectRegister" class="active item">프로젝트 등록 </a> 
-				<a href="/projectFind" class="item">프로젝트 찾기 </a> 
-				<a href="/partnersList" class="item">파트너스 목록 </a>
+			<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
+				<a href="../clients/projectRegister" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
+				<a href="../clients/projectFind" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
+				<a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='./login'" />로그인</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='./join'" />회원가입</button>
+						<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'" />로그인</button>
+						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'" />회원가입</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<p></p>
+
 		<div style="text-align: center;">
 			<h4>앱 개발, 웹 디자인, 쇼핑몰제작, 워드프레스 제작등</h4>
 			<h1>빠르고 안전한 아웃소싱 플랫폼</h1>
@@ -61,7 +63,11 @@
 	</div>
 	<div style="background-color: rgb(243, 244, 247); height: 43em;">
 		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
+<<<<<<< HEAD
 			<img src="./image/logo.png" alt="" style="margin-right: 10px;" />
+=======
+			<img src="../image/logo.png" alt="" style="margin-right: 10px;" />
+>>>>>>> refs/remotes/origin/덕수TO재현
 			등록된 프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 50px;">
@@ -87,7 +93,7 @@
 		</div>
 	</div>
 	<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-		<img src="./img/logo.png" alt="" style="margin-right: 10px;" /> 우리와
+		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 우리와
 		함께하는 회사
 	</div>
 	<div class="ui container" style="padding-top: 50px; text-align: center">

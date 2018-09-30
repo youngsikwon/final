@@ -31,7 +31,7 @@
 
 
 .wrap {
-	background-image: url("./img/배너.png");
+	background-image: url("../image/배너.png");
 	height: 400px;
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
