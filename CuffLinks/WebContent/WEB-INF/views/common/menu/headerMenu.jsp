@@ -27,13 +27,13 @@
 			<a href="../clients/projectRegister" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
 			<a href="../clients/projectFind" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
 			<a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
-			<div class="right menu">
-				<div class="right menu">
+			<div class="right mini menu">
+				<div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
 <%
 if(info==null) {
 %>
 					
-						<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'" />로그인</button>
+						<button class="ui button" style="margin-right: 10px; " onclick="location.href='/auth/login'" />로그인</button>
 						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'" />회원가입</button>
 					
 <%
@@ -50,7 +50,7 @@ else {
 				<div  class="menu">
 					<div class="item" onclick="location.href='../clients/ClientMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
 					<div class="item" onclick="location.href='../clients/ClientInfo'"><i class="user icon"></i>클라이언트 정보관리></div>
-					<div class="item" onclick="location.href='../auth/ClientProfile'"><i class="cog icon"></i>계정설정</div>
+					<div class="item" onclick="location.href='../clients/ClientProfile'"><i class="cog icon"></i>계정설정</div>
 					<div class="item" onclick="location.href='../client/logout'"><i class="power off icon"></i>로그아웃</div>
 				</div>
 			</div>

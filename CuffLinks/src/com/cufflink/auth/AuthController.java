@@ -21,9 +21,9 @@ public class AuthController {
 		return "auth/otherJoin";
 	}
 	//로그인성공
-	@RequestMapping("/auth/loginSuccess")
+	@RequestMapping("/auth/loginOk")
 	public String loginSuccess() {
-		return "auth/loginSuccess";
+		return "auth/loginOk";
 	}
 	//회원가입
 	@RequestMapping("/auth/join")

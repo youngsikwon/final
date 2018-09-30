@@ -49,20 +49,20 @@ public class MainPage {
 	}
 
 
-	@RequestMapping("/login")
+/*	@RequestMapping("/login")
 	public String login() {
 		return "auth/login";
-	}
+	}*/
 	
 	@RequestMapping("/loginSuccess")
 	public String loginSuccess() {
 		return "auth/loginSuccess";
 	}
 
-	@RequestMapping("/join")
+/*	@RequestMapping("/join")
 	public String join() {
 		return "auth/join";
-	}
+	}*/
 
 	@RequestMapping("/projectFind")
 	public String projectFind() {

@@ -228,7 +228,7 @@ var isok = true;
 										<div class="ui fluid animated fade button" tabindex="0">
 											<div class="visible content">회원가입</div>
 											<div class="hidden content">
-												<a href="/clients/join">Join Click</a>
+												<a href="/auth/join">Join Click</a>
 											</div>
 										</div>
 									</div>

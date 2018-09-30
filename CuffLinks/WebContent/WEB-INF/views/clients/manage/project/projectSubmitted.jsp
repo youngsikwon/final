@@ -21,8 +21,8 @@
 <jsp:include page="../../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>검수중</title>
-<link rel="stylesheet" href="../../css/cuffLink.css" />
-<link rel="stylesheet" href="../../css/login.css" />
+<link rel="stylesheet" href="/css/cuffLink.css" />
+<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -100,7 +100,7 @@
 	<!-- footer 시작-->
 		<footer class="footer">
 			<div class="ui inverted segment">
-					<jsp:include page="../../../common/menu/footerMenu.jsp"/>
+				<jsp:include page="../../../common/menu/footerMenu.jsp"/>
 			</div>
 		</footer>
 	<!-- footer 끝-->
