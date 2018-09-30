@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <title>알림설정
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->

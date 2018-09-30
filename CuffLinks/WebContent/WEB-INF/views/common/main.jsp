@@ -15,7 +15,6 @@
 <body>
 	<div class="wrap">
 		<div class="ui container">
-			<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
 			<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 				<a href="../clients/projectRegister" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
@@ -63,11 +62,7 @@
 	</div>
 	<div style="background-color: rgb(243, 244, 247); height: 43em;">
 		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-<<<<<<< HEAD
-			<img src="./image/logo.png" alt="" style="margin-right: 10px;" />
-=======
 			<img src="../image/logo.png" alt="" style="margin-right: 10px;" />
->>>>>>> refs/remotes/origin/덕수TO재현
 			등록된 프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 50px;">

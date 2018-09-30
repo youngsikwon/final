@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <title>비밀번호변경
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -86,11 +84,19 @@
 									twins0313@naver.com
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
-									<span>*</span>비밀번호
+									<span>*</span>기존비밀번호
 								</div>
 								<div class="column container" style="padding: 10px; width: 60%;">
 									<div class="ui input">
-										<input type="text" placeholder="비밀번호를 입력하세요." size="45px">
+										<input type="text" placeholder="비밀번호를 입력하세요." size="25px">
+									</div>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 30%;">
+									<span>*</span>변경비밀번호
+								</div>
+								<div class="column container" style="padding: 10px; width: 60%;">
+									<div class="ui input">
+										<input type="text" placeholder="비밀번호를 입력하세요." size="25px">
 									</div>
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
@@ -98,7 +104,7 @@
 								</div>
 								<div class="column container" style="padding: 10px; width: 60%; text-align:right">
 									<div class="ui container" style="padding-right:30px; ">
-										<button class="ui blue button" >로그인</button>
+										<button class="ui blue button" >비밀번호 변경</button>
 									</div>
 								</div>
 							</div>
