@@ -9,12 +9,7 @@
 <meta charset="UTF-8">
 <title>join-(회원가입)</title>
 </head>
-<<<<<<< HEAD
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"charset="utf-8"></script>
-=======
-
-   
->>>>>>> refs/heads/master
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
 	<header class="header">
@@ -47,14 +42,14 @@
 
 	<!----------------------------------------------------------------------- main content 시작 -->
 	<!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment  contentMain-join">
+	<div class="ui container raised segment  contentMain">
 
 		<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
 					<div class="column" style="text-align: left">
-						<h3 class="content-text">회원가입</h3>
+						<h3 class="content-text">타사 인증 회원가입</h3>
 						<small class="small-text">CuffLink에 오신 것을 환영합니다.</small>
 					</div>
 					<div class="column" style="text-align: right; margin: 10px 0px;">
@@ -72,16 +67,13 @@
 		<!-- main 입력 시작-->
 		<div class="ui container">
 			<div class="content-middle-join">
-				<div class="ui two column grid container" style="padding: 20px">
-					<div class="column grid"
-						style="padding: 10px; width: 60%; border-right: 1px solid #dedede;">
+				<div class="ui two column grid container" style="padding: 20px; ">
+					<div class="column grid" style="padding: 10px; width: 100%; text-align: right; ">
 						<!-- form 시작 ================================================================================================================================== -->
-						<form id="f_join" name="join">
-							
-							<div class="column container" style="padding: 10px; width: 70%;">
+						<form id="f_join" name="join" >
+							<div class="column container" style="padding: 10px; width: 90%; margin: 0 auto;">
 								<div class="ui two column grid container" style="padding: 10px;">
-									<div class="column container"
-										style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
+									<div class="column container" style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
 										<p>프로젝트를 의뢰하고 싶습니다</p>
 										<div class="ui image">
 											<img src="./image/client.jpg" style="padding: 10px">
@@ -122,22 +114,14 @@
 							</div>
 						</form>
 						<!-- form 끝 ================================================================================================================================== -->
+						<div style="padding: 10px;"></div>
 						<div class="ui two column grid container">
 							<div class="column"
-								style="padding: 10px; width: 50%; text-align: right;">
-								<div id = "b_join" class="ui column animated fade button" tabindex="0">
-									<div class="visible content">다 음</div>
+								style="padding: 10px; width: 100%; text-align: right; margin-right: 55px;">
+								<div id="b_join" class="ui column animated fade button" tabindex="0">
+									<div class="visible content">가입 완료</div>
 									<div class="hidden content">
-										<a href = "#">Next Click</a>
-									</div>
-								</div>
-							</div>
-							<div class="column"
-								style="padding: 10px; width: 50%; text-align: left;">
-								<div class="ui column animated fade button" tabindex="0">
-									<div class="visible content">취 소</div>
-									<div class="hidden content">
-										<a href = "/login">Cancle Click</a>
+										<a href="/auth/login">Next Click</a>
 									</div>
 								</div>
 							</div>

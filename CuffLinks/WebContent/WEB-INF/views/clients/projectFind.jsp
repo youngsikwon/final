@@ -76,12 +76,12 @@
 								<div class="ui relaxed list " style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 									<div class="item" style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
 										<div class="ui master checkbox">
-											<input type="checkbox" id="dev" name="dev"> <div class="dev h11">개발</div>
+											<input class="master dev" type="checkbox" id="dev" name="dev"> <div class="dev h11">개발</div>
 										</div>
 										<div id="list" class="list">
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_web" name="dev_web"> <div class="dev_web h11">웹</div>
+													<input class="dev" type="checkbox" id="dev_web" name="dev_web" value="웹"> <div class="dev_web h11">웹</div>
 												</div>
 											</div>
 											<div class="item">
@@ -91,99 +91,99 @@
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_wordPress" name="dev" value="워드프레스"> <div class="dev_wordPress h11">워드프레스</div>
+													<input class="dev" type="checkbox" id="dev_wordPress" name="dev" value="워드프레스" onclick='a()'> <div class="dev_wordPress h11">워드프레스</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_publishing" name="dev" value="퍼블리싱"> <div class="dev_publishing h11">퍼블리싱</div>
+													<input class="dev" type="checkbox" id="dev_publishing" name="dev" value="퍼블리싱"> <div class="dev_publishing h11">퍼블리싱</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_software" name="dev" value="일반 소프트웨어"> <div class="dev_software h11">일반 소프트웨어</div>
+													<input class="dev" type="checkbox" id="dev_software" name="dev" value="일반 소프트웨어"> <div class="dev_software h11">일반 소프트웨어</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_commerce" name="dev" value="커머스,쇼핑몰"> <div class="dev_commerce h11">커머스,쇼핑몰</div>
+													<input class="dev" type="checkbox" id="dev_commerce" name="dev" value="커머스,쇼핑몰"> <div class="dev_commerce h11">커머스,쇼핑몰</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_game" name="dev" value="게임"> <div class="dev_game h11">게임</div>
+													<input class="dev" type="checkbox" id="dev_game" name="dev" value="게임"> <div class="dev_game h11">게임</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">임베디드</div>
+													<input class="dev" type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">임베디드</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="dev_outside" name="dev" value="기타"> <div class="dev_outside h11">기타</div>
+													<input class="dev" type="checkbox" id="dev_outside" name="dev" value="기타"> <div class="dev_outside h11">기타</div>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="item" style="text-align: left;">
 										<div class="ui master checkbox">
-											<input type="checkbox" id="design" name="design"> <div  class="design h11">디자인</div>
+											<input class="master design" type="checkbox" id="design" name="design"> <div  class="design h11">디자인</div>
 										</div>
 										<div class="list">
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_web" name="design_web"> <div class="design_web h11">웹</div>
+													<input class="design" type="checkbox" id="design_web" name="design_web"> <div class="design_web h11">웹</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_application" name="design_application"> <div class="design_application h11">애플리케이션</div>
+													<input class="design" type="checkbox" id="design_application" name="design_application"> <div class="design_application h11">애플리케이션</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_product" name="design_product"> <div class="design_product h11">제품</div>
+													<input class="design" type="checkbox" id="design_product" name="design_product"> <div class="design_product h11">제품</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_presentation" name="design_presentation"> <div class="design_presentation h11">프레젠테이션</div>
+													<input class="design" type="checkbox" id="design_presentation" name="design_presentation"> <div class="design_presentation h11">프레젠테이션</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_print" name="design_print"> <div class="design_print h11">인쇄물</div>
+													<input class="design" type="checkbox" id="design_print" name="design_print"> <div class="design_print h11">인쇄물</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_commerce" name="design_commerce"> <div class="design_commerce h11">커머스,쇼핑몰</div>
+													<input class="design" type="checkbox" id="design_commerce" name="design_commerce"> <div class="design_commerce h11">커머스,쇼핑몰</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_logo" name="design_logo"> <div class="design_logo h11">로고</div>
+													<input class="design" type="checkbox" id="design_logo" name="design_logo"> <div class="design_logo h11">로고</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_graphics" name="design_graphics"> <div class="design_graphics h11">그래픽</div>
+													<input class="design" type="checkbox" id="design_graphics" name="design_graphics"> <div class="design_graphics h11">그래픽</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_vision" name="design_vision"> <div class="design_vision h11">영상</div>
+													<input class="design" type="checkbox" id="design_vision" name="design_vision"> <div class="design_vision h11">영상</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_game" name="design_game"> <div class="design_game h11">게임</div>
+													<input class="design" type="checkbox" id="design_game" name="design_game"> <div class="design_game h11">게임</div>
 												</div>
 											</div>
 											<div class="item">
 												<div class="ui child checkbox">
-													<input type="checkbox" id="design_outside" name="design_outside"> <div class="design_outside h11">기타</div>
+													<input class="design" type="checkbox" id="design_outside" name="design_outside"> <div class="design_outside h11">기타</div>
 												</div>
 											</div>
 										</div>
@@ -353,9 +353,17 @@
 	/************************************************************ 프로젝트 찾기 - 미팅지역선택   */
 		
 	<script type="text/javascript">
-	
-	
-	
+	    /* $('.dev').click(function() {
+			console.log($(this))
+	        if($(this).prop('checked'))
+	        {
+	            alert("체크: "+$(this).val());
+	        }
+	        else
+	        {
+	        	alert("체크해제: "+$(this).val());
+	        }
+	    });  */
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
 	
 	$('.list .master.checkbox')
@@ -367,14 +375,14 @@
 	    ;
 	    $childCheckbox.checkbox('check');
 	    
-	   	    
 		/* 개발과 디자인 전체 체크여부 */
-	    /* if($('#dev').prop("checked")){  
-		  	alert($('.dev').text());
+	     if($('#dev').prop("checked")){  
+		  	 alert($('.dev').text()); 
+	    	
 		} 
 		if($('#design').prop("checked")) {
 		 	alert($('.design').text());	
-		}  */
+		} 
 	    
 	  },
 	  // uncheck all children
@@ -387,9 +395,10 @@
 	  }
 
 	});
+	
 	$('.list .child.checkbox')
 	  .checkbox({
-	
+		
 	    // Fire on load to set parent value
 	    fireOnInit : true,
 	    // Change parent state on each child checkbox change
@@ -400,28 +409,25 @@
 	        $checkbox       = $listGroup.find('.checkbox'),
 	        allChecked      = true,
 	        allUnchecked    = true
-	      ;
-	  		
+	        ;
  
 	      // check to see if all other siblings are checked or unchecked
 	      $checkbox.each(function() {
 	    	  
-	    	/* if($("input[name=current_proudct]:checked")){
-	    		alert("여기");
-	    	}  */
-	    	  
-	        if( $(this).checkbox('is checked') ) { 
-	        	
-/* 	        	alert($('input:checkbox[name="dev"]')); */
-	        	/* if($('.dev').is(":checked")){
-	        		
-	        		alert($(this).val());
-	        		
-	        	} */
-	        	
-	        	
-	        	
-	        	allUnchecked = false;
+	        if($(this).checkbox('is checked') ) { 
+			  
+	        /*  console.log($('.list .child.checkbox .dev').attr("checked").val()); */
+	        
+	        var countChecked = function() {
+			  
+			  alert($( "input:checked" ).val());
+			};
+			countChecked();
+			
+			
+			$( "input[name=dev]" ).on( "click", countChecked );
+	          
+	          allUnchecked = false;
 	        	 
 	        }
 	        else {
