@@ -353,17 +353,9 @@
 	/************************************************************ 프로젝트 찾기 - 미팅지역선택   */
 		
 	<script type="text/javascript">
-	    /* $('.dev').click(function() {
-			console.log($(this))
-	        if($(this).prop('checked'))
-	        {
-	            alert("체크: "+$(this).val());
-	        }
-	        else
-	        {
-	        	alert("체크해제: "+$(this).val());
-	        }
-	    });  */
+	
+	
+	
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
 	
 	$('.list .master.checkbox')
@@ -396,13 +388,28 @@
 
 	});
 	
-	$('.list .child.checkbox')
+	 if($('#dev_web').prop("checked")){  
+	  	 alert($('.dev').text()); 
+    	
+	} 
+	
+	/*  $("#dev_web").click(function() {
+			$("input[class=dev]:checked").each(function() {
+	  			var dev_sub = $(this).val();
+	  			alert(dev_sub);
+			});
+		}); */
+
+	 $('.list .child.checkbox')
+	
 	  .checkbox({
-		
+		 
 	    // Fire on load to set parent value
 	    fireOnInit : true,
 	    // Change parent state on each child checkbox change
+	    
 	    onChange   : function() {
+
 	      var
 	        $listGroup      = $(this).closest('.list'),
 	        $parentCheckbox = $listGroup.closest('.item').children('.checkbox'),
@@ -413,20 +420,25 @@
  
 	      // check to see if all other siblings are checked or unchecked
 	      $checkbox.each(function() {
-	    	  
-	        if($(this).checkbox('is checked') ) { 
-			  
-	        /*  console.log($('.list .child.checkbox .dev').attr("checked").val()); */
-	        
-	        var countChecked = function() {
-			  
-			  alert($( "input:checked" ).val());
-			};
-			countChecked();
-			
-			
-			$( "input[name=dev]" ).on( "click", countChecked );
-	          
+	    	
+	    	if($(this).checkbox('is checked') ) { 
+	    		
+	    		/* $("input[class=dev]:checked").each(function() { */
+		  			/* var dev_sub = $(this).text();
+		  			alert(dev_sub); */
+	    	/* 	});	 */
+	    		
+	    	var items=[];
+/* 			$('input[id="dev_web"]:checkbox:checked').each(function(){items.push($(this).val());}); */
+			$('input[class="dev"]:checkbox:checked').each(function(){items.push($('.dev:checked').serialize().val());});
+			 
+			var tmp = items.join(',');
+			alert("이건가"+tmp);
+
+
+
+	    	
+	    	
 	          allUnchecked = false;
 	        	 
 	        }
