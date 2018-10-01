@@ -18,8 +18,13 @@
         FROM dual
 	</select>
 	
+	<!-- 네아로 카카오 연동시 유저의 정보를 가져온다.  -->
+	<select id = "UserInfoEmail" parameterType = "java.lang.String" resultType = "map">
+	select s_email,s_id,s_pw,s_kinds,s_shape,s_date,s_token from SIGNUP where s_email = #{value}
+	</select>
+	
 	<insert id="Join" parameterType="map">
-		insert into SIGNUP(s_email,s_id,s_pw,s_shape) values(#{j_email},#{j_id},#{j_pw},#{j_c})
+		insert into SIGNUP(s_email,s_id,s_pw,s_shape,s_kinds,s_date) values(#{j_email},#{j_id},#{j_pw},#{s_shape},#{radio},to_char(sysdate,'YYYY/MM/DDHH24:MI:SS'))
 	</insert> 
 	
 	<insert id="AJoin" parameterType="map">
@@ -27,7 +32,7 @@
 	</insert> 
 	
 	<insert id="JoinCapchar" parameterType="map">
-		insert into SIGNUP(s_email,s_id,s_shape,s_Tokens) values(#{j_email},#{j_id},#{j_shape},#{j_token})
+		insert into SIGNUP(s_email,s_id,s_shape,s_Token,s_kinds,s_date) values(#{j_email},#{j_id},#{j_shape},#{j_token},#{radio},to_char(sysdate,'YYYY/MM/DDHH24:MI:SS'))
 	</insert> 
 
   <update id="proc_ClientUpdate" statementType="CALLABLE" parameterType="hashmap">

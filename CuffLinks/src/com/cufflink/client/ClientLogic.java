@@ -61,7 +61,7 @@ public class ClientLogic {
 
 	public int NaverCapchar(Map<String, Object> pMap) {
 		
-		logger.info("NaverCapchar 호출 성공");
+		
 		pMap.put("f_email", pMap.get("j_email"));
 		int result = clientDao.EmailExit(pMap);
 
@@ -82,6 +82,17 @@ public class ClientLogic {
 	public void UserUpdate(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
 		clientDao.UserUpdate(pMap);
+		
+	}
+
+	public Map<String,Object> UserInfoEmail(Map<String, Object> pMap) {
+		
+		Map<String,Object> map = null;
+		
+		map = clientDao.UserInfoEmail(pMap);
+		
+		return map;
+		// TODO Auto-generated method stub
 		
 	}
 	

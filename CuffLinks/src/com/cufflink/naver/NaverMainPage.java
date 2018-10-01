@@ -175,6 +175,8 @@ public class NaverMainPage {
 		
 		return Integer.parseInt(num);
 	}
+	
+	
 	//아이디 체크 유무 캡차
 	@RequestMapping("/capcharLogic")
 	public int callbackLogic(HttpServletRequest req,@RequestParam Map<String,Object> pMap, Model mod) {
@@ -184,6 +186,8 @@ public class NaverMainPage {
 		logger.info(result);
 		//중복되는 이메일이 없을때
 		if(result == 0) {
+			
+			
 			return 0;
 		}
 

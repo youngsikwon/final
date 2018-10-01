@@ -46,17 +46,7 @@ public class ClientDao {
 	public void join(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
 		int result = 0;
-		
-		
-		//클라이언트
-		if(pMap.get("radio").equals("1")) {
-			pMap.put("j_c", 1);
-		}
-		else {
-			pMap.put("j_c", 0);
-		}
-		   
-		    
+	
 		result = sqlSessionTemplate.insert("Join",pMap);
 		
 	}
@@ -71,9 +61,14 @@ public class ClientDao {
 		
 	int result = 0;
 		
-
-		
-		result = sqlSessionTemplate.insert("JoinCapchar",pMap);
+	logger.info("JoinCapchar 호출 성공 ");
+	
+	logger.info(pMap.get("j_email"));
+	logger.info(pMap.get("j_id"));
+	logger.info(pMap.get("j_shape"));
+	logger.info(pMap.get("j_token"));
+	logger.info(pMap.get("radio"));
+        result = sqlSessionTemplate.insert("JoinCapchar",pMap);
 		return result;
 	}
 
@@ -95,6 +90,14 @@ public class ClientDao {
 	
 	    logger.info(result);
 	
+	}
+
+	public Map<String, Object> UserInfoEmail(Map<String, Object> pMap) {
+		
+		Map<String,Object> map = null;
+		map = sqlSessionTemplate.selectOne("UserInfoEmail", (String)pMap.get("j_email"));
+	
+		return map;
 	}
 	
 	

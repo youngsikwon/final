@@ -6,6 +6,20 @@
 <title>마이 커프링크
 </title>
 </head>
+<body>
+
+<!----------------------------------------------------------------------- top 시작 -->
+	<header class="header">
+		<div class="ui">
+	<!-- header 시작 -->
+			<div class="ui">
+				<jsp:include page="../common/menu/headerMenu.jsp"/>
+			</div>
+	<!-- header 종료 -->
+		</div>
+	</header>
+<!----------------------------------------------------------------------- top 끝 -->
+
 <script type="text/javascript">
 function news(title){
 	 var Json2 = "";
@@ -42,32 +56,20 @@ function news(title){
 	 }
  $(document).ready(function(){
 	 
+
 	 news("자바");
 	 
 	 $("#search").keydown(function (key) {
 		 
 	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
 	        
-	            // news($("#search").val()); 
+	             news($("#search").val()); 
 	        } 
 	 
 	    });
  });
  
 </script>
-<body>
-
-<!----------------------------------------------------------------------- top 시작 -->
-	<header class="header">
-		<div class="ui">
-	<!-- header 시작 -->
-			<div class="ui">
-				<jsp:include page="../common/menu/headerMenu.jsp"/>
-			</div>
-	<!-- header 종료 -->
-		</div>
-	</header>
-<!----------------------------------------------------------------------- top 끝 -->
 
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
@@ -78,7 +80,7 @@ function news(title){
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 860px">
+		<div class="ui two column grid container" style="height: auto">
 			<div class="ui column" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
 				<div class="ui segment container" style="padding: 20px; padding-bottom: 20px; left: 0px; border: 1px solid #dedede;">
 					<div style="padding-bottom:0px;">
@@ -92,13 +94,10 @@ function news(title){
 							<h4 style="text-align: left">뉴스센터</h4>
 						</div>
 						<div class="column" style="padding-bottom:20px; width:50%;">
-						<div class="ui left icon input"
-									style="padding: 10px; width: 60%;">
-							<input id="search" name="search" type="text" placeholder="검색"
-										size="40px" style="text-align: right"> <i class="id badge icon"></i>
-										</div>
+							<div class="ui left icon input"	style="padding: 10px; width: 60%;">
+								<input id="search" name="search" type="text" placeholder="검색" size="40px" style="text-align: right"> <i class="id badge icon"></i>
+							</div>
 						</div>
-								
 					</div>
 					<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 						<hr class="garo" style="" />

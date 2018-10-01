@@ -21,11 +21,8 @@
 <meta charset="UTF-8">
 <title>login</title>
 </head>
-<<<<<<< HEAD
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-=======
->>>>>>> refs/heads/master
 <script type="text/javascript">
 
 function CapcharService(url){
@@ -62,10 +59,7 @@ function loginWithKakao() {
         	        	}
         	        	else{
         	        		
-        	        		$("#j_token").val("123123");
         	        		$("#j_email").val(res.kakao_account.email);
-        	        		$("#j_id").val(res.id);
-        	        		$("#s_shape").val("kakao");
         	        		CapcharService("/capcharLogin");
         	        		
         	        	}
