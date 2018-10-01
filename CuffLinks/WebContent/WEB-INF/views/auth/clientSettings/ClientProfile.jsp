@@ -1,4 +1,21 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+ <%
+    Cookie[]    cs          = request.getCookies();
+    HttpSession infoSession = request.getSession();
+    Map<String,Object> info = null;
+    int      login_cnt = 0;
+    for(int i = 0; i<cs.length;i++){
+	
+	String cName = cs[i].getName();
+	  if("id".equals(cName)){
+		
+		  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+		
+	  }
+    }
+ 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +23,7 @@
 <title>계정설정(기본수정)
 </title>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -20,8 +38,19 @@
 	</header>
 	<script type="text/javascript">
 	
+	  function addPlusFriend() {
+	    	Kakao.PlusFriend.addFriend({
+	    		plusFriendId: '_Mxhhuj'
+	    	});
+	    }
 	
 	$(document).ready(function(){
+
+		Kakao.init('8e91bf2951ff7ac21938e4a240554ea4');
+		
+		$("#plusfriend").click(function(){
+			addPlusFriend();
+		});
 		
 		$('#userInfo1').click(function(){
 			
@@ -106,9 +135,9 @@
 							</div>
 
 							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">아이디</div>
-							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">twins0313</div>
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_ID")%></div>
 							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">이메일</div>
-							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">twins0313@naver.com</div>
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_EMAIL")%></div>
 							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
 								<hr class="dotted" />
 							</div>
@@ -180,7 +209,9 @@
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
 									<select name="years" class="ui search dropdown">
-										<option value="">2018</option>
+									    <%for(int i = 1918; i<2019;i++){ %>
+										<option value=""><%=i %></option>
+										<%} %>
 									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_mounth" name="f_mounth" type="text" size="5px"><i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_day" name="f_day" type="text" size="5px">
 								</div>
 							</div>
@@ -215,7 +246,8 @@
 							<div name="f_email" class="center column container" style="padding: 17px; width: 30%;"></div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div style="padding-right: 20px; text-align: right;">
-									<button id="userInfo1" class="ui blue button">등록완료</button>
+					            	<button type = "button" id="plusfriend" class="ui blue button">플러스친구</button>
+									<button type = "button" id="userInfo1" class="ui blue button">등록완료</button>
 								</div>
 							</div>
 						</div>

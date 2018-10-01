@@ -47,7 +47,7 @@ function capchar(value){
 		success : function(captchaIMG) {
 
           if(captchaIMG ==5){
-        	  
+        	  alert("Æ²·È½À´Ï´Ù.");
         	  Reload();
         	  
           }

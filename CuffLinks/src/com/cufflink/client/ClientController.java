@@ -100,9 +100,20 @@ public class ClientController {
 
 	@RequestMapping("/clients/join")
 	public String logout(@RequestParam Map<String, Object> pMap) {
-
+		
+		pMap.put("s_shape", "CuffLink");
+		
+		if(pMap.get("radio").equals("1")) {
+			pMap.put("radio", "클라이언트");
+		}
+		else {
+			pMap.put("radio", "파트너스");
+		}
+			
+		
 		clientLogic.join(pMap);
 
+		
 		return "auth/login";
 
 	}
@@ -127,8 +138,8 @@ public class ClientController {
 	@RequestMapping("/capcharJoin")
 	public String capcharJoin(HttpServletResponse res, @RequestParam Map<String, Object> pMap, Model mod) {
 
-		logger.info("호출 성공 ~~~~~~~~~~~");
-
+		
+		logger.info("capcharJoin");
 		Cookie cookie = new Cookie("j_token", (String) pMap.get("j_token"));
 		cookie.setMaxAge(60 * 60);
 		res.addCookie(cookie);
@@ -141,7 +152,7 @@ public class ClientController {
 		cookie = new Cookie("s_shape", (String) pMap.get("s_shape"));
 		cookie.setMaxAge(60 * 60);
 		res.addCookie(cookie);
-
+	
 		return "auth/c_join";
 
 	}
@@ -157,15 +168,27 @@ public class ClientController {
 
 	}
 	
-/*	@RequestMapping("/capcharLogin")
-	public String capcharLogin(@RequestParam Map<String, Object> pMap, Model mod) {
+	@RequestMapping("/capcharLogin")
+	public String capcharLogin(HttpServletRequest req, HttpServletResponse res,@RequestParam Map<String, Object> pMap, Model mod) {
 
-		int result = 0;
-		result = clientLogic.Emailcheck(pMap);
-		mod.addAttribute("result", result);
-		return "forward:EmailCheck.jsp";
+		//여기는  로그인 네아로 카카오 연동후 가는곳 
+	
+		HttpSession session = req.getSession();
+		Cookie Id = null;
+		Map<String, Object> map = null;
+		
+		map = clientLogic.UserInfoEmail(pMap);
+		
+	    userID = (String) map.get("S_ID");
+		session.setMaxInactiveInterval(60*60);
+		session.setAttribute((String) map.get("S_ID"), map);
+		Id = new Cookie("id", (String) map.get("S_ID"));
+		Id.setPath("/");
+		res.addCookie(Id);
+		
+	    return "auth/loginOk";
 
-	}*/
+	}
 	
 	@RequestMapping("/capchar/join")
 	public String capcharJoin(HttpServletRequest req, HttpServletResponse res, @RequestParam Map<String, Object> pMap) {
@@ -174,7 +197,15 @@ public class ClientController {
 
 		Cookie del = null;
 		String cookiename = null;
-
+		logger.info("------------------------------------------------------------------------");
+		
+		if(pMap.get("radio").equals("1")) {
+			pMap.put("radio", "클라이언트");
+		}
+		else {
+			pMap.put("radio", "파트너스");
+		}
+		
 		for (int i = 0; i < cookie.length; i++) {
 			cookiename = cookie[i].getName();
 
@@ -203,6 +234,7 @@ public class ClientController {
 				res.addCookie(del);
 			}
 		}
+
 		
 		clientLogic.Njoin(pMap);
 
