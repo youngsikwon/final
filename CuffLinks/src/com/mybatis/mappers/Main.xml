@@ -13,7 +13,7 @@
 		pro_file,
 		pro_end,
 		pro_addr,
-		pro_strt,
+		pro_start,
 		pro_management,
 		pro_contents,
 		c_no,

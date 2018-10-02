@@ -1,5 +1,31 @@
 @charset "utf-8";
 
+
+/************************************************************************************** header */
+
+#mrc-win.show {display: block;}
+.mrc {float: left; margin-top: 0; margin-bottom: 0; width:300px; }
+.mrc .mrc-win {float: left; background: #CEECF5; color: #000;width: 260px; height:30px;margin-top: 4px; padding-top: 5px; border-radius: 15px 0; transform: translateX(-5%); transition: all 0.3s ease-in-out; visibility: hidden;}
+.mrc a {color: #fff; z-index: 100;margin-top: 0; margin-bottom: 0;}
+.mrc a:hover {color: #64FE2E; }
+.icon-font {text-align: center; margin-top: 0px; padding-bottom: 0px; margin-right: 0px;}
+.icon-font ul {margin-top: 0; margin-bottom: 0; }
+.icon-font li {position: relative; display: inline; }
+      /* border-radius: 50%; ==>> 사각의 웹폰트를 원형으로 만들어준다. */
+.icon-font li a {display: inline-block; width: 30px; height: 30px; background-color: #3192bf; color: #fff; font-size: 20px; border-radius: 50%; margin-top: 5px;padding-top: 5px; ;}
+      /* translateX(-50%); ==>> icon-font를 기준으로 중앙정렬 left를 이용하여 중앙에 오도록 정렬*/
+      /* border-radius: 6px 0; ==>> 사각모양의 왼쪽상단 오른쪽하단 둥글게 만들기 */
+.icon-font li a .tool {position: absolute; left: 50%; width: 70px; color: #fff;left -55px; font-size: 11px; background-color: red; padding: 1px 7px; border-radius: 6px 0; opacity: 0; transform: translateX(-50%); transition: all 0.3s ease-in-out; }
+.icon-font li a:hover .tool {opacity: 1; left: -40px;}
+      /* border-top: 5px solid #3192bf; border-left: 5px solid transparent; border-right: 5px solid transparent; ==>> icon-font의 아래삼각형 만들기 */
+.icon-font li a .tool:before {position: absolute; left: 50%; margin-left: -5px; content: "";  bottom: 5px; border-top: -5px solid black; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+      /* ie7일때 .icon-font 버튼 숨기기 */
+      
+.ie7 .icon-font {display: none; }
+      /* ie8일때 .icon-font의 상단 글자 숨기기 */
+.ie8 .icon-font li a .tool {display: none; }
+
+
 /************************************************************************************** chatting */
 #chatbtn {display: block; z-index: 100000; }
 #chatbtn.show {display: none; }

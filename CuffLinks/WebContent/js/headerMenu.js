@@ -1,6 +1,11 @@
 // 상단 버튼에 대한 페이지별 active효과
 $(document).ready(function() {
 
+	$(".icon-font").click(function (e){
+		$('.mrc .mrc-win').show();
+	})
+	
+	
 	//채팅문의시작
 	
 	$(".chatbtn").click(function (e){

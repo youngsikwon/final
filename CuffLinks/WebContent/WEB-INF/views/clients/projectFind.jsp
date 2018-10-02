@@ -76,12 +76,12 @@
 								<div class="ui relaxed list " style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 									<div class="item" style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
 										<div class="ui master checkbox">
-											<input class="master dev" type="checkbox" id="dev" name="dev"> <div class="dev h11">개발</div>
+											<input class="masterdev" id="masterdev" type="checkbox" name="dev" value="개발"> <div class="dev h11">개발</div>
 										</div>
 										<div id="list" class="list">
 											<div class="item">
 												<div class="ui child checkbox">
-													<input class="dev" type="checkbox" id="dev_web" name="dev_web" value="웹"> <div class="dev_web h11">웹</div>
+													<input class="dev" type="checkbox" id="dev_web" name="dev" value="웹"> <div class="dev_web h11">웹</div>
 												</div>
 											</div>
 											<div class="item">
@@ -128,7 +128,7 @@
 									</div>
 									<div class="item" style="text-align: left;">
 										<div class="ui master checkbox">
-											<input class="master design" type="checkbox" id="design" name="design"> <div  class="design h11">디자인</div>
+											<input class="masterdesign" id="masterdesign" type="checkbox" name="design" value="디자인"> <div  class="design h11">디자인</div>
 										</div>
 										<div class="list">
 											<div class="item">
@@ -354,11 +354,11 @@
 		
 	<script type="text/javascript">
 	
-	
+	var ch = 0;
 	
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
 	
-	$('.list .master.checkbox')
+	$('.list .master.checkbox'||'.list .child.checkbox') 
 	.checkbox({
 	  // check all children
 	  onChecked: function() {
@@ -367,14 +367,17 @@
 	    ;
 	    $childCheckbox.checkbox('check');
 	    
-		/* 개발과 디자인 전체 체크여부 */
-	     if($('#dev').prop("checked")){  
-		  	 alert($('.dev').text()); 
-	    	
+		/* 개발 전체 체크여부
+		if($('#masterdev').prop("checked")){  
+			ch = 1;
+			alert($('#masterdev').val()+"체크"); 
 		} 
-		if($('#design').prop("checked")) {
-		 	alert($('.design').text());	
-		} 
+		
+		/* 디자인 전체 체크여부 
+		if($('#masterdesign').prop("checked")){
+			ch = 1;
+			alert($('#masterdesign').val()+"체크");
+		}  */
 	    
 	  },
 	  // uncheck all children
@@ -384,22 +387,20 @@
 	    ;
 	    $childCheckbox.checkbox('uncheck');
 	    
+	   /*  if(!$('#masterdev').prop("checked")){
+	    	ch = 0;
+	    	alert($('#masterdev').val()+" 체크해제"); 
+		} 
+	    
+	    if(!$('#masterdesign').prop("checked")){
+	    	ch = 0;
+	    	alert($('#masterdesign').val()+" 체크해제"); 
+		} */
 	  }
 
 	});
 	
-	 if($('#dev_web').prop("checked")){  
-	  	 alert($('.dev').text()); 
-    	
-	} 
 	
-	/*  $("#dev_web").click(function() {
-			$("input[class=dev]:checked").each(function() {
-	  			var dev_sub = $(this).val();
-	  			alert(dev_sub);
-			});
-		}); */
-
 	 $('.list .child.checkbox')
 	
 	  .checkbox({
@@ -423,26 +424,35 @@
 	    	
 	    	if($(this).checkbox('is checked') ) { 
 	    		
-	    		/* $("input[class=dev]:checked").each(function() { */
-		  			/* var dev_sub = $(this).text();
-		  			alert(dev_sub); */
-	    	/* 	});	 */
-	    		
-	    	var items=[];
-/* 			$('input[id="dev_web"]:checkbox:checked').each(function(){items.push($(this).val());}); */
-			$('input[class="dev"]:checkbox:checked').each(function(){items.push($('.dev:checked').serialize().val());});
-			 
-			var tmp = items.join(',');
-			alert("이건가"+tmp);
-
-
-
+		    	/* if(!$('#masterdev').prop("checked") && ch==0){	
+		    	
+		    		if($('#dev_web').prop("checked")){  
+		    			ch = 2;
+		    			alert($('#dev_web').val()+"체크"); 
+		    		}
+		    		
+	    		}
+ */
 	    	
 	    	
 	          allUnchecked = false;
 	        	 
 	        }
 	        else {
+	        	/* if(!$('#masterdev').prop("checked") && ch==2){	
+
+		    		if(!$('#dev_web').prop("checked") ){
+		    			ch = 0;
+		    			alert($('#dev_web').val()+"체크해제"); 
+		    		} 
+		    		
+	    		} else if(!$('#masterdev').prop("checked") && ch==1)
+	        		
+	    			if(!$('#dev_web').prop("checked") ){
+		    			ch = 0;
+		    			alert($('#dev_web').val()+"체크해제"); 
+		    		}  */
+	        	
 	          allChecked = false;
 	          
 	        }
@@ -451,7 +461,7 @@
 	      // set parent checkbox state, but dont trigger its onChange callback
 	      if(allChecked) {
 	        $parentCheckbox.checkbox('set checked');
-
+	       
 	      }
 	      else if(allUnchecked) {
 	        $parentCheckbox.checkbox('set unchecked');

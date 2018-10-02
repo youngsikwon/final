@@ -6,16 +6,9 @@
 <title>Insert title here</title>
 <jsp:include page="./ui.jsp"/>
 <style>
-.list .masterdev {float: left;}
-.list {}
-.list .item {}
-.list .child {padding-left: 10px; font-size: 13px;}
-.list .child .dev {float: left;}
-.checkbox .h11 {margin-left: 15px;}
 
-.list .masterdev {float: left;}
-.list .masterdesign {float: left;}
-.list {}
+.list .master {float: left; }
+.list {width: 120px; background: rgba(255,255.255,0.5);}
 .list .item {}
 .list .child {padding-left: 10px; font-size: 13px;}
 .list .child .dev {float: left;}
@@ -27,7 +20,7 @@
 	<form>
 		<div class="list">
 			<div class="checkbox">
-				<input id="masterdev" class="masterdev" type="checkbox" id="dev" name="dev" value="개발"> <div class="dev h11">개발</div>
+				<input id="masterdev" class="master" type="checkbox" id="dev" name="dev" value="개발" checked="checked"> <div class="dev h11">개발</div>
 			</div>
 			<div id="list" class="list">
 				<div class="item">
@@ -79,7 +72,7 @@
 		</div>
 		<div class="list">
 			<div class="checkbox">
-				<input id="masterdesign" class="masterdesign" type="checkbox" name="design" value="디자인"> <div class="design h11">디자인</div>
+				<input id="masterdesign" class="master" type="checkbox" name="design" value="디자인" checked="checked"> <div class="design h11">디자인</div>
 			</div>
 			<div id="list" class="list">
 				<div class="item">
@@ -94,17 +87,17 @@
 				</div>
 				<div class="item">
 					<div class="child checkbox">
-						<input class="dev" type="checkbox" id="dev_wordPress" name="dev" value="워드프레스" > <div class="dev_wordPress h11">워드프레스</div>
+						<input class="dev" type="checkbox" id="dev_wordPress" name="dev" value="워드프레스" > <div class="dev_wordPress h11">제품</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="child checkbox">
-						<input class="dev" type="checkbox" id="dev_publishing" name="dev" value="퍼블리싱"> <div class="dev_publishing h11">퍼블리싱</div>
+						<input class="dev" type="checkbox" id="dev_publishing" name="dev" value="퍼블리싱"> <div class="dev_publishing h11">프레젠테이션</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="child checkbox">
-						<input class="dev" type="checkbox" id="dev_software" name="dev" value="일반 소프트웨어"> <div class="dev_software h11">일반 소프트웨어</div>
+						<input class="dev" type="checkbox" id="dev_software" name="dev" value="일반 소프트웨어"> <div class="dev_software h11">인쇄물</div>
 					</div>
 				</div>
 				<div class="item">
@@ -114,12 +107,22 @@
 				</div>
 				<div class="item">
 					<div class="child checkbox">
-						<input class="dev" type="checkbox" id="dev_game" name="dev" value="게임"> <div class="dev_game h11">게임</div>
+						<input class="dev" type="checkbox" id="dev_game" name="dev" value="게임"> <div class="dev_game h11">로고</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="child checkbox">
-						<input class="dev" type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">임베디드</div>
+						<input class="dev" type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">그래픽</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="child checkbox">
+						<input class="dev" type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">영상</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="child checkbox">
+						<input class="dev" type="checkbox" id="dev_embeded" name="dev" value="임베디드"> <div class="dev_embeded h11">게임</div>
 					</div>
 				</div>
 				<div class="item">
@@ -133,18 +136,46 @@
 <div></div>
  
 <script>
-$(this).click(function() {
-
-	if($('#masterdev').prop("checked")){  
-		alert("개발체크"); 
-	} else if(!$('#masterdev').prop("checked")){
-		alert("개발체크해제"); 
-	}
+ $(document).ready(function() {
+	
+	if($('#masterdev').prop("checked")){
+		$('.dev').attr("checked","true");
+		alert($('#masterdev').val()); 
+	} 
+	
 	if($('#masterdesign').prop("checked")){
-		alert("디자인체크");
-	} else if(!$('#masterdesign').prop("checked")){
-		alert("디자인체크해제");
-	}
+		$('.design').attr("checked","true");
+		alert($('#masterdesign').val()); 
+	} 
+	
+	$('#masterdev').click(function() {
+		if($('#masterdev').prop("checked")){  
+			$('.dev').attr("checked","true");
+			alert("개발체크"); 
+		} else if(!$('#masterdev').prop("checked")){
+			$('.dev').attr("checked","false");
+			alert("개발해제"); 
+		}
+		
+	});	
+	
+	
+	
+	/* $(this).prop("checked").(function() {
+		if($('#masterdev').prop("checked")){  
+			alert("개발체크"); 
+		} else if(!$('#masterdev').prop("checked")){
+			alert("개발체크해제"); 
+		}
+	
+	
+		if($('#masterdesign').prop("checked")){
+			alert("디자인체크");
+		} else if(!$('#masterdesign').prop("checked")){
+			alert("디자인체크해제");
+		}
+
+	}); */
 });
 
 
