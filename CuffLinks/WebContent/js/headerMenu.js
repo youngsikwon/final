@@ -58,9 +58,17 @@ $(document).ready(function() {
   		$("#ClientInfo").addClass("active");
   		$('.'+thisfilefullname).addClass("active");
   		/*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
+	}
+  	
+  	// 클라이언트 정보 하위관련 메뉴
+	else if(thisfilefullname=="projectRegister"||thisfilefullname=="projectRegisterDetail"){
+  		$("#projectRegister").addClass("active");
+  		$('.'+thisfilefullname).addClass("active");
+  		/*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
+	}
   	
   	//이외의 상단메뉴 모두
-  	} else {
+  	 else {
   		$('.'+thisfilefullname).addClass("active");
   		/*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
   	}

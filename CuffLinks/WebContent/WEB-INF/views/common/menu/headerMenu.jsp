@@ -29,6 +29,19 @@
 			<a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
 			<div class="right mini menu">
 				<div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
+					<div id="mrc" class="mrc" style="margin-top: 0px;">
+						<div id="mrc-win" class="mrc-win" style="hidden">
+							음성인식대기중...
+						</div>
+						<div id="voice" class="icon-font">
+							<ul>
+								<li>
+									<a href="#"><i class="fas fa-microphone-alt fa-1x"></i>
+									<span class="tool">음성인식</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
 <%
 if(info==null) {
 %>
@@ -44,20 +57,6 @@ else {
 %>
 				</div>
 			</div>
-			<div id="mrc" class="mrc" style="margin-top: 0px;">
-				<div id="mrc-win" class="mrc-win">
-					음성대기중대기중...
-				</div>
-				<div id="voice" class="icon-font">
-					<ul>
-						<li>
-							<a href="#"><i class="fas fa-microphone-alt fa-1x"></i>
-							<span class="tool">음성인식</span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
 			<form id = "f_logout">
 			<div id = "menu_list" class="ui dropdown" style="width: 150px;">
 				<div class="ui dropdown fluid black button" id = "out_id" ><% if(info!=null) out.print(info.get("S_ID")); %> <i class="dropdown icon" style="color: #fff;"></i></div>

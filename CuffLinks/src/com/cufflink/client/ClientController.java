@@ -334,6 +334,11 @@ public class ClientController {
 	public String projectRegister() {
 		return "clients/projectRegister";
 	}
+	//프로젝트 등록상세
+	@RequestMapping("/clients/projectRegisterDetail")
+	public String projectRegisterDetail() {
+		return "clients/projectRegisterDetail";
+	}
 	
 	//---------------------------------------
 	//프로젝트 클라이언트 정보

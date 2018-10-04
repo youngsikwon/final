@@ -60,13 +60,100 @@
 			</div>
 		</div>
 	</div>
-	<div style="background-color: rgb(243, 244, 247); height: 43em;">
-		<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
-			<img src="../image/logo.png" alt="" style="margin-right: 10px;" />
+	<div style="background-color: rgb(243, 244, 247); ">
+		<div class="ui container" style="padding-top: 10px; font-size: 1.5em; text-align: center; background-color: #A9D0F5; border-bottom: 1px solid #000;">
+			<img src="../image/logo.png" alt="" style="margin-right: 10px; " />
 			등록된 프로젝트
 		</div>
-		<div class="ui container" style="padding-top: 50px;">
+		<div class="ui container" style="padding-top: 20px;">
 			<div class="ui three column grid">
+				<div class="column">
+					<div class="ui segment">
+						<a href="#" class="title">기 개발된 ...</a>
+						<p></p>
+						<span> <i class="won sign icon"></i> 1,000,000원
+						</span> <span class="middle"> <i class="clock outline icon"></i>
+							120일
+						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						</span>
+						<p></p>
+						<p class="content">
+							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다. 
+						</p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment">
+						<a href="#" class="title">기 개발된 ...</a>
+						<p></p>
+						<span> <i class="won sign icon"></i> 1,000,000원
+						</span> <span class="middle"> <i class="clock outline icon"></i>
+							120일
+						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						</span>
+						<p></p>
+						<p class="content">
+							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다. 
+						</p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment">
+						<a href="#" class="title">기 개발된 ...</a>
+						<p></p>
+						<span> <i class="won sign icon"></i> 1,000,000원
+						</span> <span class="middle"> <i class="clock outline icon"></i>
+							120일
+						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						</span>
+						<p></p>
+						<p class="content">
+							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다. 
+						</p>
+					</div>
+				</div>
+			</div>
+						<div class="ui three column grid">
+				<div class="column">
+					<div class="ui segment">
+						<a href="#" class="title">기 개발된 ...</a>
+						<p></p>
+						<span> <i class="won sign icon"></i> 1,000,000원
+						</span> <span class="middle"> <i class="clock outline icon"></i>
+							120일
+						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						</span>
+						<p></p>
+						<p class="content">
+							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다. 
+						</p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment">
+						<a href="#" class="title">기 개발된 ...</a>
+						<p></p>
+						<span> <i class="won sign icon"></i> 1,000,000원
+						</span> <span class="middle"> <i class="clock outline icon"></i>
+							120일
+						</span> <span> <i class="pencil alternate icon"></i> 7명지원
+						</span>
+						<p></p>
+						<p class="content">
+							<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다.프로젝트 진행 방식> 시작 시점에 오프라인 미팅 필요 진행 간 정기 미팅을 통해 업무 상황 공유
+							부탁드립니다. 
+						</p>
+					</div>
+				</div>
 				<div class="column">
 					<div class="ui segment">
 						<a href="#" class="title">기 개발된 ...</a>
@@ -87,11 +174,21 @@
 			</div>
 		</div>
 	</div>
-	<div style="padding-top: 50px; font-size: 1.5em; text-align: center;">
+	<div style="height: 20px;"></div>
+	<div class="ui container" style="padding-top: 10px; font-size: 1.5em; text-align: center; background-color: #A9D0F5; border-bottom: 1px solid #000;">
+		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 클라이언트 의뢰 주변 검색 
+	</div>
+	<div class="ui container" style="padding-top: 20px; text-align: center; height: 400px; background-color: #dedede;">
+		<div>
+			지도 나올 화면.....
+		</div>
+	</div>
+	<div style="height: 20px;"></div>
+	<div class="ui container" style="padding-top: 10px; font-size: 1.5em; text-align: center; background-color: #A9D0F5; border-bottom: 1px solid #000;">
 		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 우리와
 		함께하는 회사
 	</div>
-	<div class="ui container" style="padding-top: 50px; text-align: center">
+	<div class="ui container" style="padding-top: 20px; text-align: center">
 		<div class="ui small images">
 			<img class="logo" src="../image/logo1.png"> <img class="logo"
 				src="/image/logo2.png"> <img class="logo"
