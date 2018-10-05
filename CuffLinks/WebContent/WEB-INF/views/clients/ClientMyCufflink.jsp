@@ -20,7 +20,7 @@
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function news(title){
 	 var Json2 = "";
 	 
@@ -70,7 +70,7 @@ function news(title){
  });
  
 </script>
-
+ -->
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!--======================================================================================-->

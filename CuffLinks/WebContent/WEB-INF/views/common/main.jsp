@@ -180,7 +180,7 @@
    </div>
    <div class="ui container" style="padding-top: 20px; text-align: center; height: 400px; background-color: #dedede;">
       <div>
-         <jsp:include page="../map/Mapdisplay1.jsp" />
+<%--          <jsp:include page="../map/Mapdisplay1.jsp" /> --%>
       </div>
    </div>
    <div style="height: 20px;"></div>
