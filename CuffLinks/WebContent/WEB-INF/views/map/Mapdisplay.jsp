@@ -1,98 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <jsp:include page="../common/ui.jsp" />
 </head>
 <body>
-<div id="map" style="width:600px;height:480px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e91bf2951ff7ac21938e4a240554ea4&libraries=services"></script>
-<script>
-var name = "";
-var y    = 0;
-var x    = 0;
-function road(){
+	<!-- <div class="ui search">
+		<div class="ui icon input">
+			<input class="prompt" id="MapSearch" type="text" placeholder="Search countries..."> <i class="search icon"></i>
+		</div>
+		<div class="results"></div>
+	</div> -->
+	<div id="map" style="width: 100%; height: 480px;" style="margin: 0; padding: 0;"></div>
+	<div id="namverMap">
+		<Button id="NaverRoardView"></Button>
+		<div id="pano" style="width: 100%; height: 480px;"></div>
+	</div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e91bf2951ff7ac21938e4a240554ea4&libraries=services"></script>
+	<script>
+		var name = "";
+		var y = 0;
+		var x = 0;
+		function road() {
 
-	 location.href ="http://map.daum.net/link/to/"+name+","+y+","+x
-}
-function map(value){
-	
-	name = value;
-	
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
-    mapOption = {
-        center: new daum.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level: 4 // ÁöµµÀÇ È®´ë ·¹º§
-    };  
+			location.href = "http://map.daum.net/link/to/" + name + "," + y
+					+ "," + x
+		}
+		function map(value) {
 
-// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
-var map = new daum.maps.Map(mapContainer, mapOption); 
+			name = value;
 
-// ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
-var geocoder = new daum.maps.services.Geocoder();
+			var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
+			mapOption = {
+				center : new daum.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+				level : 4
+			// ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
+			};
 
-// ÁÖ¼Ò·Î ÁÂÇ¥¸¦ °Ë»öÇÕ´Ï´Ù
-geocoder.addressSearch(name, function(result, status) {
+			// ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
+			var map = new daum.maps.Map(mapContainer, mapOption);
 
-    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
-     if (status === daum.maps.services.Status.OK) {
-    	 y = result[0].y;
-    	 x = result[0].x;
-        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+			// ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+			var geocoder = new daum.maps.services.Geocoder();
 
-        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
-        var marker = new daum.maps.Marker({
-            map: map,
-            position: coords,
-            clickable: true
-        });
+			// ì£¼ì†Œë¡œ ì¢Œí‘œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
+			geocoder
+					.addressSearch(
+							name,
+							function(result, status) {
 
-        // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-        var infowindow = new daum.maps.InfoWindow({
-            content: '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'+
-                     '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">CuffLink</h3><div class="ui divider" style=" margin-top: 0px;"></div>'+
-                     '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'+
-                     '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'+
-                     'ÁÖ¼Ò<br></br>¿¬¶ôÃ³<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
-                     '<button onClick = "road()" class="ui button" style="margin-left: 55px;">±æÃ£±â</button><div class="or"></div><button class="ui positive button">·Îµåºä</button>'+
-                     '</div></p></div>',
-            removable:true
-        });
-            infowindow.open(map, marker);  
-        daum.maps.event.addListener(marker, 'click', function() {
-            // ¸¶Ä¿ À§¿¡ ÀÎÆ÷À©µµ¿ì¸¦ Ç¥½ÃÇÕ´Ï´Ù
-            infowindow.open(map, marker);  
-         });
+								// ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
+								if (status === daum.maps.services.Status.OK) {
+									y = result[0].y;
+									x = result[0].x;
+									var coords = new daum.maps.LatLng(
+											result[0].y, result[0].x);
 
-        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
-        map.setCenter(coords);
-    } 
-});    
-}
-$(document).ready(function(){
+									// ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
+									var marker = new daum.maps.Marker({
+										map : map,
+										position : coords,
+										clickable : true
+									});
 
-	$.ajax({
-		
-		url:""
-	   ,method:"post"
-	   ,success:function(data){
-		   
-			map("±¤¸í");
-			
-	   }
-       ,error:function(xhrObject){
-    	   alert(xhrObject,responseText);
-       }
-		
-	});
+									// ì¸í¬ìœˆë„ìš°ë¡œ ì¥ì†Œì— ëŒ€í•œ ì„¤ëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
+									var infowindow = new daum.maps.InfoWindow(
+											{
+												content : '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'
+														+ '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">CuffLink</h3><div class="ui divider" style=" margin-top: 0px;"></div>'
+														+ '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'
+														+ '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'
+														+ 'ì£¼ì†Œ<br></br>ì—°ë½ì²˜<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'
+														+ '<button onClick = "road()" class="ui button" style="margin-left: 55px;">ê¸¸ì°¾ê¸°</button><div class="or"></div><button class="ui positive button">ë¡œë“œë·°</button>'
+														+ '</div></p></div>',
+												removable : true
+											});
+									infowindow.open(map, marker);
+									daum.maps.event.addListener(marker,
+											'click', function() {
+												// ë§ˆì»¤ ìœ„ì— ì¸í¬ìœˆë„ìš°ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤
+												infowindow.open(map, marker);
+											});
 
-	
-});
+									// ì§€ë„ì˜ ì¤‘ì‹¬ì„ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤
+									map.setCenter(coords);
+								}
+							});
+		}
+		$(document).ready(function() {
 
-</script>
+			$.ajax({
+
+				url : "",
+				method : "post",
+				success : function(data) {
+
+					map("ê´‘ëª…");
+
+				},
+				error : function(xhrObject) {
+					alert(xhrObject, responseText);
+				}
+
+			});
+
+		});
+	</script>
 
 </body>
 </html>
