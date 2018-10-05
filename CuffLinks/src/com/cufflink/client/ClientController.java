@@ -50,9 +50,10 @@ public class ClientController {
 
 			userID = (String) hMap.get("S_ID");
 			session.removeAttribute((String) hMap.get("S_ID") + "1");
-			session.setMaxInactiveInterval(60*60);
+			session.setMaxInactiveInterval(6000*6000);
 			session.setAttribute((String) hMap.get("S_ID"), hMap);
 			Id = new Cookie("id", (String) hMap.get("S_ID"));
+			Id.setPath("/");
 			res.addCookie(Id);
 			return "auth/loginOk";
 		}
@@ -65,13 +66,13 @@ public class ClientController {
 				if (session.getAttribute((String) pMap.get("f_id") + "1") != null) {
 					capchar = (int) session.getAttribute((String) pMap.get("f_id") + "1");
 					capchar += 1;
-					session.setMaxInactiveInterval(30);
+					session.setMaxInactiveInterval(60);
 					session.setAttribute((String) pMap.get("f_id") + "1", capchar);
 					session.setAttribute("capchar", (String) pMap.get("f_id") + "1");
 					logger.info(capchar);
 					return "auth/login";
 				} else {
-					session.setMaxInactiveInterval(30);
+					session.setMaxInactiveInterval(60);
 					session.setAttribute((String) pMap.get("f_id") + "1", capchar);
 					session.setAttribute("capchar", (String) pMap.get("f_id") + "1");
 					logger.info(capchar);
@@ -87,28 +88,49 @@ public class ClientController {
 		return "auth/login";
 	}
 
-	@RequestMapping("/clients/ClientMyCufflink")
-	public String ClientMyCufflink() {
 
-		return "clients/ClientMyCufflink";
+	@RequestMapping("/client/logout")
+	public String logout(HttpServletRequest req,HttpServletResponse res, @RequestParam Map<String, Object> pMap) {
 
-	}
+		Cookie[]    cs          = req.getCookies();
+	    Map<String,Object> info = null;
+	    HttpSession infoSession = null;
+	    infoSession = req.getSession();
+	    String Id = "";
+		for(int i = 0; i<cs.length;i++){
+			
+			String cName = cs[i].getName();
+			  if("id".equals(cName)){
+				  Id   = cs[i].getValue();
+				  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+				
+			  }
+		}
 
-	@RequestMapping("/logout")
-	public String logout(HttpServletRequest req, @RequestParam Map<String, Object> pMap) {
-
-		HttpSession LogoutSession = req.getSession();
-		LogoutSession.removeAttribute(userID);
+		infoSession.removeAttribute(Id);
+		logger.info(Id);
+		
 		return "common/main";
 
 	}
 
 	@RequestMapping("/clients/join")
 	public String logout(@RequestParam Map<String, Object> pMap) {
-
+		
+		pMap.put("s_shape", "CuffLink");
+		
+		if(pMap.get("radio").equals("1")) {
+			pMap.put("radio", "클라이언트");
+		}
+		else {
+			pMap.put("radio", "파트너스");
+		}
+			
+		
 		clientLogic.join(pMap);
 
-		return "auth/asd";
+		
+		return "auth/login";
 
 	}
 
@@ -132,21 +154,21 @@ public class ClientController {
 	@RequestMapping("/capcharJoin")
 	public String capcharJoin(HttpServletResponse res, @RequestParam Map<String, Object> pMap, Model mod) {
 
-		logger.info("호출 성공 ~~~~~~~~~~~");
-
+		
+		logger.info("capcharJoin");
 		Cookie cookie = new Cookie("j_token", (String) pMap.get("j_token"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("j_id", (String) pMap.get("j_id"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("j_email", (String) pMap.get("j_email"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("s_shape", (String) pMap.get("s_shape"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
-
+	
 		return "auth/c_join";
 
 	}
@@ -162,15 +184,27 @@ public class ClientController {
 
 	}
 	
-/*	@RequestMapping("/capcharLogin")
-	public String capcharLogin(@RequestParam Map<String, Object> pMap, Model mod) {
+	@RequestMapping("/capcharLogin")
+	public String capcharLogin(HttpServletRequest req, HttpServletResponse res,@RequestParam Map<String, Object> pMap, Model mod) {
 
-		int result = 0;
-		result = clientLogic.Emailcheck(pMap);
-		mod.addAttribute("result", result);
-		return "forward:EmailCheck.jsp";
+		//여기는  로그인 네아로 카카오 연동후 가는곳 
+	
+		HttpSession session = req.getSession();
+		Cookie Id = null;
+		Map<String, Object> map = null;
+		
+		map = clientLogic.UserInfoEmail(pMap);
+		
+	    userID = (String) map.get("S_ID");
+		session.setMaxInactiveInterval(6000*6000);
+		session.setAttribute((String) map.get("S_ID"), map);
+		Id = new Cookie("id", (String) map.get("S_ID"));
+		Id.setPath("/");
+		res.addCookie(Id);
+		
+	    return "auth/loginOk";
 
-	}*/
+	}
 	
 	@RequestMapping("/capchar/join")
 	public String capcharJoin(HttpServletRequest req, HttpServletResponse res, @RequestParam Map<String, Object> pMap) {
@@ -179,7 +213,15 @@ public class ClientController {
 
 		Cookie del = null;
 		String cookiename = null;
-
+		logger.info("------------------------------------------------------------------------");
+		
+		if(pMap.get("radio").equals("1")) {
+			pMap.put("radio", "클라이언트");
+		}
+		else {
+			pMap.put("radio", "파트너스");
+		}
+		
 		for (int i = 0; i < cookie.length; i++) {
 			cookiename = cookie[i].getName();
 
@@ -208,6 +250,7 @@ public class ClientController {
 				res.addCookie(del);
 			}
 		}
+
 		
 		clientLogic.Njoin(pMap);
 
@@ -216,19 +259,22 @@ public class ClientController {
 
 	}
 	
+	
 	@RequestMapping(value = "/PartnersImages", method=RequestMethod.POST)
 	public String PartnersImages(@RequestParam("f_file") MultipartFile f_file, @RequestParam Map<String,Object>pMap) {
 	String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
 	String path     = "D:\\spring\\CuffLinks\\WebContent\\pds\\";
 
 	int result = 0;
-	pMap.put("f_address1", HangulConversion.toUTF((String)pMap.get("f_address1")));
-	pMap.put("f_address2", HangulConversion.toUTF((String)pMap.get("f_address2")));
+	pMap.put("address", HangulConversion.toUTF((String)pMap.get("address")));
 	pMap.put("f_gender", HangulConversion.toUTF((String)pMap.get("f_gender")));
 	pMap.put("f_name", HangulConversion.toUTF((String)pMap.get("f_name")));
 	pMap.put("f_dropdown", HangulConversion.toUTF((String)pMap.get("f_dropdown")));
 	pMap.put("f_file", path+fileName);
-	clientLogic.UserUpdate(pMap);
+	pMap.put("phone", pMap.get("skills1")+"-"+pMap.get("second")+"-"+pMap.get("three"));
+	pMap.put("c_phone", pMap.get("skills2")+"-"+pMap.get("SecondT"));
+	logger.info(pMap.get("c_phone"));
+	result = clientLogic.UserUpdate(pMap);
 	
 	if(f_file!=null) {
 
@@ -252,9 +298,84 @@ public class ClientController {
 		
 	}
 	
-
-	
-		return "";
+		return "auth/clientSettings/ClientProfile";
 	}
+	
+	
 
+	//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴
+	
+	//프로젝트 검수중
+	//네비게이터의 검수중메뉴와 동일
+	
+	//프로젝트 임시저장
+	@RequestMapping("/clients/projectSaved")
+	public String projectSaved() {
+		return "/clients/manage/project/projectSaved";
+	}
+	//프로젝트 등록실패
+	@RequestMapping("/clients/projectRejected")
+	public String projectRejected() {
+		return "/clients/manage/project/projectRejected";
+	}
+	
+	//프로젝트 종료된 프로젝트
+	//네비게이터의 종료된 프로젝트 메뉴와 동일
+	
+	//프로젝트 완료된 프로젝트
+	@RequestMapping("/clients/projectCompletedContract")
+	public String projectCompletedContract() {
+		return "/clients/manage/projectCompletedContract";
+	}
+	//프로젝트 취소한 프로젝트
+	@RequestMapping("/clients/projectCancelledProject")
+	public String projectCancelledProject() {
+		return "/clients/manage/projectCancelledProject";
+	}
+	
+	//*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴	
+
+	//마이 커프링크
+	@RequestMapping("/clients/ClientMyCufflink")
+	public String ClientMyCufflink() {
+		return "/clients/ClientMyCufflink";
+	}
+	
+	//프로젝트 찾기
+	@RequestMapping("/clients/projectFind")
+	public String projectFind() {
+		return "clients/projectFind";
+	}
+	//프로젝트 등록
+	@RequestMapping("/clients/projectRegister")
+	public String projectRegister() {
+		return "clients/projectRegister";
+	}
+	
+	//프로젝트 등록상세
+	   @RequestMapping("/clients/projectRegisterDetail")
+	   public String projectRegisterDetail() {
+	      return "clients/projectRegisterDetail";
+	   }
+	
+	//---------------------------------------
+	//프로젝트 클라이언트 정보
+	@RequestMapping("/clients/ClientInfo")
+	public String ClientInfo() {
+		return "/clients/info/ClientInfo";
+	}
+	//프로젝트 클라이언트 정보등록
+	@RequestMapping("/clients/ClientInfoUpdate")
+	public String ClientInfoUpdate() {
+		return "/clients/info/ClientInfoUpdate";
+	}
+	//프로젝트 프로젝트 히스토리
+	@RequestMapping("/clients/ClientProjectHistory")
+	public String ClientProjectHistory() {
+		return "/clients/ClientProjectHistory";
+	}	
+	
+	
+	
+	
 }

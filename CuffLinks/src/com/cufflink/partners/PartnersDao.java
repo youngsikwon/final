@@ -3,7 +3,6 @@ package com.cufflink.partners;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,20 +10,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class PartnersDao {
 
-	Logger logger = Logger.getLogger(PartnersDao.class);
-	@Autowired
+	//@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	int result;
 	List<Map<String, Object>> list;
 
 	public int insert() {
-
+		// insert 부분 로직처리
 		result = sqlSessionTemplate.insert("insert");
 		return result;
 	}
 
 	public int update() {
-
+		// update 부분 처리
 		result = sqlSessionTemplate.update("update");
 		return result;
 	}
@@ -35,14 +33,8 @@ public class PartnersDao {
 	}
 
 	public int delete() {
-
+		// delete 부분 처리
 		result = sqlSessionTemplate.delete("delete");
 		return result;
-	}
-
-	public void UserUpdate(Map<String, Object> pMap) {
-
-		logger.info(pMap);
-	
 	}
 }

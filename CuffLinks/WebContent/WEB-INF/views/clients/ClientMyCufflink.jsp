@@ -2,13 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>마이 커프링크
 </title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
+<body>
+
+<!----------------------------------------------------------------------- top 시작 -->
+	<header class="header">
+		<div class="ui">
+	<!-- header 시작 -->
+			<div class="ui">
+				<jsp:include page="../common/menu/headerMenu.jsp"/>
+			</div>
+	<!-- header 종료 -->
+		</div>
+	</header>
+<!----------------------------------------------------------------------- top 끝 -->
+
 <script type="text/javascript">
 function news(title){
 	 var Json2 = "";
@@ -45,40 +56,20 @@ function news(title){
 	 }
  $(document).ready(function(){
 	 
+
 	 news("자바");
 	 
 	 $("#search").keydown(function (key) {
 		 
 	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
 	        
-	            // news($("#search").val()); 
+	             news($("#search").val()); 
 	        } 
 	 
 	    });
  });
  
 </script>
-<body>
-
-<!----------------------------------------------------------------------- top 시작 -->
-	<header class="header">
-		<div class="ui">
-	<!-- header 시작 -->
-			<div class="ui">
-				<jsp:include page="../common/menu/headerMenu.jsp"/>
-			</div>
-	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
-		</div>
-	</header>
-<!----------------------------------------------------------------------- top 끝 -->
 
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
@@ -89,7 +80,7 @@ function news(title){
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 860px">
+		<div class="ui two column grid container" style="height: auto">
 			<div class="ui column" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
 				<div class="ui segment container" style="padding: 20px; padding-bottom: 20px; left: 0px; border: 1px solid #dedede;">
 					<div style="padding-bottom:0px;">

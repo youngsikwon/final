@@ -2,11 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>클라이언트 정보</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -17,14 +14,6 @@
 				<jsp:include page="../../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
@@ -66,7 +55,7 @@
 					</div>
 					<div style="text-align:center;padding:30px">
 						<div class="ui labeled submit icon button">
-							<i class="icon edit"></i><a href="/ClientInfoUpdate"> 클라이언트 정보 등록하기</a>
+							<i class="icon edit"></i><a href="/clients/ClientInfoUpdate"> 클라이언트 정보 등록하기</a>
 						</div>
 					</div>
 				</div>

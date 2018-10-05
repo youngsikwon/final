@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import javax.mail.*; 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cufflink.client.ClientLogic;
+import com.google.gson.Gson;
 
 import sun.security.action.GetLongAction;
 
@@ -131,6 +133,7 @@ public class NaverMainPage {
 		   String sendMailAddr = "cufflink0828@naver.com";
 		   int smtpPort=465;
 
+		   logger.info(id+"----------------------------------------");
 		   
 		   //받는 분
 		   String receiveMailAddr = id;
@@ -175,6 +178,8 @@ public class NaverMainPage {
 		
 		return Integer.parseInt(num);
 	}
+	
+	
 	//아이디 체크 유무 캡차
 	@RequestMapping("/capcharLogic")
 	public int callbackLogic(HttpServletRequest req,@RequestParam Map<String,Object> pMap, Model mod) {
@@ -184,10 +189,24 @@ public class NaverMainPage {
 		logger.info(result);
 		//중복되는 이메일이 없을때
 		if(result == 0) {
+			
+			
 			return 0;
 		}
 
 		return 1;
+		
+	}
+
+	@RequestMapping(value = "/naver/onMapReady",produces="text/plain;charset=UTF-8")
+	public String onMapReady() {
+		
+		logger.info("onMapReady 호출성공");
+		List<Map<String,Object>> onMapList =  clientLogic.onMapReady();
+		String tojson = "";
+		Gson gson = new Gson();
+		tojson = gson.toJson(onMapList);
+		return tojson;
 		
 	}
 	

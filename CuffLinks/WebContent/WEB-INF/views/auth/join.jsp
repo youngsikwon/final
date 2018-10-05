@@ -5,7 +5,6 @@
 	pageEncoding="UTF-8"%>
 <%
 	int num = (int) (Math.random() * 10000 + Math.random() * 1000 + Math.random() * 100 + Math.random() * 10);
-    
 %>
 <!DOCTYPE html>
 <html>
@@ -13,8 +12,9 @@
 <meta charset="UTF-8">
 <title>join-(회원가입)</title>
 </head>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
 	<header class="header">
@@ -24,189 +24,189 @@
 				<jsp:include page="../common/menu/headerMenu.jsp" />
 			</div>
 			<!-- header 종료 -->
-
-			<div class="ui">
-				<!-- header와 navigation 여백 -->
-			</div>
-
-			<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationMenu.jsp" />
-			</div>
-			<!-- navigation menu 종료-->
 		</div>
 	</header>
 	<script type="text/javascript">
+		var CheckId = 0;
+		var CheckEmail = 0;
+		var CheckPw = 0;
+		var num = 98761235943598324;
 	
-	var CheckId    = 0;
-	var CheckEmail = 0; 
-	var CheckPw    = 0;
-	var num        = 98761235943598324;
+		function b_email() {
+			if (CheckEmail == 0) {
 	
-	function b_email(){
+				if (CheckEmail == 0) {
+					$("#j_email").focus()
+					alert("이메일을 입력하지 않았습니다.");
+				}
 	
-		if(CheckEmail==0){
-		
-			if(CheckEmail==0){
-				$("#j_email").focus()
-				alert("이메일값이 중복됩니다.");
+			} else {
+				$.ajax({
+					url : "/email",
+					method : "post",
+					data : {
+						"f_email_check" : $("#j_email").val()
+					},
+					success : function(data) {
+	
+						num = data;
+						alert($("#j_email").val() + "에 보냈습니다.");
+					/* $("#b_email").hide(); */
+					},
+					error : function(xhrObject) {
+						alert("error: " + xhrObject.responseText);
+					}
+				});
+	
 			}
-			
 		}
-		else{
-		$.ajax({
-		   	
-			 url: "/email"
-			,method:"post"
-			,data : {"f_email_check" : $("#j_email").val()}
-			,success:function(data){
-			
-				num = data;
-				alert($("#j_email").val()+"에 보냈습니다.");
-	            $("#b_email").hide();
-			}
-		    ,error:function(xhrObject){
-		    	alert("error: "+xhrObject.responseText);
-		    }
-			 
-		 });
-
-		}
-	}
-
-	function b_join(){
-		  
-		
-		if(CheckId==0||CheckEmail==0||CheckPw==0||num!=$("#j_email_check").val()){
-			
-			if(CheckEmail==0){
-				$("#j_email").focus()
-				alert("이메일을 입력해주세요");
-			}
-			else if(CheckId==0){
-				$("#j_id").focus()
-				alert("아이디를 입력해주세요");
-			}
-			else if(CheckPw==0){
-				$("#j_pw").focus()
-				alert("비밀번호를 입력해주세요");
-			}
-			else if(num!=$("#j_email_check").val()){
-				$("#j_email_check").focus()
-				alert("이메일 인증 해주세요");
-			}
-		
-		}
-		else{
-			$('#f_join').attr("method","post");
-	    	$('#f_join').attr("action","/clients/join");
-	    	$('#f_join').submit(); 
-		} 
-    	
-    }
 	
+		function b_join() {
+			if (CheckId == 0 || CheckEmail == 0 || CheckPw == 0
+				|| num != $("#j_email_check").val()) {
 	
-
-	 $(document).ready(function(){
-		 
-		 
-		 
-		$("#j_email").keyup(function(){
-			
-			
-			$.ajax({
-			   	
-				 url: "/clients/emailcheck"
-				,method:"post"
-				,data : {"f_email" : $("#j_email").val()}
-				,success:function(data){
-					$("#a_email").html(data);
-
-					if($("#j_email").val().length==0){
-						$("#a_email").html("");
-					}
-					
-					if(data.length==33){
-						CheckEmail = 1;
-					}
-					else{
-						CheckEmail = 0;
-					}
-		
+				if (CheckEmail == 0) {
+					$("#j_email").focus()
+					alert("이메일을 입력해주세요");
+				} else if (CheckId == 0) {
+					$("#j_id").focus()
+					alert("아이디를 입력해주세요");
+				} else if (CheckPw == 0) {
+					$("#j_pw").focus()
+					alert("비밀번호를 입력해주세요");
+				} else if (num != $("#j_email_check").val()) {
+					$("#j_email_check").focus()
+					alert("이메일 인증 해주세요");
 				}
-			    ,error:function(xhrObject){
-			    	alert("error: "+xhrObject.responseText);
-			    }
-				 
-			 });
-		
-		});
-		
-
-		$("#j_id").keyup(function(){
-			$.ajax({
-			   	
-				 url: "/clients/idcheck"
-				,method:"post"
-				,data : {"f_id" : $("#j_id").val()}
-				,success:function(data){
-					$("#a_id").html(data);
-					
-					if($("#j_id").val().length==0){
-						$("#a_id").html("");
-					}
-					
-					if(data.length==33){
-						CheckId = 1;
-			        }
-			        else{
-			        	CheckId = 0;
-		         	} 
-				}
-			    ,error:function(xhrObject){
-			    	alert("error: "+xhrObject.responseText);
-			    }
-				 
-			 });
-		
-		});
-		 
-    	$("#j_pw").keyup(function(){
-    		
-    		if($("#j_pw").val() != $("#j_pw2").val()){
-    			$("#pw_check").html("암호가  틀립니다.");
-    			if($("#j_pw").val().length==0){
-					$("#pw_check").html("");
-				}
-    			CheckPw = 0;
-    		}
-    		else{
-    			$("#pw_check").html("<font color = 'blue'>암호가 일치합니다.</font>");
-    			if($("#j_pw").val().length==0){
-					$("#pw_check").html("");
-				}
-    			CheckPw = 1;
-    		}
-    	});
-    	$("#j_pw2").keyup(function(){
-    		
-    		if($("#j_pw").val() != $("#j_pw2").val()){
-    			$("#pw_check").html("암호가  틀립니다.");
-    			if($("#j_pw2").val().length==0){
-					$("#pw_check").html("");
-				}
-    			CheckPw = 0;
-    		}
-    		else{
-    			$("#pw_check").html("<font color = 'blue'>암호가 일치합니다.</font>");
-    			if($("#j_pw2").val().length==0){
-					$("#pw_check").html("");
-				}
-    			CheckPw = 1;
-    		}
-    	});
-    	
-    });
+	
+			} else {
+				$('#f_join').attr("method", "post");
+				$('#f_join').attr("action", "/clients/join");
+				$('#f_join').submit();
+			}
+	
+		}
+	
+		$(document)
+			.ready(
+				function() {
+	
+					$("#j_email")
+						.keyup(function() {
+							$.ajax({
+								url : "/clients/emailcheck",
+								method : "post",
+								data : {
+									"f_email" : $("#j_email").val()
+								},
+								success : function(
+									data) {
+									$("#a_email").html(data);
+	
+									if ($("#j_email").val().length == 0) {
+										$("#a_email").html("");
+									}
+	
+									if (data.length == 33) {
+										CheckEmail = 1;
+									} else {
+										CheckEmail = 0;
+									}
+	
+								},
+								error : function(
+									xhrObject) {
+									alert("error: "
+										+ xhrObject.responseText);
+								}
+							});
+	
+						});
+					$("#j_id").keyup(
+						function() {
+							$
+								.ajax({
+									url : "/clients/idcheck",
+									method : "post",
+									data : {
+										"f_id" : $(
+											"#j_id")
+											.val()
+									},
+									success : function(
+										data) {
+										$("#a_id")
+											.html(
+												data);
+	
+										if ($("#j_id")
+												.val().length == 0) {
+											$("#a_id")
+												.html(
+													"");
+										}
+	
+										if (data.length == 33) {
+											CheckId = 1;
+										} else {
+											CheckId = 0;
+										}
+									},
+									error : function(
+										xhrObject) {
+										alert("error: "
+											+ xhrObject.responseText);
+									}
+								});
+	
+						});
+	
+					$("#j_pw")
+						.keyup(
+							function() {
+	
+								if ($("#j_pw").val() != $(
+										"#j_pw2").val()) {
+									$("#pw_check").html(
+										"암호가  틀립니다.");
+									if ($("#j_pw").val().length == 0) {
+										$("#pw_check").html("");
+									}
+									CheckPw = 0;
+								} else {
+									$("#pw_check")
+										.html(
+											"<font color = 'blue'>암호가 일치합니다.</font>");
+									if ($("#j_pw").val().length == 0) {
+										$("#pw_check").html("");
+									}
+									CheckPw = 1;
+								}
+							});
+					$("#j_pw2")
+						.keyup(
+							function() {
+	
+								if ($("#j_pw").val() != $(
+										"#j_pw2").val()) {
+									$("#pw_check").html(
+										"암호가  틀립니다.");
+									if ($("#j_pw2").val().length == 0) {
+										$("#pw_check").html("");
+									}
+									CheckPw = 0;
+								} else {
+									$("#pw_check")
+										.html(
+											"<font color = 'blue'>암호가 일치합니다.</font>");
+									if ($("#j_pw2").val().length == 0) {
+										$("#pw_check").html("");
+									}
+									CheckPw = 1;
+								}
+							});
+	
+				});
 	</script>
 	<!----------------------------------------------------------------------- top 끝 -->
 
@@ -238,8 +238,7 @@
 		<div class="ui container">
 			<div class="content-middle-join">
 				<div class="ui two column grid container" style="padding: 20px">
-					<div class="column grid"
-						style="padding: 10px; width: 60%; border-right: 1px solid #dedede;">
+					<div class="column grid" style="padding: 10px; width: 80%;">
 						<!-- form 시작 ================================================================================================================================== -->
 						<form id="f_join" name="join">
 							<div class="ui three column grid container ">
@@ -247,14 +246,14 @@
 									style="padding: 10px; width: 30%; height: 210px; vertical-align: middle">
 									<span>*</span>이용목적
 								</div>
-								<div class="column container" style="padding: 10px; width: 70%;">
+								<div class="column container" style="padding: 10px; width: 65%;">
 									<div class="ui two column grid container"
 										style="padding: 10px;">
 										<div class="column container"
 											style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
 											<p>프로젝트를 의뢰하고 싶습니다</p>
 											<div class="ui image">
-												<img src="./image/client.jpg" style="padding: 10px">
+												<img src="../image/client.jpg" style="padding: 10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked" value="1">
@@ -273,7 +272,7 @@
 											style="padding: 10px; width: 50%; text-align: center; vertical-align: middle; outline: dotted gray 0.5px;">
 											<p>일거리를 찾고 있습니다</p>
 											<div class="ui image">
-												<img src="./image/partners.jpg" style="padding: 10px">
+												<img src="../image/partners.jpg" style="padding: 10px">
 											</div>
 											<div>
 												<input type="radio" name="radio" checked="checked" value="2">
@@ -295,68 +294,82 @@
 									<span>*</span>이메일
 								</div>
 								<div class="ui left icon input"
-									style="padding: 10px; width: 60%">
+									style="padding: 10px; width: 50%">
 									<input id="j_email" name="j_email" type="text"
 										placeholder="이메일" size="40px"> <i
 										class="id envelope icon"></i>
 								</div>
 								<div id="a_email" class="center-right"
-									style="padding: 0px; width: 10%"></div>
+									style="padding: 10px; width: 20%"></div>
+
+
+
 								<div class="center column container"
 									style="padding: 10px; width: 30%;">
 									<span>*</span>이메일 인증
 								</div>
+
 								<div class="ui left icon input"
-									style="padding: 10px; width: 60%">
+									style="padding: 10px; width: 50%">
 									<input id="j_email_check" name="j_email_check" type="text"
 										placeholder="이메일인증" size="40px"> <i
 										class="id envelope icon"></i>
 								</div>
+
 								<div id="a_email_check" class="center-right"
-									style="padding: 0px; width: 10%">
-									<div id="b_email" class="ui fluid animated fade button"
-										tabindex="0" onClick="b_email()">
-										<div class="visible content">인증 전송</div>
-										<div class="hidden content">
+									style="padding-top: 10px; margin-left: 0; width: 20%; height: 17px; margin: 0px; padding-left: 0;">
+									<div id="b_email" class="ui animated fade button" tabindex="0"
+										onClick="b_email()" style="margin-left: 0;">
+										<div class="visible content"
+											style="padding: 0; margin-left: 0;">인증</div>
+										<div class="hidden content"
+											style="padding: 0; margin-left: 0;">
 											<a href="#">send</a>
 										</div>
 									</div>
 								</div>
+
+
 
 								<div class="center column container"
 									style="padding: 10px; width: 30%;">
 									<span>*</span>아이디
 								</div>
 								<div class="ui left icon input"
-									style="padding: 10px; width: 60%;">
+									style="padding: 10px; width: 50%;">
 									<input id="j_id" name="j_id" type="text" placeholder="아이디"
 										size="40px"> <i class="id badge icon"></i>
 								</div>
 								<div id="a_id" class="center-right"
-									style="padding: 0px; width: 10%"></div>
+									style="padding: 0px; width: 20%"></div>
+
+
 
 								<div class="center column container"
 									style="padding: 10px; width: 30%;">
 									<span>*</span>비밀번호
 								</div>
 								<div class="ui left icon input"
-									style="padding: 10px; width: 60%;">
+									style="padding: 10px; width: 50%;">
 									<input id="j_pw" name="j_pw" type="text" placeholder="비밀번호"
 										size="40px"> <i class="key icon"></i>
 								</div>
 								<div id="pw_check" class="center-right"
-									style="padding: 0px; width: 10%"></div>
+									style="padding: 0px; width: 20%"></div>
+
+
 								<div class="center column container"
 									style="padding: 10px; width: 30%;">
 									<span>*</span>비밀번호 재입력
 								</div>
 								<div class="ui left icon input"
-									style="padding: 10px; width: 60%;">
+									style="padding: 10px; width: 50%;">
 									<input id="j_pw2" name="j_pw2" type="text" placeholder="비밀번호"
 										size="40px"> <i class="key icon"></i>
 								</div>
-								<div class="center-right" style="padding: 0px; width: 10%;">
-								</div>
+								<div class="center-right" style="padding: 0px; width: 20%;"></div>
+
+
 								<div class="column container" style="padding: 10px; width: 30%;"></div>
 								<div class="column container" style="padding: 10px; width: 70%;">
 									<div class="ui checkbox">
@@ -371,53 +384,14 @@
 									<div class="ui fluid animated fade button" tabindex="0"
 										onClick="b_join()">
 										<div class="visible content">회원가입</div>
-										<div class="hidden content">
-											<a href="#">Join Click</a>
-										</div>
+										<div class="hidden content">Join Click</div>
 									</div>
 								</div>
 							</div>
 						</form>
 						<!-- form 끝 ================================================================================================================================== -->
 					</div>
-					<div class="column grid" style="padding: 10px; width: 40%;">
-						<div class="content-header">
-							<h4 class="content-text">기존계정이 있는 고객</h4>
-							<small class="small-text">아래의 계정을 이용하실수 있습니다.</small>
-						</div>
-						<div class="column-login2">
-							
-						</div>
-						<div class="column-login2">
-							<a href="#"><img src="./image/facebookLoginButton.jpg"></a>
-						</div>
-						<div class="column-login2">
-							<a href="#"><img src="./image/googleLoginButton.jpg"></a>
-						</div>
-						<div class="column-login2">
-							<a href="#"><img src="./image/kakaoLoginButton.jpg"></a>
-						</div>
-						<div class="column-login2">
-							<a href="#"><img src="./image/lineLoginButton.jpg"></a>
-						</div>
-						<div class="column-login2" style="height: 10px;"></div>
-						<div class="content-header"
-							style="padding: 10px; text-align: center">
-							<div class="ui two column grid" style="padding: 10px;">
-								<div class="column" style="padding: 20px;">
-									<h5 class="content-text">이미 회원이라면.......</h5>
-								</div>
-								<div class="column">
-									<div class="ui column animated fade button" tabindex="0">
-										<div class="visible content">로 그 인</div>
-										<div class="hidden content">
-											<a href="#">Login Click</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<div class="column grid" style="padding: 10px; width: 20%;"></div>
 				</div>
 			</div>
 		</div>

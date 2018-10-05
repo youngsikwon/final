@@ -41,28 +41,24 @@ public class MainPage {
 		List<Map<String,Object>> pMap = null;
 		pMap = mainLogic.MainProject();
 		
-		for(int i = 0; i<pMap.size();i++) {
-			logger.info(pMap.get(i).get("RO"));
-		}
-	
 		return "common/main";
 	}
 
 
-	@RequestMapping("/login")
+/*	@RequestMapping("/login")
 	public String login() {
 		return "auth/login";
-	}
+	}*/
 	
 	@RequestMapping("/loginSuccess")
 	public String loginSuccess() {
 		return "auth/loginSuccess";
 	}
 
-	@RequestMapping("/join")
+/*	@RequestMapping("/join")
 	public String join() {
 		return "auth/join";
-	}
+	}*/
 
 	@RequestMapping("/projectFind")
 	public String projectFind() {

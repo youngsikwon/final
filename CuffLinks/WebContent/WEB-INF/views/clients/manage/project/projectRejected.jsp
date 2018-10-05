@@ -3,11 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>검수중-등록실패</title>
-<link rel="stylesheet" href="/css/cuffLink.css" />
-<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
@@ -18,16 +15,6 @@
 				<jsp:include page="../../../common/menu/headerMenu.jsp" />
 			</div>
 			<!-- header 종료 -->
-
-			<div class="ui">
-				<!-- header와 navigation 여백 -->
-			</div>
-
-			<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../../common/menu/navigationClientMenu.jsp" />
-			</div>
-			<!-- navigation menu 종료-->
 		</div>
 	</header>
 	<!----------------------------------------------------------------------- top 끝 -->

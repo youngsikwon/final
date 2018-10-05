@@ -3,7 +3,7 @@
 <mapper namespace="mapper">
 
 	<select id="GooggleMap" resultType = "map">
-	    select pro_name, pro_price, pro_addr from project
+	 <![CDATA[select pro_name, pro_price, pro_addr from project where rownum <70]]>
 	</select>
 	
 	<select id="projectList" resultType = "map">

@@ -3,11 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>클라이언트 정보 등록</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
@@ -18,16 +15,6 @@
 				<jsp:include page="../../common/menu/headerMenu.jsp" />
 			</div>
 			<!-- header 종료 -->
-
-			<div class="ui">
-				<!-- header와 navigation 여백 -->
-			</div>
-
-			<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../common/menu/navigationClientMenu.jsp" />
-			</div>
-			<!-- navigation menu 종료-->
 		</div>
 	</header>
 	<!----------------------------------------------------------------------- top 끝 -->
@@ -94,10 +81,10 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 75%; text-align:right;">
 								<div class="right menu">
-									<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='/ClientInfo'" />
+									<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='/clients/ClientInfo'" />
 										취소
 									</button>
-									<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/ClientInfo'" />
+									<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/clients/ClientInfo'" />
 										등록완료
 									</button>
 								</div>
