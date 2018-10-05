@@ -22,6 +22,7 @@
 	</div>
 
 </head>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e91bf2951ff7ac21938e4a240554ea4&libraries=services"></script>
 <script>
 	//전역변수---------------------------------------------------------------------
 	var name = "";

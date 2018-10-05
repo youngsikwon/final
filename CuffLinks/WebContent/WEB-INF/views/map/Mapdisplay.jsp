@@ -73,7 +73,7 @@
 														+ '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'
 														+ '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'
 														+ '주소<br></br>연락처<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'
-														+ '<button onClick = "road()" class="ui button" style="margin-left: 55px;">길찾기</button><div class="or"></div><button class="ui positive button">로드뷰</button>'
+														+ '<button onClick = "road()" class="ui button" style="margin-left: 55px;">길찾기</button><div class="or"></div><button onClci class="ui positive button">로드뷰</button>'
 														+ '</div></p></div>',
 												removable : true
 											});
