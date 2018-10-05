@@ -1,11 +1,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
@@ -27,7 +27,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2732ac11811f296aee0dfeb99caa81e&libraries=clusterer"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=BUuozqDteU__6q25Dpo7&submodules=panorama"></script></head>
 <script>
-//Àü¿ªº¯¼ö---------------------------------------------------------------------
+//ì „ì—­ë³€ìˆ˜---------------------------------------------------------------------
 var name  = "";
 var title = "";
 var phone = "";
@@ -42,7 +42,16 @@ var markers = [];
 var obj = '';
 
 
-//Àü¿ªº¯¼ö---------------------------------------------------------------------
+mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
+mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level: 4 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
+    };  
+
+// ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
+map = new daum.maps.Map(mapContainer, mapOption); 
+
+//ì „ì—­ë³€ìˆ˜---------------------------------------------------------------------
 
 function close(){
 	$("#pano").hide();
@@ -78,7 +87,7 @@ function initPanorama(y,x) {
         '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">CuffLink33</h3><div class="ui divider" style=" margin-top: 0px;"></div>'+
         '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'+
         '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'+
-        'ÁÖ¼Ò<br></br>¿¬¶ôÃ³<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
+        'ì£¼ì†Œ<br></br>ì—°ë½ì²˜<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
         '</div></p></div>'
 	].join('');
 
@@ -115,112 +124,96 @@ function roadView(y,x){
 	naver.maps.onJSContentLoaded = initPanorama;
 
 }
-function road(){
 
-	 location.href ="http://map.daum.net/link/to/"+name+","+y+","+x
-}
-function map(value){
+function getAddress(name,i){
 	
-	name = value;
 
 	
-mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
-    mapOption = {
-        center: new daum.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level: 4 // ÁöµµÀÇ È®´ë ·¹º§
-    };  
+	var geocoder = new daum.maps.services.Geocoder();
+	// ì£¼ì†Œë¡œ ì¢Œí‘œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
+	geocoder.addressSearch(name[i].PRO_ADDR, function(result, status) {
 
-// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
-map = new daum.maps.Map(mapContainer, mapOption); 
+	    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
+	     if (status === daum.maps.services.Status.OK) {
 
-// ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
-var geocoder = new daum.maps.services.Geocoder();
+	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	   
+	   	    y = result[0].y;
+    	    x = result[0].x;
+	        var imageSrc = '../image/Location.jpg', // ë§ˆì»¤ì´ë¯¸ì§€ì˜ ì£¼ì†Œì…ë‹ˆë‹¤    
+	        imageSize = new daum.maps.Size(64, 69), // ë§ˆì»¤ì´ë¯¸ì§€ì˜ í¬ê¸°ì…ë‹ˆë‹¤
+	        imageOption = {offset: new daum.maps.Point(27, 69)}; // ë§ˆì»¤ì´ë¯¸ì§€ì˜ ì˜µì…˜ì…ë‹ˆë‹¤. ë§ˆì»¤ì˜ ì¢Œí‘œì™€ ì¼ì¹˜ì‹œí‚¬ ì´ë¯¸ì§€ ì•ˆì—ì„œì˜ ì¢Œí‘œë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.
+	          
+	    // ë§ˆì»¤ì˜ ì´ë¯¸ì§€ì •ë³´ë¥¼ ê°€ì§€ê³  ìˆëŠ” ë§ˆì»¤ì´ë¯¸ì§€ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+	        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption)
+	        // ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
+	        
+	        
+	        var marker = new daum.maps.Marker({
+	            map: map,
+	            position: coords,
+	            clickable: true
+	        });
+	        var iwContent = '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'+
+	        '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">'+obj[i].PRO_NAME+'</h3><div class="ui divider" style=" margin-top: 0px;"></div>'+
+	        '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'+
+	        '</div><div class="column" style="height: 60px;">'+
+	        ''+obj[i].PRO_ADDR+'<br></br>'+obj[i].C_BUSINESSNUMBER+'<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
+	        '<button onClick = "road('+i+','+y+','+x+')" class="ui button" style="margin-left: 55px;">ê¸¸ì°¾ê¸°</button><div class="or"></div><button onClick = "roadView('+y+','+x+')" class="ui positive button">ë¡œë“œë·°</button>'+
+	        '</div></p></div>';
+	        // ì¸í¬ìœˆë„ìš°ë¡œ ì¥ì†Œì— ëŒ€í•œ ì„¤ëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
+	        var infowindow = new daum.maps.InfoWindow({
+	            content: iwContent,
+	            removable:true
+	        });
+	        infowindow.close();
+	        
+	        
+	        daum.maps.event.addListener(marker, 'click', function() {
+	            // ë§ˆì»¤ ìœ„ì— ì¸í¬ìœˆë„ìš°ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤
+	            infowindow.open(map, marker);  
+	         }); 
+	        if (navigator.geolocation) { // GPSë¥¼ ì§€ì›í•˜ë©´
+	      	    navigator.geolocation.getCurrentPosition(function(position) {
+	      	      coords = new daum.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	      	      
+	      	      var marker = new daum.maps.Marker({
+	      	            map: map,
+	      	            position: coords,
+	      	            clickable: true,
+	      	            image: markerImage 
+	      	        });
 
-obj = JSON.parse(value);
-// ÁÖ¼Ò·Î ÁÂÇ¥¸¦ °Ë»öÇÕ´Ï´Ù
-var a = 0;
-for(var i = 0; i<obj.length;i++){
-
-	name  = obj[i].PRO_ADDR;
-/* 	title = obj[i].PRO_NAME;
-	phone = obj[i].C_BUSINESSNUMBER;
-	image = obj[i].PRO_FILE; */
-
-geocoder.addressSearch(name, function(result, status) {
-
-	a++;
-
-    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
-     if (status === daum.maps.services.Status.OK) {
-    	
-    	 y = result[0].y;
-    	 x = result[0].x;
-        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-
-    	var imageSrc = '../image/Location.jpg', // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ ÁÖ¼ÒÀÔ´Ï´Ù    
-        imageSize = new daum.maps.Size(64, 69), // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ Å©±âÀÔ´Ï´Ù
-        imageOption = {offset: new daum.maps.Point(27, 69)}; // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ ¿É¼ÇÀÔ´Ï´Ù. ¸¶Ä¿ÀÇ ÁÂÇ¥¿Í ÀÏÄ¡½ÃÅ³ ÀÌ¹ÌÁö ¾È¿¡¼­ÀÇ ÁÂÇ¥¸¦ ¼³Á¤ÇÕ´Ï´Ù.
-          
-    // ¸¶Ä¿ÀÇ ÀÌ¹ÌÁöÁ¤º¸¸¦ °¡Áö°í ÀÖ´Â ¸¶Ä¿ÀÌ¹ÌÁö¸¦ »ı¼ºÇÕ´Ï´Ù
-        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption)
-        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
-        
-        var marker = new daum.maps.Marker({
-            map: map,
-            position: coords,
-            clickable: true
-        });
-        var iwContent = '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'+
-        '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">'+obj[a].PRO_NAME+'</h3><div class="ui divider" style=" margin-top: 0px;"></div>'+
-        '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'+
-        '<img src = "'+obj[a].PRO_FILE+'" style=" height: 60px;"></div><div class="column" style="height: 60px;">'+
-        ''+obj[a].PRO_ADDR+'<br></br>'+obj[a].C_BUSINESSNUMBER+'<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
-        '<button onClick = "road()" class="ui button" style="margin-left: 55px;">±æÃ£±â</button><div class="or"></div><button onClick = "roadView('+y+','+x+')" class="ui positive button">·Îµåºä</button>'+
-        '</div></p></div>';
-        // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-        var infowindow = new daum.maps.InfoWindow({
-            content: iwContent,
-            removable:true
-        });
-        infowindow.close();
-        
-        
-        daum.maps.event.addListener(marker, 'click', function() {
-            // ¸¶Ä¿ À§¿¡ ÀÎÆ÷À©µµ¿ì¸¦ Ç¥½ÃÇÕ´Ï´Ù
-            infowindow.open(map, marker);  
-         });
-
-        
-        if (navigator.geolocation) { // GPS¸¦ Áö¿øÇÏ¸é
-    	    navigator.geolocation.getCurrentPosition(function(position) {
-    	      coords = new daum.maps.LatLng(position.coords.latitude+0.006, position.coords.longitude+0.00004);
-    	      
-    	      var marker = new daum.maps.Marker({
-    	            map: map,
-    	            position: coords,
-    	            clickable: true,
-    	            image: markerImage 
-    	        });
-
-    	      map.setCenter(coords);
-    	      
-    	    }, function(error) {
-    	      console.error(error);
-    	    }, {
-    	      enableHighAccuracy: false,
-    	      maximumAge: 0,
-    	      timeout: Infinity
-    	    });
-    	  } else {
-    	    alert('GPS¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù');
-    	  }
-
-        
-        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
-       
-    } 
-});    
+	      	      map.setCenter(coords);
+              var moveLatLon = new daum.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	    	    
+	    	    // ì§€ë„ ì¤‘ì‹¬ì„ ì´ë™ ì‹œí‚µë‹ˆë‹¤
+	    	  map.setCenter(moveLatLon);
+	      	    }, function(error) {
+	      	      console.error(error);
+	      	    }, {
+	      	      enableHighAccuracy: false,
+	      	      maximumAge: 0,
+	      	      timeout: Infinity
+	      	    });
+	        
+	      	 
+	        
+	      	  } else {
+	      	    alert('GPSë¥¼ ì§€ì›í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤');
+	      	  }
+	    	  
+	        
+	    
+	    } 
+	});    
+	
 }
+function road(i,y,x){
+
+	
+
+	 location.href ="http://map.daum.net/link/to/"+obj[i].PRO_ADDR+","+y+","+x 
 }
 $(document).ready(function(){
 	
@@ -246,8 +239,10 @@ $(document).ready(function(){
 	   ,method:"post"
 	   ,success:function(data){
 
-			map(data);
-
+			obj = JSON.parse(data);
+			for(var i = 0; i<obj.length;i++){
+			getAddress(obj,i);
+			} 
 	   }
        ,error:function(xhrObject){
     	   alert(xhrObject,responseText);
@@ -268,48 +263,48 @@ function MapSearch(value){
 	
 	
 	MapSearchName = value;
-	var imageSrc = '../image/searchMarker.png', // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ ÁÖ¼ÒÀÔ´Ï´Ù    
-    imageSize = new daum.maps.Size(64, 69), // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ Å©±âÀÔ´Ï´Ù
-    imageOption = {offset: new daum.maps.Point(27, 69)}; // ¸¶Ä¿ÀÌ¹ÌÁöÀÇ ¿É¼ÇÀÔ´Ï´Ù. ¸¶Ä¿ÀÇ ÁÂÇ¥¿Í ÀÏÄ¡½ÃÅ³ ÀÌ¹ÌÁö ¾È¿¡¼­ÀÇ ÁÂÇ¥¸¦ ¼³Á¤ÇÕ´Ï´Ù.
+	var imageSrc = '../image/searchMarker.png', // ë§ˆì»¤ì´ë¯¸ì§€ì˜ ì£¼ì†Œì…ë‹ˆë‹¤    
+    imageSize = new daum.maps.Size(64, 69), // ë§ˆì»¤ì´ë¯¸ì§€ì˜ í¬ê¸°ì…ë‹ˆë‹¤
+    imageOption = {offset: new daum.maps.Point(27, 69)}; // ë§ˆì»¤ì´ë¯¸ì§€ì˜ ì˜µì…˜ì…ë‹ˆë‹¤. ë§ˆì»¤ì˜ ì¢Œí‘œì™€ ì¼ì¹˜ì‹œí‚¬ ì´ë¯¸ì§€ ì•ˆì—ì„œì˜ ì¢Œí‘œë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.
       
-// ¸¶Ä¿ÀÇ ÀÌ¹ÌÁöÁ¤º¸¸¦ °¡Áö°í ÀÖ´Â ¸¶Ä¿ÀÌ¹ÌÁö¸¦ »ı¼ºÇÕ´Ï´Ù
+// ë§ˆì»¤ì˜ ì´ë¯¸ì§€ì •ë³´ë¥¼ ê°€ì§€ê³  ìˆëŠ” ë§ˆì»¤ì´ë¯¸ì§€ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
     var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption)
 
-	// ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+	// ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 	var geocoder = new daum.maps.services.Geocoder();
 
-/* 	var map = new daum.maps.Map(mapContainer, mapOption); // Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù
+/* 	var map = new daum.maps.Map(mapContainer, mapOption); // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 
  */
 
-	// ÁÖ¼Ò·Î ÁÂÇ¥¸¦ °Ë»öÇÕ´Ï´Ù
+	// ì£¼ì†Œë¡œ ì¢Œí‘œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
 	geocoder.addressSearch(MapSearchName, function(result, status) {
 
-	    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
+	    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
 	     if (status === daum.maps.services.Status.OK) {
 	    	 y = result[0].y;
 	    	 x = result[0].x;
 	    	 searchcoords = new daum.maps.LatLng(result[0].y, result[0].x);
-	    		// ¸¶Ä¿¸¦ »ı¼ºÇÕ´Ï´Ù
+	    		// ë§ˆì»¤ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 	    	 setMarkers(null);
-	        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
+	        // ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
 	        var marker = new daum.maps.Marker({
 	            map: map,
 	            position: searchcoords,
 	            clickable: true,
 	            image: markerImage 
-	            // ¸¶Ä¿ÀÌ¹ÌÁö ¼³Á¤ 
+	            // ë§ˆì»¤ì´ë¯¸ì§€ ì„¤ì • 
 	        });
 
-	        // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
+	        // ì¸í¬ìœˆë„ìš°ë¡œ ì¥ì†Œì— ëŒ€í•œ ì„¤ëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
 	
-	        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
+	        // ì§€ë„ì˜ ì¤‘ì‹¬ì„ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤
             markers.push(marker);
             map.setCenter(searchcoords);
 	    } 
-	    //Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÇÁö ¾Ê¾ÒÀ»¶§ 
+	    //ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œë˜ì§€ ì•Šì•˜ì„ë•Œ 
 	     else{
-	    	 alert("ÁÖ¼Ò¸¦ ÀÚ¼¼È÷ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+	    	 alert("ì£¼ì†Œë¥¼ ìì„¸íˆ ì…ë ¥í•´ì£¼ì„¸ìš”");
 	    	 
 	    	  var marker = new daum.maps.Marker({
 		            map: map,

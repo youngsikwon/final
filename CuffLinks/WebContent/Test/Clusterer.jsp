@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
 </head>
 <body>
+<body>
 <p style="margin-top:-12px">
     사용한 데이터를 보시려면 
     <em class="link">
@@ -42,6 +43,7 @@
         var markers = $(data.positions).map(function(i, position) {
             return new daum.maps.Marker({
                 position : new daum.maps.LatLng(position.lat, position.lng)
+            
             });
         });
 
