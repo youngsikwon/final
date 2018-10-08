@@ -1,10 +1,14 @@
 // 상단 버튼에 대한 페이지별 active효과
 $(document).ready(function() {
 
-   $(".icon-font").click(function (e){
+	$(".icon-font").click(function (e){
       $('.mrc .mrc-win').show();
    })
    
+
+   //채팅 자동스크롤 아래로 내리기
+
+   $('#chat-middle').scrollTop($('#chat-middle').prop('scrollHeight'));
    
    //채팅문의시작
    
