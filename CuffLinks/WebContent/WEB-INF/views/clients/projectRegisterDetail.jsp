@@ -164,7 +164,7 @@
                                     <img src="/image/p3.png" width=75px height=75px style="padding: 10px">
                                  </div>
                                  <div>
-                                    <input type="radio" name="radio" checked="checked" value="2">
+                                    <input type="radio" name="radio" checked="checked" value="3">
                                  </div>
                                  <div>
                                     <p>상세한 기획 문서가 <br>존재합니다.</p>
@@ -298,18 +298,18 @@
                         <span>*</span>프로젝트 매니징 경험
                      </div>
                      <div class="column container" style="padding: 10px; padding-bottom: 5px; padding-top: 20px; width: 75%; text-align:left;">
-                        <input type="radio" class="r1"/>&nbsp;&nbsp;예, 매니징 경험이 있습니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="r2" />&nbsp;&nbsp; 아니오, 없습니다.
+                        <input type="radio" name="radio1" class="r1"/>&nbsp;&nbsp;예, 매니징 경험이 있습니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="radio1" class="r2" />&nbsp;&nbsp; 아니오, 없습니다.
                      </div>
                      
                      <div class="center column container" style="padding: 17px; width: 25%;">
                         <span>*</span>선호하는 파트너 형태
                      </div>
                      <div class="column container" style="padding: 10px; padding-bottom: 5px; padding-top: 20px; width: 75%; text-align:left;">
-                        <input type="radio" class="r3"/>&nbsp;&nbsp;상관 없음.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        <input type="radio" class="r4" />&nbsp;&nbsp;법인 사업자&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                        <input type="radio" class="r4" />&nbsp;&nbsp;개인 사업자.&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                        <input type="radio" class="r4" />&nbsp;&nbsp;팀&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                        <input type="radio" class="r4" />&nbsp;&nbsp;개인   
+                        <input type="radio" name="radio2" class="r3"/>&nbsp;&nbsp;상관 없음.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <input type="radio" name="radio2" class="r4" />&nbsp;&nbsp;법인 사업자&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="radio2" class="r4" />&nbsp;&nbsp;개인 사업자.&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="radio2" class="r4" />&nbsp;&nbsp;팀&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="radio2" class="r4" />&nbsp;&nbsp;개인   
                      </div>
                      
                      <div class="column container" style="padding-left: 10px; padding-top: 0px; padding-bottom: 0px; width: 25%;"></div>

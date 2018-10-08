@@ -7,21 +7,98 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="../common/ui.jsp" />
 <title>Insert title here</title>
+<style>
+#cbtn {display: none;}
+#namverMap.show {display: block;}
+#namverMap {display: none;}
 
+
+
+.btnalign {
+	width: 100%;
+	margin-right: 0 ;
+}
+
+button, button::after {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button.cbtn {
+	width: 100%;
+	height: 30px;
+	background: none;
+	border: 1px solid #000;
+	border-radius: 5px;
+	color: #dedede;
+	display: block;
+	/* font-size: 1.6em; */
+	font-weight: bold;
+	/* margin: 1em auto; */
+	/* padding: 2em 6em; */
+	position: relative;
+	text-transform: uppercase;
+	border: 0px;
+}
+
+button::before, button::after {
+	background: #dedede;
+	content: '';
+	position: absolute;
+	z-index: -1;
+
+}
+
+button:hover {
+	color: #2ecc71;
+
+}
+
+.cbtn::before {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+
+
+}
+
+.cbtn::after {
+	background: #2ecc71;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+
+	
+}
+
+.cbtn:hover:after {
+	height: 0;
+	left: 50%;
+	top: 50%;
+	width: 0;
+
+}
+
+</style>
 </head>
 <body>
-	<div class="ui search">
-		<!-- <div class="ui icon input"> 메인으로 이동함.
-    <input class="prompt" id = "MapSearch" type="text" placeholder="Search countries...">
-    <i class="search icon"></i>
-  </div>
-  <div class="results"></div> -->
-	</div>
-	<div id="map" style="width: `100%; height: 480px;"></div>
+	
+	<div id="map" style="width: 100%; height: 480px;"></div>
+				
 	<div id="namverMap">
-		<Button id="NaverRoardView"></Button>
+		
+		<div id="NaverRoardView" style=" top: 0; z-index: 1000;"></div>
+		
 		<div id="pano" style="width: 100%; height: 480px;"></div>
+		<div id="btnalign" class="btnalign" align="center">
+			<button id="cbtn" type="button" class="cbtn">닫기</button>
+		</div>
 	</div>
+
 	<script>
 		//전역변수---------------------------------------------------------------------
 		var name = "";
@@ -49,10 +126,7 @@
 
 		//전역변수---------------------------------------------------------------------
 
-		function close() {
-			$("#pano").hide();
-		}
-
+		
 		function initPanorama(y, x, s) {
 			pano = new naver.maps.Panorama("pano", {
 				position : new naver.maps.LatLng(y, x),
@@ -78,18 +152,17 @@
 			});
 
 			var contentString = [ 
-					+ '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'
-					+ '<p>'
-					+ obj[s].PRO_NAME
-					/* + '<div class="ui divider" style=" margin-top: 0px;"></div>' */
-					+ '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'
-					+ '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'
-					+ ''
-					+ obj[s].PRO_ADDR
-					+ '<br></br>'
-					+ obj[s].C_PHONE
-					+ '<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'
-					+ '</div></p></div>' ].join('');
+				'<div class="ui segment" style="background: #fafafa; border-left: 2px solid rgb(118, 129, 168);border-right: 2px solid rgb(118, 129, 168);border-bottom: 2px solid rgb(118, 129, 168);">'
+				+ '<h3 align="center">'
+				+ obj[s].PRO_NAME
+				+ '</h3>'
+				+ '<div class = "ui segment">'
+				+ '<h5 align="center">'
+				+ obj[s].PRO_ADDR
+				+ '<br></br>'
+				+ obj[s].C_PHONE
+				+ '</h3>'
+				+ '</div>' ].join('');
 
 			var infowindow = new naver.maps.InfoWindow({
 				content : contentString
@@ -103,7 +176,7 @@
 				}
 
 				e.cancelBubble = true;
-
+				
 				if (infowindow.getMap()) {
 					infowindow.close();
 				} else {
@@ -114,8 +187,11 @@
 		}
 
 		function roadView(y, x, s) {
-
+			
+			$("#map").hide();
 			$("#namverMap").show();
+			$(".cbtn").show();
+			
 			initPanorama(y, x, s)
 
 			naver.maps.onJSContentLoaded = initPanorama;
@@ -139,7 +215,7 @@
 
 									y = result[0].y;
 									x = result[0].x;
-									var imageSrc = '../image/Location.jpg', // 마커이미지의 주소입니다    
+									var imageSrc = '../image/Location1.png', // 마커이미지의 주소입니다    
 									imageSize = new daum.maps.Size(64, 69), // 마커이미지의 크기입니다
 									imageOption = {
 										offset : new daum.maps.Point(27, 69)
@@ -155,31 +231,34 @@
 										position : coords,
 										clickable : true
 									});
-									var iwContent = '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'
-											+ '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">'
+									var iwContent = '<div class="ui segment" style="background: #fafafa; border-left: 2px solid rgb(118, 129, 168);border-right: 2px solid rgb(118, 129, 168);border-bottom: 2px solid rgb(118, 129, 168);">'
+											+ '<h3 align="center">'
 											+ obj[i].PRO_NAME
-											+ '</h3><div class="ui divider" style=" margin-top: 0px;"></div>'
-											+ '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'
-											+ '</div><div class="column" style="height: 60px;">'
-											+ ''
+											+ '</h3>'
+											+ '<div class = "ui segment">'
+											+ '<h5 align="center">'
 											+ obj[i].PRO_ADDR
 											+ '<br></br>'
 											+ obj[i].C_PHONE
-											+ '<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'
-											+ '<button onClick = "road('
-											+ i
+											+ '</h3>'
+											+ '</div>'
+											+ '<div class="ui buttons" style = "margin-top:10px;">'
+											+ '<button onClick = "road('+i+','+y+','+x+')" class="ui button" style="margin-left: 55px;">길찾기</button>'
+									/* 		+ i
 											+ ','
 											+ y
 											+ ','
 											+ x
-											+ ')" class="ui button" style="margin-left: 55px;">길찾기</button><div class="or"></div><button onClick = "roadView('
+											+ '" class="ui button">길찾기</button>' */
+											+ '<div class="or"></div>'
+											+ '<button onClick = "roadView('
 											+ y
 											+ ','
 											+ x
 											+ ','
 											+ i
-											+ ')" class="ui positive button">로드뷰</button>'
-											+ '</div></p></div>';
+											+ ')" class="ui positive button roadView">로드뷰</button>'
+											+ '</div></div>';
 									// 인포윈도우로 장소에 대한 설명을 표시합니다
 									var infowindow = new daum.maps.InfoWindow({
 										content : iwContent,
@@ -188,10 +267,10 @@
 									infowindow.close();
 
 									daum.maps.event.addListener(marker,
-											'click', function() {
-												// 마커 위에 인포윈도우를 표시합니다
-												infowindow.open(map, marker);
-											});
+										'click', function() {
+											// 마커 위에 인포윈도우를 표시합니다
+											infowindow.open(map, marker);
+										});
 									if (navigator.geolocation) { // GPS를 지원하면
 										navigator.geolocation
 												.getCurrentPosition(
@@ -237,14 +316,23 @@
 
 		}
 		function road(i, y, x) {
-
-			location.href = "http://map.daum.net/link/to/" + obj[i].PRO_ADDR
-					+ "," + y + "," + x
+			
+			/* 새창띄우기 */
+			var openNewWindow = window.open("about:blank");
+			
+			openNewWindow.location.href = "http://map.daum.net/link/to/" + obj[i].PRO_ADDR + "," + y + "," + x
 		}
 		$(document).ready(function() {
-
+			
+			$(".cbtn").click(function(){
+				
+				$("#pano").hide(); 
+				$("#map").show();
+				$(".cbtn").hide();
+			});
+			
 			$("#NaverRoardView").click(function() {
-
+				$(".cbtn").hide();
 				$("#namverMap").hide();
 
 			});

@@ -32,9 +32,9 @@
 
 		<div style="text-align: center;">
 			<h4>앱 개발, 웹 디자인, 쇼핑몰제작, 워드프레스 제작등</h4>
-			<h1>빠르고 안전한 아웃소싱 플랫폼</h1>
+			<h1> 안전한 아웃소싱 플랫폼</h1>
 			<h5>위시켓의 새로운 아웃소싱을 시작해 보세요</h5>
-			<button class="ui button blue">
+			<button class="ui button blue" onclick="location.href='/auth/login'">
 				<h4>무료로 프로젝트 등록하기</h4>
 			</button>
 		</div>
@@ -161,9 +161,11 @@
 		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 클라이언트 의뢰 주변 검색
 		<div class="ui mini search" style="position: absolute;top: 2px;right:0; float: right;">
 			<div class="ui icon input">
-				<input class="prompt" id="MapSearch" type="text" placeholder="Search countries..." style="height: 20px;"> <i class="search icon"></i>
+				<div class="ui search" style="">
+					<input class="prompt" id="MapSearch" type="text" placeholder="Search countries..." style="height: 20px;"> <i class="search icon"></i>
+				</div>
+				<div class="results"></div>
 			</div>
-			<div class="results"></div>
 		</div>
 	</div>
 	
@@ -172,7 +174,8 @@
 			<jsp:include page="../map/Mapdisplay1.jsp" />
 		</div>
 	</div>
-	<div style="height: 20px;"></div>
+	<div style="height: 30px; margin: 0 auto;" align="center"></div>
+
 	<div class="ui container" style=" padding-top: 5px;padding-bottom: 5px; font-size: 1.5em; text-align: center; background-color: #A9D0F5; border-bottom: 1px solid #000;">
 		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 우리와 함께하는 회사
 	</div>
