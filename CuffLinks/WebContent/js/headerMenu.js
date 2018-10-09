@@ -1,7 +1,11 @@
 // 상단 버튼에 대한 페이지별 active효과
 $(document).ready(function() {
 
-	$(".icon-font").click(function (e){
+
+
+	
+	//음성인식 아이콘클릭시 보여질화면
+   $(".icon-font").click(function (e){
       $('.mrc .mrc-win').show();
    })
    

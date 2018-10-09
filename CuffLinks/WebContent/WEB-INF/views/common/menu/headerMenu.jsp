@@ -18,8 +18,12 @@
 <!-- https://fontawesome.com 웹폰트사용에 필요 채팅문의에 들어간 아이콘이미지-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <jsp:include page="../ui.jsp"/>
+<jsp:include page="../loading.jsp" />
 <link rel="stylesheet" href="../../css/cuffLink.css" />
 <link rel="stylesheet" href="../../css/login.css" />
+
+
+
 <div class="ui inverted segment" style="margin-top: 0px; padding-top: 3px; padding-bottom: 3px; margin-bottom: 0px;">
    <div class="ui container">
       <a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>

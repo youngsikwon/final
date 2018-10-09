@@ -4,10 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="./ui.jsp" />
+
 <title>Cufflink</title>
 <style>
 <link rel="stylesheet" href="/css/main.css"/>
 </style>
+<jsp:include page="./loading.jsp" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- //chatting -->
 <link rel="stylesheet" href="../css/main.css" />
