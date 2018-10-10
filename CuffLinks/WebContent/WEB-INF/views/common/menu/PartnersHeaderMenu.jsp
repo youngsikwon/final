@@ -25,7 +25,7 @@
    <div class="ui container">
       <a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
       <div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
-         <a href="/project/projectFind" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
+         <a href="/project/page?pagenum=1" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
          <a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
          <div class="right mini menu">
             <div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
