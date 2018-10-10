@@ -43,80 +43,23 @@
 				</a>
 			</div>
 		</div>
-		<div class="chat-middle">
-			<div id="c-middle" class="c-middle">
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				CuffLink에 방문해주셔서 감사합니다.<br>
-				궁금하신 점이 있으시면 질문해주세요 :)
-				
+		<div class="chat-middle"">
+			<div id="c-middle" class="c-middle"  align="right">
+				<!-- 입력내용 출력되는 부분 -->
 			</div>
 		</div>
-		<div class="chat-bottom">
+		<div class="chat-bottom" >
 			<div class="b-left">
 				<a href="#">
 					<i class="fas fa-paperclip fa-2x"></i>
 				</a>
 			</div>
 			<div class="b-center">
-				<input type="text" id="q-input" name="q-input" />
+				<!-- 입력부분 -->
+				<input type="text" id="q-input" name="q-input" onkeypress="if(event.keyCode==13){input(); return false;}">
 			</div>
 			<div class="b-right">
-				<a href="#">
+				<a href="javascript:input();">
 					<i class="fas fa-arrow-circle-right fa-2x"></i>
 				</a>
 			</div>
@@ -127,7 +70,20 @@
 <!-- 채팅문의 관련 코드 -->
 <script src="../js/headerMenu.js"></script>
 
+<script>
+	var temp = "";
+	function input() {
+		
+		var input = $("#q-input").val();
+		$("#q-input").val("");
 
+		temp = temp + input + '<br/>';
+		$("#c-middle").html(temp);
+		
+		$('#c-middle').scrollTop($('#c-middle')[0].scrollHeight);
+		 
+	}
+</script>
 
 
 

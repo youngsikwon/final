@@ -5,60 +5,59 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller()
-@RequestMapping("/auth")
 public class AuthController {
 
 	//@Autowired
 	AuthController authcontroller;
 	
 	//로그인
-	@RequestMapping("/login")
+	@RequestMapping("/auth/login")
 	public String login() {
 		return "auth/login";
 	}
 	//타사로그인
-	@RequestMapping("/otherJoin")
+	@RequestMapping("/auth/otherJoin")
 	public String otherJoin() {
 		return "auth/otherJoin";
 	}
 	//로그인성공
-	@RequestMapping("/loginSuccess")
+	@RequestMapping("/auth/loginOk")
 	public String loginSuccess() {
-		return "auth/loginSuccess";
+		return "auth/loginOk";
 	}
 	//회원가입
-	@RequestMapping("/join")
+	@RequestMapping("/auth/join")
 	public String join() {
 		return "auth/join";
 	}
 	
 	//계정설정 - 기본수정 
-	@RequestMapping("/ClientProfile")
+	@RequestMapping("/auth/ClientProfile")
 	public String ClientProfile() {
 		return "/auth/clientSettings/ClientProfile";
 	}
 	//계정설정 - 계좌관리
-	@RequestMapping("/ClientBankAccount")
+	@RequestMapping("/auth/ClientBankAccount")
 	public String ClientBankAccount() {
 		return "/auth/clientSettings/ClientBankAccount";
 	}
 	//계정설정 - 코인충전페이지
-	@RequestMapping("/ClientAddcoin")
+	@RequestMapping("/auth/ClientAddcoin")
 	public String ClientAddcoin() {
 		return "/auth/clientSettings/ClientAddcoin";
 	}
 	//계정설정 - 비밀번호변경
-	@RequestMapping("/ClientRelogin")
+	@RequestMapping("/auth/ClientRelogin")
 	public String ClientRelogin() {
 		return "/auth/clientSettings/ClientRelogin";
 	}
 	//계정설정 - 알림설정
-	@RequestMapping("/ClientNotificationSetting")
+	@RequestMapping("/auth/ClientNotificationSetting")
 	public String ClientNotificationSetting() {
 		return "/auth/clientSettings/ClientNotificationSetting";
 	}
 	//계정설정 - 회원탈퇴
-	@RequestMapping("/ClientWithdrawal")
+	@RequestMapping("/auth/ClientWithdrawal")
 	public String ClientWithdrawal() {
 		return "/auth/clientSettings/ClientWithdrawal";
 	}
@@ -66,17 +65,17 @@ public class AuthController {
 	//*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴
 	
 	//휴대폰을 통한 지문인식
-	@RequestMapping("/fingerprint")
+	@RequestMapping("/auth/fingerprint")
 	public String fingerprint() {
 		return "/auth/fingerprint";
 	}
 	//비밀번호찾기
-	@RequestMapping("/idpassfind")
+	@RequestMapping("/auth/idpassfind")
 	public String idpassfind() {
 		return "/auth/idpassfind";
 	}
 	//qr코드
-	@RequestMapping("/qrcode")
+	@RequestMapping("/auth/qrcode")
 	public String qrcode() {
 		return "/auth/qrcode";
 	}

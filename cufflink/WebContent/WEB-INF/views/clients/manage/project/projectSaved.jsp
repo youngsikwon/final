@@ -2,11 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../../common/ui.jsp" />
 <meta charset="UTF-8">
 <title>검수중-임시저장</title>
-<link rel="stylesheet" href="../css/cuffLink.css" />
-<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -17,14 +14,6 @@
 				<jsp:include page="../../../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
@@ -48,7 +37,7 @@
 
 <!-- 서브 메뉴 ===================================================================================-->
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<jsp:include page="../project/projectSubmittedSubmenu.jsp" />
+					<jsp:include page="./projectSubmittedSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->		
 			</div>
@@ -63,7 +52,7 @@
 					</div>
 					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
-							<img class="ui medium circular image" style="width: 40px;" src="../image/process-guide-success.png">
+							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-success.png">
 						</div>
 						<div class="column" style="width: 90%; text-align: left; padding-left: 5px">
 							1. 프로젝트 내용 작성 중 임시 저장한 프로젝트 목록입니다.<br>

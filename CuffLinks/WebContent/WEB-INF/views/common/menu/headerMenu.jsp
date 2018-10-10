@@ -22,14 +22,12 @@
 <link rel="stylesheet" href="../../css/cuffLink.css" />
 <link rel="stylesheet" href="../../css/login.css" />
 
-
-
 <div class="ui inverted segment" style="margin-top: 0px; padding-top: 3px; padding-bottom: 3px; margin-bottom: 0px;">
    <div class="ui container">
       <a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
       <div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
          <a href="../clients/projectRegister" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
-         <a href="../clients/projectFind" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
+          <a href="../Project/page?pagenum=5" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
          <a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
          <div class="right mini menu">
             <div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">

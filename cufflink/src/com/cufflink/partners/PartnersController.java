@@ -13,7 +13,7 @@ public class PartnersController {
 	//@Autowired
 	PartnersLogic partnersLogic;
 	
-	//ÆÄÆ®³Ê½º ¸ñ·Ï
+	//íŒŒíŠ¸ë„ˆìŠ¤ ëª©ë¡
 	@RequestMapping("/partnersList")
 	public String partnersList() {
 		return "partners/partnersList";

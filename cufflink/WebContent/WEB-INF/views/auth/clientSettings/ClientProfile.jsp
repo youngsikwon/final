@@ -1,13 +1,29 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+ <%
+    Cookie[]    cs          = request.getCookies();
+    HttpSession infoSession = request.getSession();
+    Map<String,Object> info = null;
+    int      login_cnt = 0;
+    for(int i = 0; i<cs.length;i++){
+	
+	String cName = cs[i].getName();
+	  if("id".equals(cName)){
+		
+		  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+		
+	  }
+    }
+ 
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>계정설정(기본수정)
 </title>
-<link rel="stylesheet" href="../css/cuffLink.css" />
-<link rel="stylesheet" href="../css/login.css" />
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -18,16 +34,114 @@
 				<jsp:include page="../../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
+	<script type="text/javascript">
+	
+	  function addPlusFriend() {
+	    	Kakao.PlusFriend.addFriend({
+	    		plusFriendId: '_Mxhhuj'
+	    	});
+	    }
+	
+	$(document).ready(function(){
+	
+		<%-- <%=info.get("S_EMAIL")%> --%>
+		$.ajax({
+			
+			url:"/client/modify"
+		   ,method:"post"
+		   ,data:{s_email:"<%=info.get("S_EMAIL")%>"}
+		   ,success:function(data){
+	 		   var obj = JSON.parse(data);
+	   
+
+			   $("#f_name").val(obj[0].C_NAME);
+			   $("#address").val(obj[0].C_ADDR);
+			   $("#email").val(obj[0].S_EMAIL);
+	
+	
+			
+			   if(obj[0].C_OPERATOR == "개인"){
+					$("#f_dropdown").val("개인").prop("selected", true);
+			   }
+			   else if(obj[0].C_OPERATOR == "팀"){
+					$("#f_dropdown").val("팀").prop("selected", true);
+			   }
+			   else if(obj[0].C_OPERATOR == "개인 사업자"){
+					$("#f_dropdown").val("개인 사업자").prop("selected", true);
+			   }
+			   else if(obj[0].C_OPERATOR == "법인 사업자"){
+					$("#f_dropdown").val("법인 사업자").prop("selected", true);
+			   }
+			   
+			   if(obj[0].C_GENDER == "남자"){
+				   $("#gender1").attr("checked",true);
+			   }
+			   else{
+				   $("#gender2").attr("checked",true);
+			   }
+			   var phone = obj[0].C_PHONE;
+			   var first = phone.substr(0,3);
+			   var second = phone.substr(4,4);
+			   var three = phone.substr(9,14);
+	
+			   $("#skills1").val(first).prop("selected", true);
+			   $("#second").val(second);
+			   $("#three").val(three);
+			   
+			   var c_phone = obj[0].C_BUSINESSNUMBER;
+			   var c_first = c_phone.substr(0,4);
+			   var c_second = c_phone.substr(5,c_phone.length);
+
+			   $("#skills2").val(c_first).prop("selected", true);
+			   $("#SecondT").val(c_second);
+			   
+			   
+			   
+		   }
+		   ,error:function(xhrObject){
+			   alert(xhrObject.responseText);
+		   }
+			
+		});
+
+		Kakao.init('8e91bf2951ff7ac21938e4a240554ea4');
+		
+		$("#plusfriend").click(function(){
+			addPlusFriend();
+		});
+		
+		$('#userInfo1').click(function(){
+			
+
+			$("#f_dropdown").val($("#f_dropdown").find(":selected").val())
+			$("#years").val($("#years").find(":selected").val())
+			
+			$("#f_UserInfo1").attr("action","/PartnersImages");
+			$("#f_UserInfo1").attr("method","post");
+			$("#f_UserInfo1").submit();
+			
+			alert("등록완료");
+			
+		});
+
+		$('#Add_address').click(function(){
+			///PartnersImages
+			 new daum.Postcode({
+			      oncomplete: function(data) {
+			          //지번
+			          $("#address").val(data.jibunAddress);
+			          $("#address").val(data.roadAddress);
+			
+			      }
+			  }).open();
+			
+		});
+       
+	});
+	
+	</script>
 <!----------------------------------------------------------------------- top 끝 -->
 
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
@@ -35,23 +149,23 @@
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
 
-	<div class="ui container" >
-	
-	<!-- main 입력 시작-->
+	<div class="ui container">
 
-		<div class="ui two column grid container" style="height: auto">
-			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
-<!-- 로그인 정보 =================================================================================-->
+		<!-- main 입력 시작-->
+
+		<div class="ui two column grid container" style="padding: 5px; height: auto">
+			<div class="ui column" style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+				<!-- 로그인 정보 =================================================================================-->
 				<div class="ui segment">
 					<jsp:include page="../loginOk.jsp" />
 				</div>
-<!-- 로그인 정보 =================================================================================-->
+				<!-- 로그인 정보 =================================================================================-->
 
-<!-- 서브 메뉴 ===================================================================================-->
+				<!-- 서브 메뉴 ===================================================================================-->
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
 					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
-<!-- 서브 메뉴 ===================================================================================-->
+				<!-- 서브 메뉴 ===================================================================================-->
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
 				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
@@ -62,43 +176,31 @@
 						<div class="column" style="padding-left: 0px">
 							<h5 style="text-align: left">계정의 기본 정보들을 수정할 수 있습니다.</h5>
 						</div>
-						<div class="column" style="text-align:right; padding-bottom: 0px;">
-							<h6 style="text-align: right; padding-right:10px;"><a href="./ClientProfile">클라이언트 정보 수정하기 ></a></h6>
+						<div class="column" style="text-align: right; padding-bottom: 0px;">
+							<h11 style="text-align: right; padding-right:10px;"> <a href="">클라이언트 정보 수정하기 </a>
+							</h6>
 						</div>
 					</div>
 				</div>
 				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:auto;">
-					<div class="ui two column grid container">
-						<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
-							<h5>계정 정보</h5>
-						</div>
-						<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
-							<!-- 빈공간 -->
-						</div>
-						<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
-							아이디
-						</div>
-						<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
-<!-- 아이디 뿌려줄곳 ================================================================================================================================== -->						
-							twins0313
-<!-- 아이디 뿌려줄곳 ================================================================================================================================== -->							
-						</div>
-						<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
-							이메일
-						</div>
-						<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
-<!-- 이메일 뿌려줄곳 ================================================================================================================================== -->						
-							twins0313@naver.com
-<!-- 이메일 뿌려줄곳 ================================================================================================================================== -->		
-						</div>
-						<div class="ui one column container" style="padding-left: 10px; padding-top:10px; padding-bottom:0px; padding-right:30px; width: 100%;">
-							<hr class="dotted"/>
-						</div>
-					</div>
-<!--form start ================================================================================================================================== -->
-					<form name="c_profile">
-						<div class="ui two column grid container">
+
+				<div class="ui container" style="width: 100% padding-left: 20px; padding-top: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto;">
+					<form id="f_UserInfo1" method="post" enctype="multipart/form-data" style="width: 100%;">
+						<div class="ui two column grid container" style="width: 100%">
+							<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
+								<h5>계정 정보</h5>
+							</div>
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
+								<!-- 빈공간 -->
+							</div>
+
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">아이디</div>
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_ID")%></div>
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">이메일</div>
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_EMAIL")%></div>
+							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
+								<hr class="dotted" />
+							</div>
 							<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 								<h5>기본 정보</h5>
 							</div>
@@ -109,20 +211,9 @@
 								<span>*</span>프로필 사진
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
-								<div class="ui input">
-									<input type="text" placeholder="제출된 '프로필 이미지'가 없습니다." size="44px">
-								</div>
-								<div class="ui input">
-									<button class="ui basic button">
-											 <i class="icon user"></i>
-											  이미지 등록
-									</button>
-								</div>
-								<div class="ui input">
-									<p>이미지 파일(.jpg, .jpeg, .png, .gif 등)만 업로드할 수 있습니다.<br>
-									등록한 이미지는 위시켓에서 프로필 사진으로 사용됩니다.<br>
-									신원 인증 서류는 [신원 인증]에서 등록할 수 있습니다.</p>
-								</div>
+
+								<input id="f_file" name="f_file" type="file" class="inputfile" />
+
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>클라이언트 형태
@@ -131,15 +222,15 @@
 								<div>
 									<script>
 										$('.tag.example .ui.dropdown')
-											.dropdown({
-												allowAdditions : true
-											});
+												.dropdown({
+													allowAdditions : true
+												});
 									</script>
-									<select name="skills" class="ui fluid search dropdown" style="width:60.5%;">
-										<option value="">개인</option>
-										<option value="angular">팀</option>
-										<option value="css">개인 사업자</option>
-										<option value="design">법인 사업자</option>
+									<select id="f_dropdown" name="f_dropdown" class="ui fluid search dropdown" style="width: 60.5%;">
+										<option id = "1" value="개인">개인</option>
+										<option id = "2" value="팀">팀</option>
+										<option id = "3" value="개인 사업자">개인 사업자</option>
+										<option id = "4" value="법인 사업자">법인 사업자</option>
 									</select>
 								</div>
 							</div>
@@ -148,7 +239,7 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<input type="text" placeholder="이름을 입력하세요." size="45px">
+									<input id="f_name" name="f_name" type="text" placeholder="이름을 입력하세요." size="45px">
 								</div>
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
@@ -157,20 +248,18 @@
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
 									<div class="ui form">
-									  <div class="grouped fields">
-									    <div class="field">
-									      <div class="ui radio checkbox">
-									        <input type="radio" name="example2" checked="checked">
-									        <label>남</label>
-									      </div>
-									    </div>
-									    <div class="field">
-									      <div class="ui radio checkbox">
-									        <input type="radio" name="example2">
-									        <label>여</label>
-									      </div>
-									    </div>
-									  </div>
+										<div class="grouped fields">
+											<div class="field">
+												<div class="ui radio checkbox">
+													<input type="radio" id = "gender1" name="f_gender" value="남" checked="checked"> <label>남</label>
+												</div>
+											</div>
+											<div class="field">
+												<div class="ui radio checkbox">
+													<input type="radio" id = "gender2" name="f_gender" value="여"> <label>여</label>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -179,60 +268,53 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<select name="skills" class="ui search dropdown">
-										<option value="">2018</option>
-									</select>
-									<i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px"><i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="5px">
+									<select name="years" class="ui search dropdown">
+									    <%for(int i = 1918; i<2019;i++){ %>
+										<option value=""><%=i %></option>
+										<%} %>
+									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_mounth" name="f_mounth" type="text" size="5px"><i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_day" name="f_day" type="text" size="5px">
 								</div>
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
-								<span>*</span>지역 - 시, 도
+								<span>*</span>지번
 							</div>
+
 							<div class="column container" style="padding: 10px; width: 70%;">
-								<select name="skills" class="ui fluid search dropdown" style="width:60%;">
-									<option value="">시도</option>
-									<option value="angular">서울</option>
-									<option value="css">광주</option>
-									<option value="design">해외</option>
-								</select>
-							</div>
-							<div class="center column container" style="padding: 17px; width: 30%;">
-								<span>*</span>세부 지역 - 시, 군, 구
-							</div>
-							<div class="column container" style="padding: 10px; width: 70%;">
-								<select name="skills" class="ui fluid search dropdown" style="width:60%;">
-									<option value="">선택</option>
-								</select>
+								<div class="ui input">
+									<button id="Add_address" type="button" class="ui basic button">
+										<i class="icon user"></i> 주소등록
+									</button>
+								</div>
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>나머지 주소
 							</div>
+
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<input type="text" size="44px">
+									<input id = "address" name = "address" type="text" size="44px">
 								</div>
 							</div>
-							<div class="center column container" style="padding: 17px; width: 30%;">
+							<div  class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>세금계산서용 이메일
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<input type="text" size="44px">
-								</div>
-								<div style="padding-right:20px; text-align:right;">
-									<button class="ui blue button" >등록완료</button>
+									<input name="f_email" id = "email" type="text" size="44px">
 								</div>
 							</div>
-							<div class="ui one column container" style="padding-left: 10px; padding-top:10px; padding-bottom:0px; padding-right:30px; width: 100%;">
-								<hr class="dotted"/>
+							<div name="f_email" class="center column container" style="padding: 17px; width: 30%;"></div>
+							<div class="column container" style="padding: 10px; width: 70%;">
+								<div style="padding-right: 20px; text-align: right;">
+					            	
+								</div>
 							</div>
 						</div>
-<!--form end ================================================================================================================================== -->						
-					</form>					
+						<div class="ui two column grid container" style="width: 100%">
 
-<!--form start ================================================================================================================================== -->
-					<form name="c_tel">					
-						<div class="ui two column grid container">	
+							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
+								<hr class="dotted" />
+							</div>
 							<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 								<h5>연락처 정보</h5>
 							</div>
@@ -244,11 +326,7 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<select name="skills" class="ui search dropdown">
-										<option value="010">국내</option>
-										<option value="011">해외</option>
-									</select>&nbsp;&nbsp;&nbsp;
-									<select name="skills" class="ui search dropdown">
+									<select id = "skills1" name="skills1" class="ui search dropdown">
 										<option value="010">010</option>
 										<option value="011">011</option>
 										<option value="016">016</option>
@@ -256,8 +334,11 @@
 										<option value="018">018</option>
 										<option value="019">019</option>
 										<option value="foreign">해외</option>
-									</select>
-									<i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="7px"><i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="6px">
+									</select> 
+									<i class="window minimize outline icon" style="padding: 5px; color: gray;"></i> 
+									<input id = "second" name = "second" type="text" size="7px">
+									<i class="window minimize outline icon" style="padding: 5px; color: gray;"></i>
+									<input id = "three" name = "three" type="text" size="6px">
 								</div>
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
@@ -265,20 +346,11 @@
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<select name="skills" class="ui search dropdown">
-										<option value="010">국내</option>
-										<option value="011">해외</option>
-									</select>&nbsp;&nbsp;&nbsp;
-									<select name="skills" class="ui search dropdown">
-										<option value="010">010</option>
-										<option value="011">011</option>
-										<option value="016">016</option>
-										<option value="017">017</option>
-										<option value="018">018</option>
-										<option value="019">019</option>
+	                                <select id = "skills2" name="skills2" class="ui search dropdown">
+										<option value="5546">5546</option>
 										<option value="foreign">해외</option>
-									</select>
-									<i class="window minimize outline icon" style="padding:5px; color:gray;"></i><input type="text" size="22px">
+									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;">
+									</i><input id = "SecondT" name = "SecondT" type="text" size="22px">
 								</div>
 							</div>
 							<div class="center column container" style="padding: 17px; width: 30%;">
@@ -288,21 +360,26 @@
 								<div class="ui input">
 									<input type="text" size="45px">
 								</div>
-								<div style="padding-right:20px; text-align:right;">
-									<button class="ui blue button" >등록완료</button>
+							</div>
+							<div class="center column container" style="padding: 17px; width: 30%;"></div>
+							<div class="column container" style="padding: 10px; width: 70%;">
+								<div style="padding-right: 20px; text-align: right;">
+								    <button type = "button" id="plusfriend" class="ui blue button">플러스친구</button>
+									<button type = "button" id="userInfo1" class="ui blue button">등록완료</button>
 								</div>
 							</div>
+
 						</div>
 					</form>
-<!--form end ================================================================================================================================== -->	
 				</div>
+
 			</div>
 		</div>
-	<!-- main 입력 끝-->
+		<!-- main 입력 끝-->
 
 	</div>
 
-<!----------------------------------------------------------------------- main content 끝 --->
+	<!----------------------------------------------------------------------- main content 끝 --->
 <!--======================================================================================-->
 	
 	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>

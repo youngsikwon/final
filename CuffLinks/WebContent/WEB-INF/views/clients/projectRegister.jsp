@@ -30,7 +30,7 @@
 
    <!----------------------------------------------------------------------- main content 시작 -->
    <!----------------------------------------------------------------------- main content 시작 -->
-   <div class="ui container raised segment content">
+   <div class="ui container raised segment content" style="min-height: 670px; height: auto;">
 
       <!-- title 시작-->
       <div class="ui container">

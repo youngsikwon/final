@@ -49,6 +49,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="ui two column grid container">
 			<div class="column" style="padding: 10px; width: 50%; text-align: right;">
 				<div class="ui column animated fade button" tabindex="0">
@@ -65,9 +66,9 @@
 						<a href="javascript:self.close()">Cancle Click</a>
 					</div>
 				</div>
-			
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

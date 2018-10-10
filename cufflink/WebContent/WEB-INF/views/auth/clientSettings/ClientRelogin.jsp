@@ -1,13 +1,27 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+ <%
+    Cookie[]    cs          = request.getCookies();
+    HttpSession infoSession = request.getSession();
+    Map<String,Object> info = null;
+    int      login_cnt = 0;
+    for(int i = 0; i<cs.length;i++){
+	
+	String cName = cs[i].getName();
+	  if("id".equals(cName)){
+		
+		  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+		
+	  }
+    }
+ 
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp"/>
 <meta charset="UTF-8">
 <title>비밀번호변경
 </title>
-<link rel="stylesheet" href="../css/cuffLink.css" />
-<link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -18,17 +32,44 @@
 				<jsp:include page="../../common/menu/headerMenu.jsp"/>
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$("#PwModify").click(function(){
+
+		 $.ajax({
+				
+			 url: "/client/PwModify"
+			,method : "post"
+			,data   : {pw1:$("#password1").val(),pw2:$("#password2").val(),s_email:"<%=info.get("S_EMAIL")%>"}
+			,success : function(data){
+				if(data == 1){
+				   alert("비밀번호 변경 성공");	
+				   $("#password1").val("");
+				   $("#password2").val("");
+				}
+				else{
+				   alert("기존 비밀번호가 틀렸습니다.");	
+				   
+				}
+			}
+		    ,error   : function(xhrObject){
+		    	alert(xhrObject.responseText);
+		    }
+			 
+		 });
+	
+	});
+	
+});
+
+
+</script>
 
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
@@ -71,16 +112,15 @@
 				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:auto;">
 					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
-							<img class="ui medium circular image" style="width: 40px;" src="../image/process-guide-warning.png">
+							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">
 						</div>
 						<div class="column" style="width: 90%;text-align: left; padding-left: 5px ">
 							[ 비밀번호 변경 가이드 ]<br>
 							다른 사이트에서 사용하지 않는 고유한 비밀번호를 사용하시고, 주기적으로 변경해주세요.
 						</div>
 					</div>
+					
 					<div style="padding-top:30px;">
-<!-- form start ================================================================================================================================== -->
-						<form name="c_relogin">
 							<div class="ui two column grid container">
 								<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 									<h5>보안 로그인</h5>
@@ -89,19 +129,25 @@
 									<!-- 빈공간 -->
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
-									이메일
+									<span>*</span>이메일
 								</div>
 								<div class="column container" style="padding: 17px; width: 60%;">
-<!-- id show ================================================================================================================================== -->								
-									twins0313@naver.com
-<!-- id show ================================================================================================================================== -->									
+								<%=info.get("S_EMAIL")%>
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
-									<span>*</span>비밀번호
+									<span>*</span>기존비밀번호
 								</div>
 								<div class="column container" style="padding: 10px; width: 60%;">
 									<div class="ui input">
-										<input type="text" placeholder="비밀번호를 입력하세요." size="45px">
+										<input id = "password1" type="text" placeholder="비밀번호를 입력하세요." size="25px">
+									</div>
+								</div>
+								<div class="center column container" style="padding: 17px; width: 30%;">
+									<span>*</span>변경비밀번호
+								</div>
+								<div class="column container" style="padding: 10px; width: 60%;">
+									<div class="ui input">
+										<input id = "password2" type="text" placeholder="비밀번호를 입력하세요." size="25px">
 									</div>
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
@@ -109,13 +155,11 @@
 								</div>
 								<div class="column container" style="padding: 10px; width: 60%; text-align:right">
 									<div class="ui container" style="padding-right:30px; ">
-										<button class="ui blue button" >로그인</button>
+										<button type = "button" id = "PwModify" class="ui blue button" >비밀번호 변경</button>
 									</div>
 								</div>
 							</div>
 						</div>
-					</form>		
-<!-- form 종료 ================================================================================================================================== -->									
 				</div>
 			</div>
 		</div>

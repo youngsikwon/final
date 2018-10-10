@@ -1,59 +1,86 @@
 package com.cufflink.project;
 
+import java.util.Map;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProjectController {
-	
-	//@Autowired
-	ProjectLogic projectLogic;
-
-	//ÇÁ·ÎÁ§Æ® °Ë¼öÁß
-	@RequestMapping("/project/projectSubmitted")
-	public String projectSubmitted() {
-		return "/clients/manage/project/projectSubmitted";
-	}
-	//ÇÁ·ÎÁ§Æ® ÀÓ½ÃÀúÀå
-	@RequestMapping("/project/projectSaved")
-	public String projectSaved() {
-		return "/clients/manage/project/projectSaved";
-	}
-	//ÇÁ·ÎÁ§Æ® µî·Ï½ÇÆĞ
-	@RequestMapping("/project/projectRejected")
-	public String projectRejected() {
-		return "/clients/manage/project/projectRejected";
-	}
-	
+	Logger logger = Logger.getLogger(ProjectController.class);
+		@Autowired
+		ProjectLogic projectLogic;
 		
-	//*********************************	Å¬¶óÀÌ¾ğÆ® ·Î±×ÀÎ ³×ºñ°ÔÀÌÅÍ ¸Ş´º
-	
-	
-	//ÇÁ·ÎÁ§Æ® Áö¿øÀÚ ¸ğÁıÁß
-	@RequestMapping("/project/projectRecruiting")
-	public String projectRecruiting() {
-		return "/clients/manage/projectRecruiting";
-	}
-	//ÇÁ·ÎÁ§Æ® ÁøÇàÁßÀÎ ÇÁ·ÎÁ§Æ®
-	@RequestMapping("/project/projectContractInProgress")
-	public String projectContractInProgress() {
-		return "/clients/manage/projectContractInProgress";
-	}
-	//ÇÁ·ÎÁ§Æ® Æò°¡´ë±âÁß ÇÁ·ÎÁ§Æ®
-	@RequestMapping("/project/projectReviewContract")
-	public String projectReviewContract() {
-		return "/clients/manage/projectReviewContract";
-	}
-	
-	//ÇÁ·ÎÁ§Æ® ¿Ï·áµÈ ÇÁ·ÎÁ§Æ®
-	@RequestMapping("/project/projectCompletedContract")
-	public String projectCompletedContract() {
-		return "/clients/manage/projectCompletedContract";
-	}
-	//ÇÁ·ÎÁ§Æ® Ãë¼ÒÇÑ ÇÁ·ÎÁ§Æ®
-	@RequestMapping("/project/projectCancelledProject")
-	public String projectCancelledProject() {
-		return "/clients/manage/projectCancelledProject";
-	}
+		@RequestMapping("/Project/page")
+		public String getProjectFind(Model mod, @RequestParam("pagenum") String pagenum, Map<String, Object> pMap) {
+			logger.info("ProjectFind í˜¸ì¶œì„±ê³µ");
+			
+			mod.addAttribute("ProjectFind1", projectLogic.getProjectFind1());
+			mod.addAttribute("ProjectFind2", projectLogic.getProjectFind2()); 
+			mod.addAttribute("ProjectCate_ALL", projectLogic.getProject_cateALL());
+			mod.addAttribute("Projectseach", projectLogic.getProjectseach());
+			mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt("5"))); 
+			
+			 
+			mod.addAttribute("Project", projectLogic.Project(pMap));
+			
+			
+			return "Project/ProjectFind";
+		}
+		
+		
+		
+		//í”„ë¡œì íŠ¸ ê²€ìˆ˜ì¤‘
+		@RequestMapping("/project/projectSubmitted")
+		public String projectSubmitted() {
+			return "/clients/manage/project/projectSubmitted";
+		}
+		//í”„ë¡œì íŠ¸ ì„ì‹œì €ì¥
+		@RequestMapping("/project/projectSaved")
+		public String projectSaved() {
+			return "/clients/manage/project/projectSaved";
+		}
+		//í”„ë¡œì íŠ¸ ë“±ë¡ì‹¤íŒ¨
+		@RequestMapping("/project/projectRejected")
+		public String projectRejected() {
+			return "/clients/manage/project/projectRejected";
+		}
+		
+			
+		//*********************************	í´ë¼ì´ì–¸íŠ¸ ë¡œê·¸ì¸ ë„¤ë¹„ê²Œì´í„° ë©”ë‰´
+		
+		
+		//í”„ë¡œì íŠ¸ ì§€ì›ì ëª¨ì§‘ì¤‘
+		@RequestMapping("/project/projectRecruiting")
+		public String projectRecruiting() {
+			return "/clients/manage/projectRecruiting";
+		}
+		//í”„ë¡œì íŠ¸ ì§„í–‰ì¤‘ì¸ í”„ë¡œì íŠ¸
+		@RequestMapping("/project/projectContractInProgress")
+		public String projectContractInProgress() {
+			return "/clients/manage/projectContractInProgress";
+		}
+		//í”„ë¡œì íŠ¸ í‰ê°€ëŒ€ê¸°ì¤‘ í”„ë¡œì íŠ¸
+		@RequestMapping("/project/projectReviewContract")
+		public String projectReviewContract() {
+			return "/clients/manage/projectReviewContract";
+		}
+		
+		//í”„ë¡œì íŠ¸ ì™„ë£Œëœ í”„ë¡œì íŠ¸
+		@RequestMapping("/project/projectCompletedContract")
+		public String projectCompletedContract() {
+			return "/clients/manage/projectCompletedContract";
+		}
+		//í”„ë¡œì íŠ¸ ì·¨ì†Œí•œ í”„ë¡œì íŠ¸
+		@RequestMapping("/project/projectCancelledProject")
+		public String projectCancelledProject() {
+			return "/clients/manage/projectCancelledProject";
+		}
+
+
+
 }

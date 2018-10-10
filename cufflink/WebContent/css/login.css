@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 .content-header {
     margin: 0;
     margin-bottom: 5px;
@@ -28,7 +29,7 @@ h3, .h3 {
 .content-header .small-text {
     margin-top: 10px;
     display: block;
-    font-size: 65%;	
+    font-size: 65%;   
     color: #999;
     box-sizing: border-box;
     text-rendering: optimizelegibility;
@@ -37,26 +38,26 @@ h3, .h3 {
 }
 
 .column-login {
-	
-	width: 50%; 
-	height: 380px; 
+   
+   width: 50%; 
+   height: 380px; 
     text-vertical-align: middle;
-	background: #E6E6E6;
-	border-right: 1px solid #585858;
-	display: table-cell; 
-	padding: 50px;
+   background: #E6E6E6;
+   border-right: 1px solid #585858;
+   display: table-cell; 
+   padding: 50px;
 
 }
 
 .contentMain {
-	padding : 20px;
-	border: 1px solid #dedede;
+   padding : 20px;
+   border: 1px solid #dedede;
     height: 720px;
 }
 
 .contentMain-project {
-	padding : 20px;
-	border: 1px solid #dedede;
+   padding : 20px;
+   border: 1px solid #dedede;
     height: 960px;
 }
 
@@ -66,7 +67,6 @@ h3, .h3 {
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #dedede;
-    height: 420px;
 }
 
 .content-middle-project {
@@ -78,8 +78,8 @@ h3, .h3 {
 }
 
 .contentMain-join {
-	padding : 20px;
-	border: 1px solid #dedede;
+   padding : 20px;
+   border: 1px solid #dedede;
     height: auto;
 }
 .content-middle-join {
@@ -92,19 +92,19 @@ h3, .h3 {
 }
 
 .column-login1 {
-	margin-left: 30px;
-	padding: 5px;
-	text-align:left;
+   margin-left: 30px;
+   padding: 5px;
+   text-align:left;
 }
 
 .column-login2 {
-	padding: 5px;
-	text-align:center;
+   padding: 5px;
+   text-align:center;
 }
 
 .column-idpw{
-	text-align: center; 
-	vertical-align: middle;
+   text-align: center; 
+   vertical-align: middle;
 }
 
 .content-footer {
@@ -114,7 +114,7 @@ h3, .h3 {
 }
 
 .column-footer {
-	border-right: 1px solid #585858;
+   border-right: 1px solid #585858;
 
 }
 

@@ -4,10 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>projectRegister-(프로젝트 등록)</title>
-</head>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<title>partnersList-(개발자 목록)</title>
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -18,29 +15,23 @@
 				<jsp:include page="../common/menu/headerMenu.jsp"/>   
 			</div>
 	<!-- header 종료 -->
-	
-			<div class="ui"><!-- header와 navigation 여백 --></div>
-	
-	<!-- navigation menu 시작 -->
-			<div class="ui navigation">
-				<jsp:include page="../common/menu/navigationClientMenu.jsp"/>
-			</div>
-	<!-- navigation menu 종료-->
 		</div>
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
-	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>
+
+	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
+	
 <!----------------------------------------------------------------------- main content 시작 -->
 <!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment content"  style="padding-top: 10px; padding-bottom: 10px; margin-top: 0px; margin-bottom: 0px; height:720px; ">
+	<div class="ui container contentMain">
 		
 	<!-- title 시작-->
 		<div class="ui container">
 			<div class="content-header">
 				<div class="ui two column grid container">
-					<div class="column" style="text-align:left">
+					<div class="column">
 						<h3 class="content-text">파트너스 목록</h3>
-						<small class="small-text">53,566명의 파트너스가 있습니다.</small>
+						<small class="small-text">000,000명의 파트너스가 있습니다.</small>
 					</div>
 					<div class="column" style="text-align:right;margin:10px 0px;">
 						<!-- 우측에 입력할 수 있는 공간 확보 -->
@@ -50,31 +41,28 @@
 		</div>			
 	<!-- title 끝-->
 
-	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>
+	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
 
-	<!-- main 입력 시작-->
+	<!-- main 입력 시작 -->
 		<div class="ui container">
-			<div class="content-middle-join">
-				<div class="ui two column grid container" style="padding:0px;">
-					<div class="column grid" style="border-right: 1px solid #dedede; vertical-align: middle;padding: 20px; width: 70%;">
-<!-- form 시작 ================================================================================================================================== -->		
-						<form name="p_list">
-							
-						</form>
-<!-- form 끝 ================================================================================================================================== -->						
+			<div class="content-middle">
+				<div class="ui two column grid container" style="padding:20px;height:400px;">
+					<div class="column grid" style="border-right: 1px solid #dedede; vertical-align: middle;padding: 20px; width: 60%;">
+					좌측내용
 					</div>
-					<div class="column grid" style="padding-top: 50px; width: 30%;">
-						
+					<div class="column grid" style="padding: 10px; width: 40%;">
+					우측내용
 					</div>
 				</div>
 			</div>
 		</div>
 	<!-- main 입력 끝-->
-	
 	</div>
 <!----------------------------------------------------------------------- main content 끝 -->
 <!----------------------------------------------------------------------- main content 끝 -->
-	<div class="ui mainspace"><!-- login title와 main content 여백 -->	</div>	
+	
+	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
+	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 		<footer class="footer">
@@ -84,6 +72,5 @@
 		</footer>
 	<!-- footer 끝-->
 <!----------------------------------------------------------------------- footer content 끝 -->
-
 </body>
 </html>

@@ -1,8 +1,6 @@
 // 상단 버튼에 대한 페이지별 active효과
 $(document).ready(function() {
 
-
-
 	
 	//음성인식 아이콘클릭시 보여질화면
    $(".icon-font").click(function (e){
@@ -11,8 +9,9 @@ $(document).ready(function() {
    
 
    //채팅 자동스크롤 아래로 내리기
-
-   $('#chat-middle').scrollTop($('#chat-middle').prop('scrollHeight'));
+  /* $('#c-middle').scrollTop($('#c-middle')[0].scrollHeight);*/
+  /* $('#c-middle').scrollTop($('#c-middle').attr('scrollHeight'));*/
+   /*$('#chat-middle').scrollTop($('#chat-middle')[0].scrollHeight);*/
    
    //채팅문의시작
    
@@ -62,22 +61,28 @@ $(document).ready(function() {
      }
      
      // 클라이언트 정보 하위관련 메뉴
-   else if(thisfilefullname=="ClientInfoUpdate"){
+     else if(thisfilefullname=="ClientInfoUpdate"){
         $("#ClientInfo").addClass("active");
         $('.'+thisfilefullname).addClass("active");
         /*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
-   }
+     }
      
-     // 클라이언트 정보 하위관련 메뉴
-   else if(thisfilefullname=="projectRegister"||thisfilefullname=="projectRegisterDetail"){
+     // 클라이언트 프로젝트 등록 메뉴
+     else if(thisfilefullname=="projectRegister"||thisfilefullname=="projectRegisterDetail"){
         $("#projectRegister").addClass("active");
-        $('.'+thisfilefullname).addClass("active");
+       /* $('.'+thisfilefullname).addClass("active");*/
         /*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
-   }
-     
+     }
+
+     // 클라이언트 정보 하위관련 메뉴
+     else if(thisfilefullname=="page?pagenum=5"){
+        $("#projectFind").addClass("active");
+       /* $('.'+thisfilefullname).addClass("active");*/
+        /*alert("프로젝트찾기 : "+thisfilefullname);*/
+     }
      //이외의 상단메뉴 모두
-      else {
-        $('.'+thisfilefullname).addClass("active");
-        /*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
+     else {
+	    $('.'+thisfilefullname).addClass("active");
+	    /*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
      }
 });
