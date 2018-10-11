@@ -64,7 +64,7 @@ else {
                <div class="item" onclick="location.href='../partners/partnersMyWishket?s_email=<%= email %>'"><i class="home icon"></i>마이 위시캣</div>
                <div class="item" onclick="location.href='../partners/PartnersMyprofile/partnersMyprofileMain?s_email=<%= email %>'"><i class="user icon"></i>내 프로필 보기</div>
                <div class="item" onclick="location.href='../auth/settings/PartnersProfile?s_email=<%= email %>'"><i class="user icon"></i>계정설정</div>
-               <div class="item" onclick="location.href='../clients/logout'"><i class="power off icon"></i>로그아웃</div>
+               <div class="item" onclick="location.href='../client/logout'"><i class="power off icon"></i>로그아웃</div>
             </div>
          </div>
          </form>

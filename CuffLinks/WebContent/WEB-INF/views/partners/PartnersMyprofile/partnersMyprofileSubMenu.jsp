@@ -1,5 +1,6 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<a href="/partnersMyprofileMain" id="partnersShowAll" class="partnersMyprofileMain teal item"> 
+<a href="/partnersMyprofileMain?s_email=" id="partnersShowAll" class="partnersMyprofileMain teal item"> 
 	<font style="vertical-align: inherit;"> 전체보기 </font>
 </a> 
 <a href="/partnersMyprofileMain" id="partnersIntroduction" class="partnersMyprofileMain teal item"> 

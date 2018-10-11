@@ -101,6 +101,8 @@ public class PartnersController {
 		public String partnersList(Model mod ,HttpSession session, HttpServletRequest req) {
 		logger.info("partnersList호출성공");
 		mod.addAttribute("partnersList",partnersLogic.partnersList());
+		Map<String,Object> userInfo = (Map<String,Object>)session.getAttribute(getCookie(req));
+		mod.addAttribute("kind", userInfo.get("S_KINDS").toString());
 		return "partners/partnersList";
 	}
 	

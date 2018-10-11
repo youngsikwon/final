@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.MidiDevice.Info;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,19 @@ public class ProjectController {
 	ProjectLogic projectLogic;
 	String id;
 	
+	public Map<String,Object> userInfo(HttpSession session, HttpServletRequest req){
+		Cookie[] cookies = req.getCookies();
+		for (Cookie cookie : cookies) {
+			if ("id".equals(cookie.getName())) {
+				id = cookie.getValue();
+			}
+		}
+		Map<String,Object> userInfo = (Map<String,Object>)session.getAttribute(id);
+		return userInfo;
+	}
+	
 	@RequestMapping("/page")
-	public String getProjectFind(Model mod, @RequestParam("pagenum") String pagenum, Map<String, Object> pMap) {
+	public String getProjectFind(Model mod, @RequestParam("pagenum") String pagenum, Map<String, Object> pMap, HttpServletRequest req, HttpSession session) {
 		logger.info("ProjectFind 호출성공");
 		// 프로젝트 --찾기--
 		mod.addAttribute("ProjectFind1", projectLogic.getProjectFind1()); // 개발
@@ -34,21 +46,18 @@ public class ProjectController {
 		mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt(pagenum))); // 페이지 네이션
 		// 프로젝트
 		mod.addAttribute("Project", projectLogic.Project(pMap));
-
+		mod.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		// 클라이언트 히스토리 : 계약한 건들 넣어두기.
 		return "Project/ProjectFind";
 	}
-
+	
+	
+	
 	// 관심 프로젝트
 	@RequestMapping("/projectSubmitted")
 	public String projectSubmitted(Model m, HttpSession session, HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {
-			if ("id".equals(cookie.getName())) {
-				id = cookie.getValue();
-			}
-		}
-		Map<String,Object> map = (Map<String,Object>)session.getAttribute(id);
+		Map<String,Object> map = userInfo(session, req);
+		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		List<Map<String,Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "관심");
 		m.addAttribute("getState", rList);
 		return "ProjectAttention/projectSubmitted";
@@ -57,13 +66,8 @@ public class ProjectController {
 	// 프로젝트 지원자 모집중
 	@RequestMapping("/projectRecruiting")
 	public String projectRecruiting(Model m, HttpSession session, HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {
-			if ("id".equals(cookie.getName())) {
-				id = cookie.getValue();
-			}
-		}
-		Map<String,Object> map = (Map<String,Object>)session.getAttribute(id);
+		Map<String,Object> map = userInfo(session, req);
+		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		List<Map<String,Object>> state = projectLogic.getState(map.get("S_EMAIL").toString(), "지원");
 		m.addAttribute("getState", state);
 		return "Project/ProjectRecruiting";
@@ -72,13 +76,8 @@ public class ProjectController {
 	// 프로젝트 진행중인 프로젝트
 	@RequestMapping("/projectContractInProgress")
 	public String projectContractInProgress(Model m, HttpSession session, HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {
-			if ("id".equals(cookie.getName())) {
-				id = cookie.getValue();
-			}
-		}
-		Map<String,Object> map = (Map<String,Object>)session.getAttribute(id);
+		Map<String,Object> map = userInfo(session, req);
+		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		List<Map<String,Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "진행");
 		m.addAttribute("getState", rList);
 		return "Project/ProjectContractInProgress";
@@ -87,14 +86,8 @@ public class ProjectController {
 	// 프로젝트 완료한 프로젝트
 	@RequestMapping("/projectReviewContract")
 	public String projectCompletedContract(Model m, HttpSession session, HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {
-			if ("id".equals(cookie.getName())) {
-				id = cookie.getValue();
-			}
-		}
-		Map<String,Object> map = (Map<String,Object>)session.getAttribute(id);
-		logger.info("userInfo"+map);
+		Map<String,Object> map = userInfo(session, req);
+		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		List<Map<String,Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "완료");
 		m.addAttribute("getState", rList);
 		return "Project/ProjectReviewContract";

@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%
 	List<Map<String, Object>> getState = (List<Map<String, Object>>) request.getAttribute("getState");
+	Map<String,Object> userInfo = (Map<String,Object>)request.getAttribute("userInfo");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,11 @@
 		<div class="ui">
 	<!-- header 시작 -->
 			<div class="ui">
-				<jsp:include page="../common/menu/headerMenu.jsp"/>
+			<% if("클라이언트".equals(request.getAttribute("kind").toString())) {%>
+            <jsp:include page="../common/menu/headerMenu.jsp" />
+            <% } else { %>
+            <jsp:include page="../common/menu/PartnersHeaderMenu.jsp" />
+            <% } %>
 			</div>
 	<!-- header 종료 -->
 	

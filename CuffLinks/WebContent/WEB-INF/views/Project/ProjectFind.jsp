@@ -16,7 +16,7 @@
    Map<String, Object> map = (Map<String, Object>) request.getAttribute("getAll"); // 페이지 네이션 및 프로젝트 목록 뿌리기
    List<Map<String, Object>> list3 = (List<Map<String, Object>>) map.get("result");
    int count = (int) Math.ceil(Double.parseDouble(map.get("tablesize").toString()) / 10);
-
+   Map<String,Object> userInfo = (Map<String,Object>)request.getAttribute("userInfo");
    //List<Map<String, Object>> list5 = (List<Map<String, Object>>) map.get("result");
    //Map<String, Object> view =  (Map<String, Object>)request.getAttribute("view");
 %>
@@ -34,7 +34,11 @@
       <div class="ui">
          <!-- header 시작 -->
          <div class="ui">
+         	<% if("클라이언트".equals(request.getAttribute("kind").toString())) {%>
             <jsp:include page="../common/menu/headerMenu.jsp" />
+            <% } else { %>
+            <jsp:include page="../common/menu/PartnersHeaderMenu.jsp" />
+            <% } %>
          </div>
          <!-- header 종료 -->
 
@@ -42,10 +46,6 @@
             <!-- header와 navigation 여백 -->
          </div>
 
-         <!-- navigation menu 시작 -->
-         <div class="ui navigation">
-            <jsp:include page="../common/menu/navigationClientMenu.jsp" />
-         </div>
          <!-- navigation menu 종료-->
       </div>
    </header>

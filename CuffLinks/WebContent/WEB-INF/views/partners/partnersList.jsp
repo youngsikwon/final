@@ -22,9 +22,11 @@
 	<header class="header">
 		<div class="ui">
 	<!-- header 시작 -->
-			<div class="ui">
-				<jsp:include page="../common/menu/PartnersHeaderMenu.jsp"/>   
-			</div>
+			<% if("클라이언트".equals(request.getAttribute("kind").toString())) {%>
+            <jsp:include page="../common/menu/headerMenu.jsp" />
+            <% } else { %>
+            <jsp:include page="../common/menu/PartnersHeaderMenu.jsp" />
+            <% } %>
 	<!-- header 종료 -->
 		</div>
 	</header>
