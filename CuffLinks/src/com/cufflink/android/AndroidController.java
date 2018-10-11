@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cufflink.client.ClientLogic;
 import com.google.gson.Gson;
+import com.util.HangulConversion;
 
 @RestController
 public class AndroidController {
@@ -26,9 +27,14 @@ public class AndroidController {
 	public String Join(@RequestParam Map<String, Object> pMap) {
 		
 		int result = 0;
-		
+		 
 		pMap.put("f_id", pMap.get("j_id"));
 		pMap.put("f_email", pMap.get("j_email"));
+		pMap.put("f_shape","CuffLink");
+		pMap.put("s_kids", String.valueOf(pMap.get("j_radio")));
+		
+		logger.info(pMap.get("j_radio")+"-----------------------");
+		
 		logger.info(pMap.put("f_id", pMap.get("j_id")));
 		result = androidLogic.Join(pMap);
 		if(result == 1) {
@@ -61,6 +67,22 @@ public class AndroidController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/Android/Search",produces="text/plain;charset=UTF-8")
+	public String Search(@RequestParam Map<String, Object> pMap) {
+		
+
+		pMap.put("search", HangulConversion.toUTF((String) pMap.get("search")));
+		List<Map<String,Object>> list = null;
+		list = androidLogic.Search(pMap);
+		
+		Gson gson = new Gson();
+		String toJson = "";
+		toJson = gson.toJson(list);
+		return toJson;
+
+	}
+	
 	@RequestMapping(value = "/Android/GoogleMap",produces="text/plain;charset=UTF-8")
 	public String GooggleMap() {
 		
@@ -86,9 +108,9 @@ public class AndroidController {
 		List<Map<String,Object>> list = null;
 		list = androidLogic.List();
 		Gson gson = new Gson();
-		
-
 		tojson = gson.toJson(list);
+		
+		logger.info(tojson);
 		return tojson;
 		
 
@@ -111,5 +133,21 @@ public class AndroidController {
 
 	}
 	
+	@RequestMapping(value = "/Android/ProjectInfo",produces="text/plain;charset=UTF-8")
+	public String ProjectInfo(@RequestParam Map<String, Object> pMap) {
+
+		String tojson = "";
+		Map<String,Object> list = null;
+		list = androidLogic.ProjectInfo(pMap);
+		
+		Gson gson = new Gson();
+		
+
+		tojson = gson.toJson(list);
+		logger.info(tojson);
+		return "["+tojson+"]";
+		
+
+	}
 
 }

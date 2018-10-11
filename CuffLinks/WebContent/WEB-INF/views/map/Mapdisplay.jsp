@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <jsp:include page="../common/ui.jsp" />
 </head>
@@ -22,52 +22,52 @@ function map(value){
 	
 	name = value;
 	
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
     mapOption = {
-        center: new daum.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level: 4 // ÁöµµÀÇ È®´ë ·¹º§
+        center: new daum.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level: 4 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
     };  
 
-// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
+// ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
 var map = new daum.maps.Map(mapContainer, mapOption); 
 
-// ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+// ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 var geocoder = new daum.maps.services.Geocoder();
 
-// ÁÖ¼Ò·Î ÁÂÇ¥¸¦ °Ë»öÇÕ´Ï´Ù
+// ì£¼ì†Œë¡œ ì¢Œí‘œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
 geocoder.addressSearch(name, function(result, status) {
 
-    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
+    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
      if (status === daum.maps.services.Status.OK) {
     	 y = result[0].y;
     	 x = result[0].x;
         var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 
-        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
+        // ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
         var marker = new daum.maps.Marker({
             map: map,
             position: coords,
             clickable: true
         });
 
-        // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
+        // ì¸í¬ìœˆë„ìš°ë¡œ ì¥ì†Œì— ëŒ€í•œ ì„¤ëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
         var infowindow = new daum.maps.InfoWindow({
             content: '<div class="ui segment" style="width: 270px;height: 190px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;padding-right: 0px;margin-bottom: 0px;">'+
                      '<p><h3 style="margin-top: 0px;margin-left: 15px;"align="center">CuffLink</h3><div class="ui divider" style=" margin-top: 0px;"></div>'+
                      '<div class = "ui grid"><div class="center aligned two column row" style="height: 89px;padding-bottom: 0px;"><div class="column" style=" height: 60px;">'+
                      '<img src = "./Test.png" style=" height: 60px;"></div><div class="column" style="height: 60px;">'+
-                     'ÁÖ¼Ò<br></br>¿¬¶ôÃ³<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
-                     '<button onClick = "road()" class="ui button" style="margin-left: 55px;">±æÃ£±â</button><div class="or"></div><button class="ui positive button">·Îµåºä</button>'+
+                     'ì£¼ì†Œ<br></br>ì—°ë½ì²˜<br></br></div></div></div><div class="ui buttons" style = "margin-top:10px;">'+
+                     '<button onClick = "road()" class="ui button" style="margin-left: 55px;">ê¸¸ì°¾ê¸°</button><div class="or"></div><button class="ui positive button">ë¡œë“œë·°</button>'+
                      '</div></p></div>',
             removable:true
         });
             infowindow.open(map, marker);  
         daum.maps.event.addListener(marker, 'click', function() {
-            // ¸¶Ä¿ À§¿¡ ÀÎÆ÷À©µµ¿ì¸¦ Ç¥½ÃÇÕ´Ï´Ù
+            // ë§ˆì»¤ ìœ„ì— ì¸í¬ìœˆë„ìš°ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤
             infowindow.open(map, marker);  
          });
 
-        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
+        // ì§€ë„ì˜ ì¤‘ì‹¬ì„ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤
         map.setCenter(coords);
     } 
 });    
@@ -80,7 +80,7 @@ $(document).ready(function(){
 	   ,method:"post"
 	   ,success:function(data){
 		   
-			map("±¤¸í");
+			map("ê´‘ëª…");
 			
 	   }
        ,error:function(xhrObject){

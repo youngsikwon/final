@@ -1,3 +1,4 @@
+<%@page import="com.util.HangulConversion"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
  <%
@@ -14,7 +15,12 @@
 		
 	  }
     }
-    response.sendRedirect("/clients/ClientMyCufflink");
+
+
+    
+ 	  response.sendRedirect("/clients/ClientMyCufflink");
+    
+ 
 %>
 <div class="ui two column grid" style="padding-right: 0px; padding-bottom: 10px; padding-top: 10px; padding-left: 5px;">
 	<div class="column" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 0px;">

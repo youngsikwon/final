@@ -80,16 +80,13 @@ public class ClientDao {
 		logger.info(pMap.get("msg"));
 	}
 
-	public void UserUpdate(Map<String, Object> pMap) {
+	public int UserUpdate(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
-		pMap.put("c_no", "1001");
-		logger.info(pMap);
 
 		int result = 0;
 	    result = sqlSessionTemplate.update("proc_ClientUpdate",pMap);
 	
-	    logger.info(result);
-	
+	    return result;
 	}
 
 	public Map<String, Object> UserInfoEmail(Map<String, Object> pMap) {
@@ -99,6 +96,68 @@ public class ClientDao {
 	
 		return map;
 	}
-	
-	
+
+	public List<Map<String, Object>> onMapReady() {
+		// TODO Auto-generated method stub
+		logger.info("onMapReadyDao 호출 성공");
+		List<Map<String,Object>> onMapList = sqlSessionTemplate.selectList("onMapReady");
+		
+		return onMapList;
+	}
+
+	//유저의 정보를 가져온다.!
+	public Map<String, Object> Modify(String s_email) {
+		// TODO Auto-generated method stub
+		Map<String, Object> pMap = sqlSessionTemplate.selectOne("ClientInfo",s_email);
+		return pMap;
+	}
+
+	//이메일이 있는지 없는지 체크한다 .!!
+	public int ModifyEmailCheck(String s_email) {
+
+		int result = 0;
+		
+		result = sqlSessionTemplate.selectOne("CEmailExit",s_email);
+
+		return result;
+	}
+
+	//유저를 넣는다.
+	public void ClientInsert(String s_email) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.insert("ClientInsert",s_email);
+		
+	}
+
+	public String Pwcheck(Map<String,Object>pMap) {
+		
+		String result = "";
+
+		result = sqlSessionTemplate.selectOne("Pwcheck",pMap);
+		return result;
+		  
+	}
+
+	public int PwUpdate(Map<String,Object>pMap) {
+		int result = 0;
+		result = sqlSessionTemplate.update("PwUpdate",pMap);
+		return result;
+	}
+
+	public int UserExcape(Map<String, Object> pMap) {
+		// TODO Auto-generated method stub
+		int result = 0;
+		result  = sqlSessionTemplate.delete("UserExcape",pMap);
+		return result;
+	}
+
+	public void projectRegister1(Map<String, Object> pMap) {
+		// TODO Auto-generated method stub
+		
+
+        sqlSessionTemplate.insert("ProJect_insert",pMap);
+        
+	}
+
+
 }

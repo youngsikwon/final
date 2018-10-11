@@ -71,5 +71,18 @@ public class AndroidLogic {
 		List<Map<String,Object>> list = androidDao.MainPage();
 		return list;
 	}
+
+	public Map<String, Object> ProjectInfo(Map<String, Object> pMap) {
+		// TODO Auto-generated method stub
+		Map<String,Object> list = androidDao.ProjectInfo(pMap);
+		return list;
+	}
+
+	public List<Map<String, Object>> Search(Map<String, Object> pMap) {
+		
+		List<Map<String,Object>> list = androidDao.Search(pMap);
+		return list;
+	}
+	
 	
 }

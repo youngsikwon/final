@@ -41,10 +41,6 @@ public class MainPage {
 		List<Map<String,Object>> pMap = null;
 		pMap = mainLogic.MainProject();
 		
-		for(int i = 0; i<pMap.size();i++) {
-			logger.info(pMap.get(i).get("RO"));
-		}
-	
 		return "common/main";
 	}
 

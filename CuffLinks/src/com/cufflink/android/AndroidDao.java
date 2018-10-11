@@ -77,6 +77,22 @@ public class AndroidDao {
 			
 			return list;
 		}
+
+		public Map<String, Object> ProjectInfo(Map<String, Object> pMap) {
+			// TODO Auto-generated method stub
+			
+			Map<String,Object> list = sqlSessionTemplate.selectOne("ProjectInfo",pMap);
+		
+			
+			return list;
+		}
+
+		public java.util.List<Map<String, Object>> Search(Map<String, Object> pMap) {
+			// TODO Auto-generated method stub
+			List<Map<String,Object>> list = sqlSessionTemplate.selectList("SearchList",pMap);
+			logger.info(list);
+			return list;
+		}
 		
 	
 }

@@ -20,7 +20,7 @@
 	</header>
 <!----------------------------------------------------------------------- top 끝 -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function news(title){
 	 var Json2 = "";
 	 
@@ -70,7 +70,7 @@ function news(title){
  });
  
 </script>
-
+ -->
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!--======================================================================================-->
@@ -94,10 +94,13 @@ function news(title){
 							<h4 style="text-align: left">뉴스센터</h4>
 						</div>
 						<div class="column" style="padding-bottom:20px; width:50%;">
-							<div class="ui left icon input"	style="padding: 10px; width: 60%;">
-								<input id="search" name="search" type="text" placeholder="검색" size="40px" style="text-align: right"> <i class="id badge icon"></i>
-							</div>
+						<div class="ui left icon input"
+									style="padding: 10px; width: 60%;">
+							<input id="search" name="search" type="text" placeholder="검색"
+										size="40px" style="text-align: right"> <i class="id badge icon"></i>
+										</div>
 						</div>
+								
 					</div>
 					<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 						<hr class="garo" style="" />

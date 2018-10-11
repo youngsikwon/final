@@ -1,5 +1,6 @@
 package com.cufflink.client;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
@@ -71,18 +72,20 @@ public class ClientLogic {
 
 	public String proc_board_test(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
-		logger.info("proc_board_test");
-		
+
+		int result = 0;
 		String msg = null;
 		clientDao.proc_board_test(pMap);
 		
 		return "";
 	}
 
-	public void UserUpdate(Map<String, Object> pMap) {
+	public int UserUpdate(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
-		clientDao.UserUpdate(pMap);
+		int result = 0;
+		result = clientDao.UserUpdate(pMap);
 		
+		return result;
 	}
 
 	public Map<String,Object> UserInfoEmail(Map<String, Object> pMap) {
@@ -94,6 +97,60 @@ public class ClientLogic {
 		return map;
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<Map<String, Object>> onMapReady() {
+		// TODO Auto-generated method stub
+		logger.info("onMapLogic 호출 성공");
+		List<Map<String,Object>> onMapList =  clientDao.onMapReady();
+		return onMapList;
+	}
+
+	public Map<String, Object> Modify(String s_email) {
+		// TODO Auto-generated method stub
+		int result = clientDao.ModifyEmailCheck(s_email);
+		Map<String, Object> pMap = null;
+		logger.info(result);
+		//만약에 첫수정이라면 Insert
+		
+	    if(result == 0) {
+	    	clientDao.ClientInsert(s_email);
+	    	return null;
+		}
+	    //유저의 정보를 가져온다.!!
+		else if(result == 1) {
+			pMap = clientDao.Modify(s_email);
+			return pMap;
+		}
+		
+		return pMap;
+	}
+
+	public int PwModify(Map<String,Object>pMap) {
+        
+		String result = "";
+		int    value  = 0;
+		result = clientDao.Pwcheck(pMap);
+	
+		if(result.equals(pMap.get("pw1"))) {
+			value = clientDao.PwUpdate(pMap);
+			return value;
+		}
+
+		return 0;
+	}
+
+	public int UserExcape(Map<String, Object> pMap) {
+
+		int result = 0;
+		result = clientDao.UserExcape(pMap);
+		
+		return result;
+	}
+
+	public void projectRegister1(Map<String, Object> pMap) {
+		
+		clientDao.projectRegister1(pMap);
 	}
 	
 }

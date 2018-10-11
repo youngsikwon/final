@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.util.HangulConversion;
+import com.util.HashMapBinder;
 
 @Controller
 public class ClientController {
@@ -48,14 +49,26 @@ public class ClientController {
 		
 		if ((int) hMap.get("Idcheck") == 1) {
 
+			
+
 			userID = (String) hMap.get("S_ID");
 			session.removeAttribute((String) hMap.get("S_ID") + "1");
-			session.setMaxInactiveInterval(60*60);
+			session.setMaxInactiveInterval(6000*6000);
 			session.setAttribute((String) hMap.get("S_ID"), hMap);
 			Id = new Cookie("id", (String) hMap.get("S_ID"));
 			Id.setPath("/");
 			res.addCookie(Id);
-			return "auth/loginOk";
+			
+	
+			
+            if(hMap.get("S_KINDS").equals("클라이언트")) {
+            	return "auth/loginOk";
+			} 
+			else {
+				return "auth/PartnersLoginOk";
+			}
+		
+			
 		}
 		// 비밀번호 없음
 		else if ((int) hMap.get("Idcheck") == 0) {
@@ -66,13 +79,13 @@ public class ClientController {
 				if (session.getAttribute((String) pMap.get("f_id") + "1") != null) {
 					capchar = (int) session.getAttribute((String) pMap.get("f_id") + "1");
 					capchar += 1;
-					session.setMaxInactiveInterval(30);
+					session.setMaxInactiveInterval(60);
 					session.setAttribute((String) pMap.get("f_id") + "1", capchar);
 					session.setAttribute("capchar", (String) pMap.get("f_id") + "1");
 					logger.info(capchar);
 					return "auth/login";
 				} else {
-					session.setMaxInactiveInterval(30);
+					session.setMaxInactiveInterval(60);
 					session.setAttribute((String) pMap.get("f_id") + "1", capchar);
 					session.setAttribute("capchar", (String) pMap.get("f_id") + "1");
 					logger.info(capchar);
@@ -90,10 +103,26 @@ public class ClientController {
 
 
 	@RequestMapping("/client/logout")
-	public String logout(HttpServletRequest req, @RequestParam Map<String, Object> pMap) {
+	public String logout(HttpServletRequest req,HttpServletResponse res, @RequestParam Map<String, Object> pMap) {
 
-		HttpSession LogoutSession = req.getSession();
-		LogoutSession.removeAttribute(userID);
+		Cookie[]    cs          = req.getCookies();
+	    Map<String,Object> info = null;
+	    HttpSession infoSession = null;
+	    infoSession = req.getSession();
+	    String Id = "";
+		for(int i = 0; i<cs.length;i++){
+			
+			String cName = cs[i].getName();
+			  if("id".equals(cName)){
+				  Id   = cs[i].getValue();
+				  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+				
+			  }
+		}
+
+		infoSession.removeAttribute(Id);
+		logger.info(Id);
+		
 		return "common/main";
 
 	}
@@ -141,16 +170,16 @@ public class ClientController {
 		
 		logger.info("capcharJoin");
 		Cookie cookie = new Cookie("j_token", (String) pMap.get("j_token"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("j_id", (String) pMap.get("j_id"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("j_email", (String) pMap.get("j_email"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 		cookie = new Cookie("s_shape", (String) pMap.get("s_shape"));
-		cookie.setMaxAge(60 * 60);
+		cookie.setMaxAge(600 * 600);
 		res.addCookie(cookie);
 	
 		return "auth/c_join";
@@ -179,14 +208,25 @@ public class ClientController {
 		
 		map = clientLogic.UserInfoEmail(pMap);
 		
+		
+		
 	    userID = (String) map.get("S_ID");
-		session.setMaxInactiveInterval(60*60);
+		session.setMaxInactiveInterval(6000*6000);
 		session.setAttribute((String) map.get("S_ID"), map);
 		Id = new Cookie("id", (String) map.get("S_ID"));
 		Id.setPath("/");
 		res.addCookie(Id);
 		
-	    return "auth/loginOk";
+	
+	
+		
+		  if(map.get("S_KINDS").equals("파트너스")) {
+			  return "auth/PartnersLoginOk";
+		  } 
+	      else {
+	    	  return "auth/loginOk";
+				
+	      }
 
 	}
 	
@@ -243,19 +283,22 @@ public class ClientController {
 
 	}
 	
+	
 	@RequestMapping(value = "/PartnersImages", method=RequestMethod.POST)
 	public String PartnersImages(@RequestParam("f_file") MultipartFile f_file, @RequestParam Map<String,Object>pMap) {
 	String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
-	String path     = "D:\\spring\\CuffLinks\\WebContent\\pds\\";
+	String path     = "C:\\git2\\final\\CuffLinks\\WebContent\\pds\\";
 
 	int result = 0;
-	pMap.put("f_address1", HangulConversion.toUTF((String)pMap.get("f_address1")));
-	pMap.put("f_address2", HangulConversion.toUTF((String)pMap.get("f_address2")));
+	pMap.put("address", HangulConversion.toUTF((String)pMap.get("address")));
 	pMap.put("f_gender", HangulConversion.toUTF((String)pMap.get("f_gender")));
 	pMap.put("f_name", HangulConversion.toUTF((String)pMap.get("f_name")));
 	pMap.put("f_dropdown", HangulConversion.toUTF((String)pMap.get("f_dropdown")));
 	pMap.put("f_file", path+fileName);
-	clientLogic.UserUpdate(pMap);
+	pMap.put("phone", pMap.get("skills1")+"-"+pMap.get("second")+"-"+pMap.get("three"));
+	pMap.put("c_phone", pMap.get("skills2")+"-"+pMap.get("SecondT"));
+	logger.info(pMap.get("c_phone"));
+	result = clientLogic.UserUpdate(pMap);
 	
 	if(f_file!=null) {
 
@@ -279,13 +322,69 @@ public class ClientController {
 		
 	}
 	
-
-	
-		return "";
+		return "auth/clientSettings/ClientProfile";
 	}
+	
+	
+	@RequestMapping("/client/projectRegister")
+	public String projectRegister1(HttpServletRequest req,@RequestParam("pro_file") MultipartFile f_file, @RequestParam Map<String,Object>pMap) {
+		
+		String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
+		String path     = "C:\\git2\\final\\CuffLinks\\WebContent\\pds\\";
+		HashMapBinder binder = new HashMapBinder(req);
+		binder.bind(pMap);
 
+		Cookie[]    cs          = req.getCookies();
+		HttpSession infoSession = req.getSession();
+		Map<String,Object> info = null;
+		int      login_cnt = 0;
+		for(int i = 0; i<cs.length;i++){
+
+		String cName = cs[i].getName();
+		  if("id".equals(cName)){
+			
+			  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+			
+		  }
+		}
+		
+		if(pMap.get("pro_skill").equals("개발")) {
+			pMap.put("pro_partners", pMap.get("pro_partners"));
+		}
+		else {
+			pMap.put("pro_partners", pMap.get("pro_partners2"));
+		}
+		pMap.put("pro_file", path+fileName);
+        pMap.put("c_no", info.get("C_NO"));
+		
 	
-	
+		
+		if(f_file!=null) {
+
+
+			File file = new File(path+fileName);
+			
+			try {
+				
+				byte[] bytes = f_file.getBytes();
+				BufferedOutputStream bos = 
+						new BufferedOutputStream(
+								new FileOutputStream(file));
+				
+				bos.write(bytes);
+				bos.close();
+				long size = file.length();
+			} catch (Exception e) {
+				// TODO: handle exception
+				logger.info(e.toString());
+			}
+			
+		}
+		
+		clientLogic.projectRegister1(pMap);
+		
+		return "auth/clientSettings/ClientProfile";
+	}
 	//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴
 	
 	//프로젝트 검수중
@@ -335,6 +434,12 @@ public class ClientController {
 		return "clients/projectRegister";
 	}
 	
+	//프로젝트 등록상세
+	   @RequestMapping("/clients/projectRegisterDetail")
+	   public String projectRegisterDetail() {
+	      return "clients/projectRegisterDetail";
+	   }
+	
 	//---------------------------------------
 	//프로젝트 클라이언트 정보
 	@RequestMapping("/clients/ClientInfo")
@@ -351,5 +456,8 @@ public class ClientController {
 	public String ClientProjectHistory() {
 		return "/clients/ClientProjectHistory";
 	}	
+	
+	
+	
 	
 }
