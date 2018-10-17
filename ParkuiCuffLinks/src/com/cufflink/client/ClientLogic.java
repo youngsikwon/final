@@ -24,15 +24,15 @@ public class ClientLogic {
 		int IdExit = 0;
 		IdExit     = clientDao.IdExit(pMap);
 		
-		//¾ÆÀÌµğ°¡ Á¸Á¦ÇÏ¸é  ºñ¹Ğ¹øÈ£µµ ¸Â´ÂÁö Ã³¸®
-		//-1 ¾ÆÀÌµğ°¡ ¾øÀ½ 0 ºñ¹Ğ¹øÈ£°¡¾øÀ½ 1ÀÌ¸é ¼º°ø
+		//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½  ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ ï¿½Â´ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		//-1 ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		if(IdExit==1) {
 			pMap = clientDao.login(pMap);
 			return pMap;
 		
 		}
-		//¾ÆÀÌµğ°¡ Á¸Á¦ÇÏÁö ¾Ê´Ù°í Ã³¸®ÇÑ´Ù .
+		//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Ù°ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½ .
 		pMap.put("Idcheck", -1);
 		return pMap;
 		
@@ -101,7 +101,7 @@ public class ClientLogic {
 
 	public List<Map<String, Object>> onMapReady() {
 		// TODO Auto-generated method stub
-		logger.info("onMapLogic È£Ãâ ¼º°ø");
+		logger.info("onMapLogic È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<Map<String,Object>> onMapList =  clientDao.onMapReady();
 		return onMapList;
 	}
@@ -111,13 +111,13 @@ public class ClientLogic {
 		int result = clientDao.ModifyEmailCheck(s_email);
 		Map<String, Object> pMap = null;
 		logger.info(result);
-		//¸¸¾à¿¡ Ã¹¼öÁ¤ÀÌ¶ó¸é Insert
+		//ï¿½ï¿½ï¿½à¿¡ Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ Insert
 		
 	    if(result == 0) {
 	    	clientDao.ClientInsert(s_email);
 	    	return null;
 		}
-	    //À¯ÀúÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù.!!
+	    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.!!
 		else if(result == 1) {
 			pMap = clientDao.Modify(s_email);
 			return pMap;
@@ -152,5 +152,10 @@ public class ClientLogic {
 		
 		clientDao.projectRegister1(pMap);
 	}
-	
+	/***********ìˆ˜ì •20181017ì‹œì‘***********/
+	public Map<String,Object> getUser(String kinds, String email){
+		Map<String,Object> map = clientDao.getUser(kinds, email);
+		return map;
+	}
+	/***********ìˆ˜ì •20181017ë***********/
 }

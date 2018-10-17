@@ -27,7 +27,9 @@
 		<a href="../clients/ClientMyCufflink"> <img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
 		</a>
 		<div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
-			<a href="../clients/projectRegisterDetail" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> <a href="../project/page?pagenum=1" id="projectFind" class="projectFind item">프로젝트 찾기 </a> <a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
+			<a href="../clients/projectRegisterDetail" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
+			<a href="../project/page" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
+			<a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
 			<div class="right mini menu">
 				<div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
 					<div id="mrc" class="mrc" style="margin-top: 0px;">
@@ -78,7 +80,7 @@
 						<div class="item" onclick="location.href='../client/logout'">
 							<i class="power off icon"></i> 로그아웃
 						</div>
-					</div>
+					</div> 
 				</div>
 			</form>
 		</div>
@@ -90,7 +92,7 @@
 	<div class="ui container">
 		<div class="ui secondary menu">
 			<!-- ************************* 메뉴버튼클릭시 활성화효과 -->
-			<a href="../project/projectRecruiting" id="projectRecruiting" class="projectRecruiting teal item"> 지원자 모집중 </a> <a href="../project/projectContractInProgress" id="projectContractInProgress" class="projectContractInProgress teal item"> 진행중인 프로젝트 </a> <a href="../project/projectReviewContract" id="projectReviewContract" class="projectReviewContract teal item"> 종료된 프로젝트 </a>
+			<a href="../project/projectRecruiting" id="projectRecruiting" class="projectRecruiting teal item"> 지원자 모집중 </a> <a href="../project/projectContractInProgress" id="projectContractInProgress" class="projectContractInProgress teal item"> 진행중인 프로젝트 </a> <a href="../project/projectCompletedContract" id="projectReviewContract" class="projectReviewContract teal item"> 종료된 프로젝트 </a>
 			<!-- ************************* 메뉴버튼클릭시 활성화효과 -->
 		</div>
 	</div>

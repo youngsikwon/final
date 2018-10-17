@@ -32,7 +32,7 @@
 <!-- //chatting -->
 <link rel="stylesheet" href="../css/main.css" />
 </head>
-<body>
+<body >
 
 	<div class="wrap">
 		<div class="ui container">

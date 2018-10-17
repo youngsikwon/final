@@ -130,4 +130,15 @@
 		, pro_partners , pro_skill , pro_file , pro_start , pro_end , pro_addr , 
 		pro_management , pro_contents , cate_no) values(SEQ_PRO_NO.NEXTVAL,#{c_no},#{pro_name},#{pro_period},#{pro_price},#{pro_plan},#{pro_partners},#{pro_skill},#{pro_file},#{pro_start}, 
 		#{pro_end},#{pro_addr}, #{pro_management},#{pro_contents},#{pro_cate}) </insert> -->
+	
+	<!--수정20181017시작-->
+	
+	<select id="getClientUser" resultType="map" parameterType="String">
+		SELECT * FROM client WHERE s_email = #{value}
+	</select>
+	<select id="getPartnersUser" resultType="map" parameterType="String">
+		SELECT * FROM partners WHERE s_email = #{value}
+	</select>
+	
+	<!--수정20181017끝-->
 </mapper>

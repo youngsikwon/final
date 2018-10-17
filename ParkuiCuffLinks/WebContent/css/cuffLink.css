@@ -2,12 +2,10 @@
 
 body {
 	font-family: "Nanum Gothic", sans-serif;
-	/* font-family: "Roboto", "Noto Sans KR", sans-serif; */
+	/* font-family: "Roboto", "Noto Sans KR", sans-serif; */ 
 	font-size: 1em;
 	font-weight: 400;
 }
-
-
 
 :placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: red;

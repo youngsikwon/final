@@ -133,7 +133,7 @@ public class ProjectDao {
 
 	public void projectAttention(Map<String, Object> pMap) {
 		// TODO Auto-generated method stub
-		sqlSessionTemplate.insert("projectsupport", pMap);
+		sqlSessionTemplate.update("projectsupport", pMap);
 	}
 
 	public void projectcancel(Map<String, Object> pMap) {
@@ -141,4 +141,30 @@ public class ProjectDao {
 		sqlSessionTemplate.delete("projectsupportDelete", pMap);
 	}
 
+	public void deleteProject(int pro_no) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.delete("deleteProject", pro_no);
+	}
+	 /***************************************
+     * @author 지원 목록 및 지원명단
+     ***************************************/
+    //지원 목록
+    public List<Map<String, Object>> Project_JList() {
+      List<Map<String, Object>> list = new ArrayList<>();
+      List<Object> lists = new ArrayList<Object>();
+      //list = sqlSessionTemplate.selectList("Project_JList"); // 지원목록
+      lists.add(list);
+      return list;
+   }
+    /**********수정 20181017 시작*******/
+   public List<Map<String,Object>> projectSupportUser(int c_no){
+	   list = sqlSessionTemplate.selectList("projectSupportUser", c_no);
+	   return list;
+   }
+   
+   public void stateChange(Map<String,Object> pMap) {
+	   logger.info(pMap);
+	   sqlSessionTemplate.update("stateChange", pMap);
+   }
+   /**********수정 20181017 끝*******/
 }

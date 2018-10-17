@@ -121,7 +121,7 @@
 	<select id="getStateProjectClient" resultType="map"
 		parameterType="map">
 		SELECT cate_main, cate_sub, pro_name, pro_period, pro_price, pro_end,
-		pro_addr
+		pro_addr, p.pro_no
 		FROM project p, category c WHERE pro_no in
 		(SELECT pro_no FROM support WHERE pro_no in
 		(SELECT pro_no FROM project WHERE c_no =
@@ -147,4 +147,20 @@
 		)
 		}
 	</delete>
+	
+   	<!-- 수정 20181017 시작  -->
+	
+	<delete id="deleteProject" statementType="CALLABLE" parameterType="int">
+		{call pro_pro_delete(#{value})}
+	</delete>
+   <select id="projectSupportUser" parameterType="int" resultType="map">
+   		SELECT count(p_no) userCount, pro_end, p.pro_no, pro_name, pro_period, pro_price, pro_addr, cate_main, cate_sub  
+		FROM project p, support s, category c WHERE p.pro_no = s.pro_no AND c.cate_no = p.cate_no AND c_no = #{value}  AND su_state != '진행' AND su_state != '완료' 
+		group by p.pro_no, pro_name, pro_period, pro_price, pro_addr, cate_main, cate_sub, pro_end
+   </select>
+   <update id="stateChange" parameterType="map">
+   		update support set su_state = #{su_state} WHERE pro_no = #{pro_no}
+   </update>
+   
+   <!--수정 20181017 끝 -->
 </mapper>

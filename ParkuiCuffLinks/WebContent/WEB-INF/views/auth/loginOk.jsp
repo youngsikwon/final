@@ -16,7 +16,9 @@
 	  }
     }
   response.sendRedirect("/clients/ClientMyCufflink");
+  /***********수정20181017시작***********/
   String path = "/image/partnersImg/";  
+  /***********수정20181017끝***********/
  
 %>
 <div class="ui two column grid" style="padding-right: 0px; padding-bottom: 10px; padding-top: 10px; padding-left: 5px;">
@@ -30,7 +32,9 @@
 </div>
 <div class="ui two column grid container">
 	<div class="column" style="padding-left: 5px; padding-top: 10px; padding-right: 5px; padding-bottom: 5px; width: 20%;">
-		<img class="ui medium circular image" style="width: 40px;" src="<%=path%>/partners17.jpg">
+	<!------------------ 수정20181017 시작 ------------------>
+		<img class="ui medium circular image" style="width: 40px;" src="<%=path%>${fileName}">
+	<!------------------ 수정20181017 끝 -------------------->
 	</div>
 	<div class="column" style="padding-left: 0px; padding-right: 0px; padding-top: 5px; padding-bottom: 15px; font-size: 12px; width: 80%;">
 		<%if(info!=null) out.print(info.get("S_ID"));%><br> <%if(info!=null) out.print(info.get("S_EMAIL"));%>

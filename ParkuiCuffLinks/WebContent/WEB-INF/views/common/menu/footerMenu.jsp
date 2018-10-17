@@ -23,7 +23,7 @@
 			</p></a>
 	</div>
 	<div id="chatwin" class="chatwin">
-		<div class="chat-top">
+		<div class="chat-top"> 
 			<!-- <div class="t-left">
 				****************************************************************** 20181013 기능미구현으로 주석처리
 				<a href="#"> <i class="fas fa-cog fa-2x"></i>

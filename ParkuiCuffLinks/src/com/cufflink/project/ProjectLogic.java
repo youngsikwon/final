@@ -23,20 +23,20 @@ public class ProjectLogic {
 	Map<String, Map> map;
 	int result;
 
-	// ÇÁ·ÎÁ§Æ® Ã£±â  ÀüÃ¼¸ñ·ÏÀ» ´ã¾ÆÁÙ °ÍÀÔ´Ï´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½  ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 	public Map<String,Map> Project(Map<String, Object> pMap){
-		logger.info("Project È£Ãâ¼º°ø");
+		logger.info("Project È£ï¿½â¼ºï¿½ï¿½");
 		map = projectDao.Project_1(pMap);
 		logger.info(map);
 		return map;
 	}
 
 	///////////////////////////////
-	// ÇÁ·ÎÁ§Æ® Ã£±â : Ä«Å×°í¸® ºĞ·ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ : Ä«ï¿½×°ï¿½ ï¿½Ğ·ï¿½
 	///////////////////////////////
-	// ÇÁ·ÎÁ§Æ® Ã£±â : °³¹ß
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
 	public List<Map<String, Object>> getProjectFind1() {
-		logger.info("ProjectFind È£Ãâ ¼º°ø");
+		logger.info("ProjectFind È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<String> ProjectFind = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProjectFind1();
 		for (Map<String, Object> map : list) {
@@ -45,7 +45,7 @@ public class ProjectLogic {
 		return list;
 	}
 	public List<Map<String, Object>> P_Enrollment() {
-		logger.info("P_Enrollment È£Ãâ ¼º°ø");
+		logger.info("P_Enrollment È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<String> ProjectFind = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProjectFind1();
 		for (Map<String, Object> map : list) {
@@ -54,9 +54,9 @@ public class ProjectLogic {
 		return list;
 	}
 
-	// ÇÁ·ÎÁ§Æ® Ã£±â : µğÀÚÀÎ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Map<String, Object>> getProjectFind2() {
-		logger.info("ProjectFind È£Ãâ ¼º°ø");
+		logger.info("ProjectFind È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<String> ProjectFind = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProjectFind2();
 		for (Map<String, Object> map : list) {
@@ -65,9 +65,9 @@ public class ProjectLogic {
 		return list;
 	}
 
-	// ÇÁ·ÎÁ§Æ® Ã£±â : ÀüÃ¼ ¸®½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ : ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
 	public List<Map<String, Object>> getProject_cateALL() {
-		logger.info("getProject_cateALL È£Ãâ ¼º°ø");
+		logger.info("getProject_cateALL È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<String> ProjectFind = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProject_CATE();
 		for (Map<String, Object> map : list) {
@@ -75,9 +75,9 @@ public class ProjectLogic {
 		}
 		return list;
 	}
-	// ÇÁ·ÎÁ§Æ® Ã£±â : ÀüÃ¼ ¸®½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ : ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
 	public List<Map<String, Object>> getProjectseach() {
-		logger.info("getProject_cateALL È£Ãâ ¼º°ø");
+		logger.info("getProject_cateALL È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<String> ProjectFind = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProjectseach();
 		for (Map<String, Object> map : list) {
@@ -86,9 +86,9 @@ public class ProjectLogic {
 		return list;
 	}
 
-	// ÇÁ·ÎÁ§Æ® Ã£±â ÆäÀÌÁö ³×ÀÌ¼Ç
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¼ï¿½
 	public Map<String, Object> getProAll(int pagenum) {
-		logger.info("getProAll È£Ãâ ¼º°ø");
+		logger.info("getProAll È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		Map<String,Object> map = projectDao.getProAll(pagenum);
 		return map;
 	}
@@ -100,7 +100,7 @@ public class ProjectLogic {
 		list = projectDao.getState(map);
 		return list;
 	}
-	// ÇÁ·ÎÁ§Æ® »ó¼¼º¸±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	   public Map<String, Object> ProjectView(int pro_no) {
 	      logger.info("ProjectView");
 	      
@@ -141,5 +141,19 @@ public class ProjectLogic {
 		// TODO Auto-generated method stub
 		projectDao.projectcancel(pMap);
 	}
-
+	
+	/**********ìˆ˜ì • 20181017 ì‹œì‘*******/
+	public void deleteProject(int pro_no) {
+		projectDao.deleteProject(pro_no);
+	}
+    
+    public List<Map<String,Object>> projectSupportUser(int c_no){
+    	list = projectDao.projectSupportUser(c_no);
+    	return list;
+    }
+    
+    public void stateChange(Map<String,Object> pMap) {
+ 	   projectDao.stateChange(pMap);
+    }
+    /**********ìˆ˜ì • 20181017 ë*******/
 }

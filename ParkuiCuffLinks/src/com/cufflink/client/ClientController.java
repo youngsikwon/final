@@ -44,6 +44,20 @@ public class ClientController {
 		logger.info("마이커프링크 호출성공");
 		Map<String, Object> map = userInfo(session, req);
 		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
+		/***********수정20181017시작*********/
+		Map<String,Object> pMap = clientLogic.getUser(userInfo(session, req).get("S_KINDS").toString(), userInfo(session, req).get("S_EMAIL").toString());
+		if(pMap !=null) {
+			if("클라이언트".equals(userInfo(session, req).get("S_KINDS").toString())) {
+				logger.info(pMap);
+				session.setAttribute("fileName", pMap.get("C_FILE"));
+			}else {
+				logger.info(pMap);
+				session.setAttribute("fileName", pMap.get("P_FILE"));
+			}
+		}else {
+			m.addAttribute("fileName", "partners17.jpg");
+		}
+		/***********수정20181017끝*********/
 		logger.info("userInfo" + map);
 		List<Map<String, Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "진행");
 		m.addAttribute("getState", rList);
@@ -64,19 +78,27 @@ public class ClientController {
 		Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute(id);
 		return userInfo;
 	}
-
+	
+	public String pathFile(HttpSession session, HttpServletRequest req) {
+		String pathFile = null;
+		Map<String,Object> map = userInfo(session,req);
+		String email = map.get("S_EMAIL").toString();
+		
+		return pathFile;
+	}
+	
 	@RequestMapping("/clients/login")
 	public String ClientLogin(HttpServletRequest req, HttpServletResponse res, Model model,
 			@RequestParam Map<String, Object> pMap) {
 
 		Map<String, Object> hMap = new HashMap<String, Object>();
+		Map<String, Object> file = new HashMap<>();
 		HttpSession session = req.getSession();
 		Cookie Id = null;
 		int capchar = 1;
 		hMap = clientLogic.ClientLogin(pMap);
-
+		
 		if ((int) hMap.get("Idcheck") == 1) {
-
 			userID = (String) hMap.get("S_ID");
 			session.removeAttribute((String) hMap.get("S_ID") + "1");
 			session.setMaxInactiveInterval(6000 * 6000);
@@ -262,11 +284,12 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/PartnersImages", method = RequestMethod.POST)
-	public String PartnersImages(@RequestParam("f_file") MultipartFile f_file, @RequestParam Map<String, Object> pMap) {
+	public String PartnersImages(@RequestParam("f_file") MultipartFile f_file, @RequestParam Map<String, Object> pMap, HttpSession session, HttpServletRequest req) {
 		String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
 		String path = "C:\\새 폴더 (3)\\CuffLinks\\WebContent\\image\\partnersImg\\";
 		int result = 0;
 		System.out.println(fileName);
+		Map<String,Object> map = userInfo(session,req);
 		pMap.put("address", HangulConversion.toUTF((String) pMap.get("address")));
 		pMap.put("f_gender", HangulConversion.toUTF((String) pMap.get("f_gender")));
 		pMap.put("f_name", HangulConversion.toUTF((String) pMap.get("f_name")));
@@ -291,7 +314,13 @@ public class ClientController {
 				logger.info(e.toString());
 			}
 		}
-		return "redirect:auth/ClientProfile";
+		if("클라이언트".equals(map.get("S_KINDS"))) {
+			//수정<시작>
+			return "redirect:/clients/ClientMyCufflink";
+			//수정 <끝>
+		}else {
+			return "redirect:/partners/partnersProfile";
+		}
 	}
 
 	// ********************************* 클라이언트 로그인 네비게이터 검수 하위메뉴
@@ -301,7 +330,9 @@ public class ClientController {
 			@RequestParam Map<String, Object> pMap) {
 
 		String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
-		String path = "D:\\pds\\";
+		//수정 <시작>
+		String path = "C:\\새 폴더 (3)\\CuffLinks\\WebContent\\pds\\";
+		//수정 <끝>
 		HashMapBinder binder = new HashMapBinder(req);
 		binder.bind(pMap);
 
@@ -326,7 +357,7 @@ public class ClientController {
 		}
 
 		pMap.put("s_id", info.get("S_ID"));
-		pMap.put("pro_file", path + fileName);
+		pMap.put("pro_file", fileName);
 		pMap.put("c_no", info.get("C_NO"));
 		if (f_file != null) {
 			File file = new File(path + fileName);
@@ -342,7 +373,9 @@ public class ClientController {
 			}
 		}
 		clientLogic.projectRegister1(pMap);
-		return "auth/clientSettings/ClientProfile";
+		//수정<시작>
+		return "redirect:/project/page";
+		//수정<끝>
 	}
 	// 프로젝트 검수중
 	// 네비게이터의 검수중메뉴와 동일

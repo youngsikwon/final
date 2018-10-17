@@ -164,6 +164,17 @@ public class ClientDao {
         sqlSessionTemplate.insert("ProJect_insert",pMap);
         
 	}
-
+	/***********수정20181017시작***********/
+	public Map<String,Object> getUser(String kinds, String email){
+		Map<String,Object> map = new HashMap<>();
+		if("클라이언트".equals(kinds)) {
+			map = sqlSessionTemplate.selectOne("getClientUser", email);
+		}else {
+			map = sqlSessionTemplate.selectOne("getPartnersUser", email);
+		}
+		logger.info("file: "+map);
+		return map;
+	}
+	/***********수정20181017끝***********/
 
 }
