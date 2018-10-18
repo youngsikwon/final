@@ -6,7 +6,9 @@
 <head>
 <%
 	List<Map<String, Object>> getState = (List<Map<String, Object>>) request.getAttribute("getState");
-	//System.out.println(getState);
+	/*******수정시작20181018******/
+	List<Map<String, Object>> userSupport = (List<Map<String, Object>>) request.getAttribute("userSupport");
+	/*******수정끝20181018******/
 %>
 
 <meta charset="UTF-8">
@@ -129,25 +131,21 @@
 							<!-- 우측여백 -->
 						</div>
 					</div>
-					<!-- <div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
-						<hr class="garo" style="" />
-					</div> -->
 					<div style="padding: 13px;"></div>
 					<div class="ui" style="position: relative;padding-left: 5px; padding-right: 5px; padding-top: 0px; padding-bottom: 0px; text-align: left;">
-						<div class="ui column segment" style="padding-top: 0px;">
-							<!-- *********************************************************************************************************************************************20181013 수정요청사항 -->
+						<div class="ui column segment" style="padding-top: 30px;">
 							<div class="ui blue top left attached label" style="position: absolute; top: -10px;left: -10px;">
 								<a href="/project/projectRecruiting">>>지원자 모집중<<</a>
 							</div>
-							<!-- *********************************************************************************************************************************************20181013 수정요청사항 -->
 							<div class="ui four column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 0px; text-align: center;">
 								<div class="ui column" style="color:#fff; background-color:#848484; padding-left: 20px; padding-right: 0px; padding-top: 05px; padding-bottom: 05px; text-align: left; width: 40%">프로젝트 제목</div>
 								<div class="ui column" style="color:#fff; background-color:#848484; padding-left: 20px; padding-right: 0px; padding-top: 05px; padding-bottom: 05px; text-align: center; width: 20%">마감일자</div>
 								<div class="ui column" style="color:#fff; background-color:#848484; padding-left: 20px; padding-right: 0px; padding-top: 05px; padding-bottom: 05px; text-align: center; width: 20%">지원자 수</div>
 								<div class="ui column" style="color:#fff; background-color:#848484; padding-left: 20px; padding-right: 0px; padding-top: 05px; padding-bottom: 05px; text-align: center; width: 20%">도구</div>
-								<!-- <div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
-									<hr class="garo" style="" />
-								</div> -->
+								<!-- 수정시작20181018 -->
+<%
+	if (userSupport == null || userSupport.size() <= 0) {
+%>
 								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 20px; padding-bottom: 0px; text-align: left; width: 40%">모집 중인 프로젝트가 없습니다.</div>
 								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center; width: 20%">
 									<!-- 마감일자 -->
@@ -161,17 +159,41 @@
 								<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 									<hr class="dotted" style="" />
 								</div>
+<%
+	} else {
+	for (Map<String, Object> user : userSupport) {
+%>								
+								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px; text-align: left; width: 40%">
+									<%=user.get("PRO_NAME")%></div>
+								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center; width: 20%">
+									<%=user.get("PRO_END")%>
+								</div>
+								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center; width: 20%">
+									<%=user.get("USERCOUNT")%>
+									명
+								</div>
+								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center; width: 20%">
+									<%=user.get("CATE_SUB")%>
+								</div>
+								<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+									<hr class="dotted" style="" />
+								</div>
+								<%
+									}
+								%>
+								<%
+									}
+								%>
+								<!-- 수정끝20181018 -->
 							</div>
 						</div>
 					</div>
 					<div style="padding: 13px;"></div>
 					<div class="ui" style="padding-left: 5px; padding-right: 5px; padding-top: 0px; padding-bottom: 0px; text-align: left;">
 						<div class="ui column segment" style="padding-top: 0px;">
-							<!-- *********************************************************************************************************************************************20181013 수정요청사항 -->
 							<div class="ui orange top left attached label" style="position: absolute; top: -10px;left: -10px;">
 								<a href="/project/projectContractInProgress">>>진행중인 프로젝트<<</a>
 							</div>
-							<!-- *********************************************************************************************************************************************20181013 수정요청사항 -->
 							<div class="ui six column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 0px; text-align: center;">
 								<!-- <h3 class="ui header" style="margin-top: 15px;">프로젝트 진행중</h3> -->
 								<table class="ui inverted  grey table" style="padding: 0; margin-bottom: 15px; ">
@@ -269,6 +291,7 @@
 					</div>
 					<div class="ui submit fluid icon button" onclick="location.href='#'" style="padding: 10px; background-color: #D8CEF6">프로젝트 등록 도움말</div>
 				</div>
+				<!-- 수정시작20181018 -->
 				<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 00px; text-align: center; background-color: #E6E6E6; ">
 					<div style="padding-top: 10px; text-align: left;">
 						<h5>커프링크 히스토리</h5>
@@ -282,20 +305,20 @@
 								<b>프로젝트 등록</b>
 							</div>
 							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">
-								<b>0 건</b>
+								<b>${projectCount} 건</b>
 							</div>
 							<div class="column h15" style="text-align: left; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 0px; width: 60%">
 								<b>계약한 프로젝트</b>
 							</div>
 							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">
-								<b>0 건</b>
+								<b>${sup } 건</b>
 							</div>
 							<div class="column h15" style="text-align: left; padding-top: 10px; padding-bottom: 10px; padding-left: 30px; padding-right: 0px; width: 60%">계약률</div>
 							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">0 %</div>
 							<div class="column h15" style="text-align: left; padding-top: 10px; padding-bottom: 10px; padding-left: 30px; padding-right: 0px; width: 60%">진행중인 프로젝트</div>
-							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">0 건</div>
+							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">${ing } 건</div>
 							<div class="column h15" style="text-align: left; padding-top: 10px; padding-bottom: 10px; padding-left: 30px; padding-right: 0px; width: 60%">완료한 프로젝트</div>
-							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">0 건</div>
+							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">${comp } 건</div>
 						</div>
 						<div class="ui container" style="padding-top: 20px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 							<hr class="dotted" style="" />
@@ -309,7 +332,7 @@
 								<b>￦</b>
 							</div>
 							<div class="column h15" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: right; width: 40%;">
-								<b>0 원</b>
+								<b>${ money } 원</b>
 							</div>
 						</div>
 					</div>
@@ -317,6 +340,7 @@
 						<hr class="dotted" style="width: 100%;" />
 					</div>
 				</div>
+				<!-- 수정끝20181018 -->
 				<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 00px; text-align: center; background-color: #E6E6E6; ">
 					<div style="padding-top: 10px; text-align: left;">
 						<h5>새로운 소식</h5>

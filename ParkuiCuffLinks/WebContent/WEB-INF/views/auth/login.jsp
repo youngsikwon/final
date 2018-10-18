@@ -151,7 +151,7 @@ var isok = true;
 							</div>
 							<div class="column container" style="padding: 10px; width: 65%;">
 								<div class="ui left icon input">
-									<input name="f_pw" type="text" placeholder="비밀번호" size="40px">
+									<input name="f_pw" type="password" placeholder="비밀번호" size="40px">
 									<i class="key icon"></i>
 								</div>
 								</form>

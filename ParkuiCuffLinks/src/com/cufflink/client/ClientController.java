@@ -62,7 +62,27 @@ public class ClientController {
 		List<Map<String, Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "진행");
 		m.addAttribute("getState", rList);
 		logger.info("getState:" + rList);
-		return "/clients/ClientMyCufflink";
+		/***********수정20181018시작*********/
+	      try {
+	          int c_no = Integer.parseInt(pMap.get("C_NO").toString());
+	          Map<String,Object> map1 = projectLogic.getHistory(c_no);
+	          logger.info("history: "+map1);
+	          logger.info("getUser: "+pMap);
+	          m.addAttribute("comp",map1.get("COMP"));
+	          m.addAttribute("money",map1.get("MONEY"));
+	          m.addAttribute("ing",map1.get("ING"));
+	          m.addAttribute("sup",map1.get("SUP"));
+	          List<Map<String,Object>> list = projectLogic.projectSupportUser(c_no);
+	          m.addAttribute("projectCount",list.size());
+	          m.addAttribute("userSupport",list);
+	          /***********수정20181018끝*********/
+	          return "/clients/ClientMyCufflink";
+	          
+	       } catch (NullPointerException e) {
+	          // TODO: handle exception
+	       }
+	       
+	       return "/clients/ClientMyCufflink";
 	}
 
 	/// 쿠쿠쿠쿠키 쿠키

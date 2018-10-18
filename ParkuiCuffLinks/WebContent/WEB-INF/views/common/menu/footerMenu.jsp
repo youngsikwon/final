@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- *************************************************************************20181013 화면로딩중 추가 -->
-<jsp:include page="../loading.jsp" /> 
+<jsp:include page="../loading.jsp" />
 <!-- *************************************************************************20181013 화면로딩중 추가 -->
 <div class="ui content-footer four column grid container">
 
@@ -23,7 +23,7 @@
 			</p></a>
 	</div>
 	<div id="chatwin" class="chatwin">
-		<div class="chat-top"> 
+		<div class="chat-top">
 			<!-- <div class="t-left">
 				****************************************************************** 20181013 기능미구현으로 주석처리
 				<a href="#"> <i class="fas fa-cog fa-2x"></i>
@@ -100,7 +100,8 @@
 	$('#q-input').keypress(function(e) {
 		if (e.keyCode === 13) {
 			info = {
-				id : '<%=request.getRemoteAddr()%>',
+				id : '<%=request.getRemoteAddr()%>
+	',
 				message : $('#q-input').val()
 			}
 			socket.send(JSON.stringify(info));

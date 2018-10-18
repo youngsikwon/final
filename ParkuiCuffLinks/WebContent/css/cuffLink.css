@@ -1,12 +1,5 @@
 @charset "utf-8";
 
-body {
-	font-family: "Nanum Gothic", sans-serif;
-	/* font-family: "Roboto", "Noto Sans KR", sans-serif; */ 
-	font-size: 1em;
-	font-weight: 400;
-}
-
 :placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: red;
     opacity: 1; /* Firefox */
@@ -20,12 +13,19 @@ body {
     color: red;
 }
 
+#partnersback {
+	background-color: #F8E6E0;
+}
+
+#partnersmytablehead {
+	background-color: #E3CEF6;
+}
 
 /************************************************************************************** 파트너스 자기소개 스크롤 */
 .p-intro{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 
 /************************************************************************************** checkbox */
-.allcheckbox {padding-left: 12px;} 
+.allcheckbox {padding-left: 12px;}
 .master input {float: left;}
 .list .item .child {padding-left: 10px;}
 .list .item .child input {float: left; }
@@ -74,7 +74,7 @@ body {
 .chat-right .chatbtn a i {vertical-align: middle; font-size: 25px; margin-top: 0px; }
 .chat-right .chatbtn a:hover { }
 .chat-right .chatwin {position: fixed; right: 0; bottom: 0; background-color: #5698ff; width: 300px; height: 500px; margin: 30px; transition: all 0.2s ease-out-in; border-radius: 25px; }
-.chat-right .chatwin .chat-top {width: 100%; height: 40px; padding: 10px;  box-sizing: border-box; }
+.chat-right .chatwin .chat-top {width: 100%; height: 50px; padding: 10px;  box-sizing: border-box; }
 .chat-right .chatwin .chat-top .t-left {float: left; width: 10%; }
 .chat-right .chatwin .chat-top .t-left a {color: #000; }
 .chat-right .chatwin .chat-top .t-left a:hover {color: #fff; }
@@ -82,16 +82,15 @@ body {
 .chat-right .chatwin .chat-top .t-right {float: left; width: 10%; }
 .chat-right .chatwin .chat-top .t-right a {color: #000; }
 .chat-right .chatwin .chat-top .t-right a:hover {color: #fff; }
-.chat-right .chatwin .chat-middle {padding-right: 0;width: 100%; height: 100%; color: #000; background-color: #CEF6EC; border: 1px solid #dedede; box-sizing: border-box; padding: 5px 0 5px 10px;}
+.chat-right .chatwin .chat-middle {padding-right: 0;width: 100%; height: 100%; color: #000; background-color: #CEF6EC; border: 1px solid #dedede; box-sizing: border-box; padding: 0px 0 0px 10px;}
 /* 스크롤처리부분 */
-.chat-right .chatwin .chat-middle {height:410px;}
 .chat-right .chatwin .chat-middle .c-middle {height: 100%;overflow-y:scroll;}
-.chat-right .chatwin .chat-bottom {height: 30px;}
+.chat-right .chatwin .chat-bottom {}
 .chat-right .chatwin .chat-bottom .b-left {padding-top: 10px; padding-left: 15px; float: left; width: 10%; box-sizing: border-box; }
 .chat-right .chatwin .chat-bottom .b-left a {color: #000; }
 .chat-right .chatwin .chat-bottom .b-left a:hover {color: #fff; }
 .chat-right .chatwin .chat-bottom .b-center {float: left; font-size: 16px; item-align: center; width: 78%; color: #000;padding:1px 0 0 0; }
-.chat-right .chatwin .chat-bottom .b-center input {padding-bottom: 7px;margin-top: 3px;border-top: 10px solid #fff; border-bottom: 0px solid #fff; border-left: 1px solid #fff; border-right: 1px solid #fff;line-height: 15px; width:85%; }
+.chat-right .chatwin .chat-bottom .b-center input {border-top: 0px solid #fff; border-bottom: 0px solid #fff; border-left: 1px solid #fff; border-right: 1px solid #fff;line-height: 44px; width:85%; }
 .chat-right .chatwin .chat-bottom .b-right {padding-top: 10px; padding-right: 25px; float: left; width: 10%; box-sizing: border-box; }
 .chat-right .chatwin .chat-bottom .b-right a {color: #000; }
 .chat-right .chatwin .chat-bottom .b-right a:hover {color: #fff;}

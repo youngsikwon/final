@@ -168,7 +168,7 @@ body {
 	<!--======================================================================================-->
 	<!----------------------------------------------------------------------- main content 시작 -->
 
-	<div class="ui container" style="margin-top: 15px;"> 
+	<div class="ui container" style="margin-top: 15px;">
 
 		<!-- main 입력 시작-->
 
@@ -209,19 +209,21 @@ body {
 								<!-- 빈공간 -->
 							</div>
 
-							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">아이디</div>
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;"><strong>아이디</strong></div>
 							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_ID")%></div>
-							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">이메일</div>
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;"><strong>이메일</strong></div>
 							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_EMAIL")%></div>
 							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 30px; padding-right: 30px; width: 100%;">
 								<!-- 	<hr class="dotted" /> -->
 							</div>
+							
 							<div class="center column container" style="padding-left: 20px; width: 30%; text-align: left; background-color: #CECEF6;">
 								<h5>기본 정보</h5>
 							</div>
 							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%; background-color: #CECEF6;">
 								<!-- 빈공간 -->
 							</div>
+							
 							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>프로필 사진
 							</div>
@@ -333,6 +335,7 @@ body {
 							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
 								<!-- <hr class="dotted" /> -->
 							</div>
+							
 							<div class="center column container" style="padding-left: 20px; width: 30%; text-align: left; background-color: #CECEF6;">
 								<h5>연락처 정보</h5>
 							</div>

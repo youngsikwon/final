@@ -46,7 +46,7 @@
 					%>
 					<div class="right menu">
 						<div class="item">
-						<button class="ui mini button" style="margin-right: 10px; padding=10px !important;" onclick="location.href='/auth/login'">로그인1</button>
+						<button class="ui mini button" style="margin-right: 10px; padding=10px !important;" onclick="location.href='/auth/login'">로그인</button>
 						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
 						</div>
 					</div>

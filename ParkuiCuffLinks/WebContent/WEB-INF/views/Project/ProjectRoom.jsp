@@ -35,10 +35,10 @@
 <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
-	<form id="f_attention">
+	<form id="f_attention" action="/project/projectAttention">
 		<input type="hidden" name="s_email" value="<%=info.get("S_EMAIL")%>"> <input type="hidden" name="pro_no" value=<%=Pronumber%>> <input type="hidden" name="su_money" value=<%=pro.get("PRO_PRICE")%>> <input type="hidden" name="su_state" value="관심">
 	</form>
-	<form id="f_jiwon">
+	<form id="f_jiwon" action="/project/projectAttention">
 		<input type="hidden" name="s_email" value="<%=info.get("S_EMAIL")%>"> <input type="hidden" name="pro_no" value=<%=Pronumber%>> <input type="hidden" name="su_money" value=<%=pro.get("PRO_PRICE")%>> <input type="hidden" name="su_state" value="지원">
 	</form>
 	<form id="f_cancel">
@@ -80,11 +80,11 @@
 	<!----------------------------------------------------------------------- main content 시작 -->
 
 	<div class="ui container">
-		<div class="column" style="text-align: left; margin-bottom: 50px;">
-			<div class="ui two column grid container" style="height: 860px; margin-bottom: 50px;">
-				<div class="ui column" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; width: 80%; margin-bottom: 50px;">
-					<div class="ui container" style="margin-top: 14px;">
-						<div class="content-header">
+		<div class="column" style="text-align: left;">
+			<div class="ui two column grid container" style="height: auto; margin-bottom: 10px;">
+				<div class="ui column" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; width: 80%; background-color: #dedede;">
+					<div class="ui container" style="margin-top: 5px;">
+						<div class="content-header" style=" background-color: #F5ECCE;">
 							<div class="column" style="text-align: left">
 								<h3>
 									<i class="tag icon"></i>
@@ -133,7 +133,7 @@
 						</div>
 					</div>
 					<!-- 상단 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-					<div class="ui column segment" style="padding-top: 10px; margin-top: 10px; margin-bottom: 10px;">
+					<div class="ui column segment" style="padding-top: 10px; margin-top: 10px; margin-bottom: 10px; background-color: #F5ECCE;">
 						<div class="column" style="padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px; text-align: right; width: 10%;">
 							<!-- 우측여백 -->
 						</div>
@@ -180,12 +180,12 @@
 					</div>
 				</div>
 				<div class="ui column" style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
-					<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px; text-align: center; margin-top: 14px; padding-top: 10px;">
+					<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px; text-align: center; margin-bottom: 5px;margin-top: 0px; padding-top: 10px; background-color: #dedede;">
 						<!-- 수정시작 -->
 						<%
 							if ("클라이언트".equals(request.getAttribute("kind").toString())) {
 						%>
-						<div class="ui orange labeled submit icon button" onclick="location.href='/project/deleteProject?pro_no=<%=Pronumber%>'" style="">
+						<div class="ui orange labeled submit icon button" onclick="location.href='/project/deleteProject?pro_no=<%=Pronumber%>'" >
 							<i class="icon edit"></i> <a style="color: white;">프로젝트 삭제</a>
 						</div>
 						<p></p>
@@ -196,7 +196,7 @@
 							} else {
 						%>
 						<div class="ui orange labeled submit icon button" onclick="attention()" style="">
-							<i class="icon edit"></i> <a style="color: white;">관심프로젝트 추가</a>
+							<i class="icon edit"></i> <a style="color: white;">프로젝트 관심</a>
 						</div>
 						<p></p>
 						<div class="ui orange labeled submit icon button" onclick="jiwon()" style="">
@@ -209,7 +209,7 @@
 						
 					</div>
 
-					<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px; text-align: center">
+					<div class="ui fluid vertical menu" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-top: 5px;text-align: center; background-color: #dedede;">
 						<div style="padding-top: 10px; text-align: left;">
 							<div class="ui card">
 								<div class="image">
@@ -276,7 +276,7 @@
 		</div>
 	</div>
 	<footer class="footer">
-		<div class="ui inverted segment" style="margin-top: 50px;">
+		<div class="ui inverted segment">
 			<jsp:include page="../common/menu/footerMenu.jsp" />
 		</div>
 	</footer>

@@ -4,10 +4,13 @@
 <%@page import="java.util.List"%>
 <html>
 <head>
+<style type="text/css">
+.p-intro {
+	overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+	}
+</style>
 <meta charset="UTF-8">
 <jsp:include page="./ui.jsp" />
-
-
 <%
 	List<Map<String, Object>> main_pro = (List<Map<String, Object>>) request.getAttribute("MainProject");
 %>
@@ -31,22 +34,39 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- //chatting -->
 <link rel="stylesheet" href="../css/main.css" />
+<style>
+body {
+	margin : 0;
+	padding : 0;
+	background : url (img.jpg) center center fixed no-repeat;
+}
+video {
+	position : fixed;
+	top : 0px; 
+	left : 00px;
+	
+	width : 100%;
+	height : 100%;
+	z-index : -1;
+}
+</style>
 </head>
-<body >
-
-	<div class="wrap">
+<body>
+	<!-- <div class="wrap"> -->
+	<div>
+		<div align="center">
+			<video autoplay loop>
+				<source src = "/image/video/testvideo.mp4"type = "video/mp4">
+			</video>	
+		</div>
 		<div class="ui container">
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
 				<a href="/"> <img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
 				</a> <a href="/auth/login" id="projectRegister" class="projectRegister item" style="font-weight: bold">프로젝트 등록 </a> <a href="../project/page?pagenum=1" id="projectFind" class="projectFind item" style="font-weight: bold">프로젝트 찾기 </a> <a href="../partners/partnersList" id="partnersList" class="partnersList item" style="font-weight: bold">파트너스 목록 </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'" />
-						로그인
-						</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'" />
-						회원가입
-						</button>
+						<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'">로그인</button>
+						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
 					</div>
 				</div>
 			</div>
@@ -66,39 +86,39 @@
 		<div class="ui segments">
 			<div class="ui horizontal segments">
 
-				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border:1px solid #fff;">
+				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border: 1px solid #fff;">
 					<div style="background-color: #fff;">
 						<h3>등록된 프로젝트</h3>
 					</div>
 					<h3>
 						<span class="counter">14,234</span>개
 					</h3>
-					
+
 				</div>
-				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border:1px solid #fff;">
+				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border: 1px solid #fff;">
 					<div style="background-color: #fff;">
 						<h3>프로젝트 등록 금액</h3>
 					</div>
 					<h3>
 						<span>$</span> <span class="counter">142,030,018,631</span>원
 					</h3>
-					
+
 				</div>
-				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border:1px solid #fff;">
+				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border: 1px solid #fff;">
 					<div style="background-color: #fff;">
 						<h3>개발회사 프리랜서</h3>
 					</div>
 					<h3>
 						<span class="counter">54,453</span>명
 					</h3>
-					
+
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<div style="background-color: rgb(243, 244, 247);">
-		<div class="ui container" style="padding-top: 5px; padding-bottom: 5px; font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6; ">
+		<div class="ui container" style="padding-top: 5px; padding-bottom: 5px; font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6;">
 			<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 등록된 프로젝트
 		</div>
 		<div class="ui container" style="padding-top: 20px;">
@@ -108,8 +128,8 @@
 				%>
 				<div class="column">
 					<div class="ui segment" style="background-color: #E0E6F8;">
-						<div style="background-color: #D8D8D8;">
-						<a href="#" class="title" style="color:red;"><%=main_pro.get(i).get("PRO_NAME")%></a>
+						<div class="p-intro" style="background-color: #D8D8D8;">
+							<a href="#" class="title" style="color: red;"><%=main_pro.get(i).get("PRO_NAME")%></a>
 						</div>
 						<p></p>
 						<span> <i class="won sign icon"></i> <%=main_pro.get(i).get("PRO_PRICE")%>
@@ -133,14 +153,14 @@
 		<!-- container -->
 	</div>
 	<div style="height: 20px;"></div>
-	<div class="ui container" style="position: relative; padding-top: 5px; padding-bottom: 5px;  font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6; ">
+	<div class="ui container" style="position: relative; padding-top: 5px; padding-bottom: 5px; font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6;">
 		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 클라이언트 의뢰 주변 검색
 		<div class="ui mini search" style="position: absolute; top: 2px; right: 0; float: right;">
 			<div class="ui icon input">
 				<div class="ui search" style="">
-					<!-- 지도검색 -->				
+					<!-- 지도검색 -->
 					<input class="prompt" id="MapSearch" type="text" placeholder="Search countries..." style="height: 25px;"> <i class="search icon"></i>
-					<!-- 지도검색 -->	
+					<!-- 지도검색 -->
 				</div>
 				<div class="results"></div>
 			</div>
@@ -154,7 +174,7 @@
 	</div>
 	<div style="height: 30px; margin: 0 auto;" align="center"></div>
 
-	<div class="ui container" style="padding-top: 5px; padding-bottom: 5px;  font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6; ">
+	<div class="ui container" style="padding-top: 5px; padding-bottom: 5px; font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6;">
 		<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 우리와 함께하는 회사
 	</div>
 	<div class="ui container" style="padding-top: 20px; text-align: center; background-color: #E0E6F8;">
@@ -172,10 +192,10 @@
 		}
 		autoSplit(100);
 
-		var lengt = $('.title').text().length;
+		/* var lengt = $('.title').text().length;
 		if (lengt > 16) {
 			$('.title').text($('.title').text().substring(0, 16)).append('...')
-		}
+		} */
 	</script>
 
 </body>

@@ -2,10 +2,13 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	List<Map<String, Object>> getState = (List<Map<String, Object>>) request.getAttribute("getState");
-	/********수정 20181017 시작 *********/
-	List<Map<String, Object>> JList = (List<Map<String, Object>>) request.getAttribute("userSupport");//지원 목록
-	/********수정 20181017 시작 *********/	
+/******수정시작20181018*******/
+	/* List<Map<String, Object>> getState = (List<Map<String, Object>>) request.getAttribute("getState"); */
+	/******수정끝20181018*******/
+/********수정 20181017 시작 *********/
+List<Map<String, Object>> JList = (List<Map<String, Object>>) request.getAttribute("userSupport");//지원 목록
+/********수정 20181017 시작 *********/
+System.out.println("JLIST: "+JList);
 %>
 <!DOCTYPE html>
 <html>
@@ -91,22 +94,18 @@
 					<!-- ***************************************************************************************************************************20181013 수정 -->
 					<div style="text-align: left; padding-left: 10px; padding-top: 5px; padding-bottom: 0px"></div>
 					<!-- ***************************************************************************************************************************20181013 수정 -->
-					<%
-						if (getState.size() <= 0) {
-					%>
+<%
+   if (JList.size() <= 0) {
+%>
 					<!-- ***************************************************************************************************************************20181013 수정 -->
 					<div style="text-align: left; padding-left: 10px; padding-top: 20px; padding-bottom: 0px; min-height: 390px; border: 1px solid #dedede; background-color: #E6E6E6;">지원자 모집 중인 프로젝트가 없습니다.</div>
 					<!-- ***************************************************************************************************************************20181013 수정 -->
-					<%
-						} else {
-					%>
-					<%
-						for (Map<String, Object> state : getState) {
-					%>
-
-					<%
-						for (Map<String, Object> List : JList) {
-					%>
+<%
+   } else {
+%>
+<%
+   for (Map<String, Object> List : JList) {
+%>
 					<div class="ui two column grid segment" style="position: relative; margin-top: 15px; padding: 3px; text-align: left !important;">
 						<!-- 좌측 -->
 						<div class="column" style="width: 79%; background-color: #dedede; margin-top: 0px;">
@@ -139,16 +138,19 @@
 							<div style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px;">
 								총<%=List.get("USERCOUNT")%>명 지원
 							</div>
-							<!------------수정20181017 시작  -->
-							<div class="ui black  label" style="padding: 10px; padding-right: 10px; margin-left: 10px;">
-								<a href="/project/projectProgress?pro_no=<%=List.get("PRO_NO")%>&su_state=진행">진행하기</a>
-							</div>
-							<!------------수정20181017 끝  -->
+							 <!------------수정20181017 시작  -->
+		                     <%  if(Integer.parseInt(List.get("USERCOUNT").toString()) != 0){ %>
+		                     <div class="ui black  label" style="padding: 10px; padding-right: 10px; margin-left: 10px;">
+		                        <a href="/project/projectProgress?pro_no=<%=List.get("PRO_NO")%>&su_state=진행">진행하기</a>
+		                     </div>
+		                     <% }else{%>
+		                     <div class="ui black  label" style="padding: 10px; padding-right: 10px; margin-left: 10px;">
+		                        <a href="javascript:alert('지원자가 없습니다')">진행하기</a>
+		                     </div>
+		                     <% } %>
+		                     <!------------수정20181017 끝  -->
 						</div>
 					</div>
-					<%
-					}
-					%>
 					<%
 					}
 					%>
