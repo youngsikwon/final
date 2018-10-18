@@ -43,7 +43,7 @@
 				<!-- 로그인 정보 =================================================================================-->
 
 				<div id="partnersback" class="ui fluid vertical menu" style="padding-right: 0px">
-					<a class="teal item active"> <font style="vertical-align: inherit;"> 프로젝트 진행 중 </font>
+					<a class="teal item active"> <font style="vertical-align: inherit;"> 진행 중인 프로젝트 </font>
 					</a>
 				</div>
 				<div class="ui fluid vertical menu" style="padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; background-color: #E0F8E6">

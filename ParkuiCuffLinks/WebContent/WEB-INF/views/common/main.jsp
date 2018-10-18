@@ -15,7 +15,7 @@
 	List<Map<String, Object>> main_pro = (List<Map<String, Object>>) request.getAttribute("MainProject");
 %>
 <title>Cufflink</title>
-<link rel="stylesheet" href="/css/main.css " />
+<!-- <link rel="stylesheet" href="/css/main.css " /> -->
 <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/earlyaccess/nanumbrushscript.css" rel="stylesheet">
 <jsp:include page="./loading.jsp" />
@@ -33,59 +33,70 @@
 </script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- //chatting -->
-<link rel="stylesheet" href="../css/main.css" />
+<!-- <link rel="stylesheet" href="../css/main.css" /> -->
 <style>
 body {
-	margin : 0;
+    margin : 0;
 	padding : 0;
-	background : url (img.jpg) center center fixed no-repeat;
+	background : url (img.jpg) center center fixed repeat;
 }
+
 video {
-	position : fixed;
-	top : 0px; 
-	left : 00px;
 	
 	width : 100%;
-	height : 100%;
-	z-index : -1;
+	height :180px;
+	z-index : 1;
+	background-position: center;
+   	background-repeat: repeat; 
+  	background-size: cover;
+}
+
+.ui.segment {
+   text-align: center;
 }
 </style>
 </head>
 <body>
 	<!-- <div class="wrap"> -->
-	<div>
-		<div align="center">
-			<video autoplay loop>
-				<source src = "/image/video/testvideo.mp4"type = "video/mp4">
-			</video>	
-		</div>
-		<div class="ui container">
-			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
-				<a href="/"> <img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
-				</a> <a href="/auth/login" id="projectRegister" class="projectRegister item" style="font-weight: bold">프로젝트 등록 </a> <a href="../project/page?pagenum=1" id="projectFind" class="projectFind item" style="font-weight: bold">프로젝트 찾기 </a> <a href="../partners/partnersList" id="partnersList" class="partnersList item" style="font-weight: bold">파트너스 목록 </a>
-				<div class="right menu">
-					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'">로그인</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
-					</div>
+	<div class="ui container">
+		<div class="ui secondary pointing menu" style="margin-bottom: 0px;">
+			<a href="/"> <img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
+			</a> <a href="/auth/login" id="projectRegister" class="projectRegister item" style="font-weight: bold">프로젝트 등록 </a> <a href="../project/page?pagenum=1" id="projectFind" class="projectFind item" style="font-weight: bold">프로젝트 찾기 </a> <a href="../partners/partnersList" id="partnersList" class="partnersList item" style="font-weight: bold">파트너스 목록 </a>
+			<div class="right menu">
+				<div class="item">
+					<button class="ui button" style="margin-right: 10px;" onclick="location.href='/auth/login'">로그인</button>
+					<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
 				</div>
 			</div>
 		</div>
-
-		<div style="text-align: center;">
-			<h4>앱 개발, 웹 디자인, 쇼핑몰제작, 워드프레스 제작등</h4>
-			<h1>안전한 아웃소싱 플랫폼</h1>
-			<h5>위시켓의 새로운 아웃소싱을 시작해 보세요</h5>
-			<button class="ui button blue" onclick="location.href='/auth/login'">
-				<h4>무료로 프로젝트 등록하기</h4>
-			</button>
-		</div>
 	</div>
-	<p></p>
+	<div class="ui container" style="margin-bottom: 16px; background-color: #000;">
+		<div class="ui segments">
+			<div class="ui horizontal segments">
+				<div class="ui segment" style="width: 33.3%; border: 1px solid #fff;">
+					<video autoplay="autoplay">
+					<source src = "/image/video/testvideo.mp4" type = "video/mp4">
+					</video>
+				</div>
+				<div class="ui segment" style="width: 33.3%; border: 1px solid #fff;  color:#fff;" align="center" >
+					<h4 style="padding-top: 10px;">앱 개발, 웹 디자인, 쇼핑몰제작, 워드프레스 제작등</h4>
+					<h1>안전한 아웃소싱 플랫폼</h1>
+					<h5>위시켓의 새로운 아웃소싱을 시작해 보세요</h5>
+					<button class="ui button blue" onclick="location.href='/auth/login'">
+						<h4>무료로 프로젝트 등록하기</h4>
+					</button>
+				</div>
+				<div class="ui segment" style="width: 33.3%; border: 1px solid #fff;">
+					<video autoplay="autoplay">
+					<source src = "/image/video/Apple.mp4" type = "video/mp4">
+					</video>
+				</div>
+			</div>
+		</div>
+	</div>	
 	<div class="ui container" style="margin-bottom: 16px;">
 		<div class="ui segments">
 			<div class="ui horizontal segments">
-
 				<div class="ui segment" style="width: 33.3%; background-color: #F5A9A9; border: 1px solid #fff;">
 					<div style="background-color: #fff;">
 						<h3>등록된 프로젝트</h3>
@@ -113,11 +124,10 @@ video {
 					</h3>
 
 				</div>
-
 			</div>
 		</div>
 	</div>
-	<div style="background-color: rgb(243, 244, 247);">
+	<div>
 		<div class="ui container" style="padding-top: 5px; padding-bottom: 5px; font-size: 1.2em; font-weight: bold; text-align: center; background-color: #CED8F6;">
 			<img src="../image/logo.png" alt="" style="margin-right: 10px;" /> 등록된 프로젝트
 		</div>
@@ -129,7 +139,7 @@ video {
 				<div class="column">
 					<div class="ui segment" style="background-color: #E0E6F8;">
 						<div class="p-intro" style="background-color: #D8D8D8;">
-							<a href="#" class="title" style="color: red;"><%=main_pro.get(i).get("PRO_NAME")%></a>
+							<a href="#" class="title" style="color: red;"><h3><%=main_pro.get(i).get("PRO_NAME")%></h3></a>
 						</div>
 						<p></p>
 						<span> <i class="won sign icon"></i> <%=main_pro.get(i).get("PRO_PRICE")%>

@@ -9,7 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>지원 내역</title>
+<title>지원프로젝트
+</title>
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
@@ -53,7 +54,7 @@
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
 				<div id="partnersback" class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede;">
-					<h3 style="text-align: left">지원 중</h3>
+					<h3 style="text-align: left">지원 프로젝트</h3>
 					<h5 style="text-align: left">지원한 프로젝트를 확인할 수 있습니다.</h5>
 				</div>
 				<div style="height: 20px;"></div>

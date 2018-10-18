@@ -27,9 +27,7 @@
 		<a href="../clients/ClientMyCufflink"> <img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />
 		</a>
 		<div class="ui inverted secondary pointing menu" style="margin-top: 0px;">
-			<a href="../clients/projectRegisterDetail" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> 
-			<a href="../project/page" id="projectFind" class="projectFind item">프로젝트 찾기 </a> 
-			<a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
+			<a href="../clients/projectRegisterDetail" id="projectRegister" class="projectRegister item">프로젝트 등록 </a> <a href="../project/page" id="projectFind" class="projectFind item">프로젝트 찾기 </a> <a href="../partners/partnersList" id="partnersList" class="partnersList item">파트너스 목록 </a>
 			<div class="right mini menu">
 				<div class="right menu" style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
 					<div id="mrc" class="mrc" style="margin-top: 0px;">
@@ -46,8 +44,8 @@
 					%>
 					<div class="right menu">
 						<div class="item">
-						<button class="ui mini button" style="margin-right: 10px; padding=10px !important;" onclick="location.href='/auth/login'">로그인</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
+							<button class="ui mini button" style="margin-right: 10px;" onclick="location.href='/auth/login'">로그인</button>
+							<button class="ui primary button" style="margin-right: 10px;" onclick="location.href='/auth/join'">회원가입</button>
 						</div>
 					</div>
 
@@ -80,7 +78,7 @@
 						<div class="item" onclick="location.href='../client/logout'">
 							<i class="power off icon"></i> 로그아웃
 						</div>
-					</div> 
+					</div>
 				</div>
 			</form>
 		</div>

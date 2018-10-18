@@ -1,16 +1,14 @@
 @charset "UTF-8";
 
-.wrap {
+/* .wrap {
    background-image: url("../image/배너.png");
-   height: 400px;
-   background-position: center; /* Center the image */
-   background-repeat: no-repeat; /* Do not repeat the image */
+   height: 250px;
+   background-position: center; Center the image
+   background-repeat: no-repeat; Do not repeat the image
    background-size: cover;
-   
-   /* Resize the background image to cover the entire container */
-}
+} */
 
-h1 {
+/* h1 {
    font-size: 4em;
 }
 
@@ -52,4 +50,4 @@ span {
 
 .logo {
    margin-left: 20px !important;
-}
+} */

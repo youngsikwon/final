@@ -84,8 +84,8 @@
 	<div class="ui container">
 		<div class="ui secondary menu">
 			<a href="../partners/partnersMyprofileMain?s_email=<%=email%>" id="partnersMyprofileMain" class="partnersMyprofileMain item"> 내 프로필 </a> 
-			<a href="../partners/partnersInterestProject" id="partnersInteresProject" class="partnersInteresProject item"> 관심 프로젝트 </a> 
-			<a href="../partners/partnersSupportHistory" id="partnersSupportHistory" class="partnersSupportHistory item"> 지원 내역 </a> 
+			<a href="../partners/partnersInterestProject" id="partnersInterestProject" class="partnersInterestProject item"> 관심 프로젝트 </a> 
+			<a href="../partners/partnersSupportHistory" id="partnersSupportHistory" class="partnersSupportHistory item"> 지원 프로젝트 </a> 
 			<a href="../partners/partnersProject_ing" id="partnersProject_ing" class="partnersProject_ing item"> 진행 중인 프로젝트 </a> 
 			<a href="../partners/partnersCompleteProject" id="partnersCompleteProject" class="partnersCompleteProject item"> 완료한 프로젝트 </a>
 		</div>
